@@ -1,0 +1,114 @@
+:root {
+    --dark-blue: #2B42D6;
+    --blue_1: #2667FF;
+    --blue_2: #3F8EFC;
+    --blue_3: #87BFFF;
+    --light_blue: #ADD7F6;
+    --white: #FFFFFF;
+    --font-family: 'Heebo', 'Roboto', sans-serif;
+}
+
+body {
+    background: var(--blue_2);  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, var(--blue_2), var(--light_blue), var(--white));  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, var(--blue_2), var(--light_blue), var(--white)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+main.register {
+    height: 650px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    text-align: center;
+    font-weight: 700;
+}
+
+form.form-register {
+    background: var(--white);
+    padding: 40px 0;
+    box-shadow: 0 0 6px 0 rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+div.form-register {
+    width: 100%;
+    margin: auto;
+}
+
+form.form-register div.group-register {
+    position: relative;
+    margin: 45px;
+}
+
+input.input-text {
+    background: none;
+    color: #c6c6c6;
+    font-size: 18px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid var(--blue_2);
+}
+
+input.input-text:focus {
+    outline: none;
+    color: #5e5d5d;
+}
+
+label.lbl-text {
+    font-size: 16px;
+    position: absolute;
+    color: var(--blue_2);
+    left: 5px;
+    top: 10px;
+    transition: 0.3s ease-in-out all;
+    -webkit-transition: 0.3s ease-in-out all;
+    -moz-transition: 0.3s ease-in-out all;
+    -ms-transition: 0.3s ease-in-out all;
+    -o-transition: 0.3s ease-in-out all;
+    pointer-events: none;
+}
+
+input.input-text:focus~label.lbl-text,
+input.input-text:valid~label.lbl-text {
+    top: -14px;
+    font-size: 12px;
+    color: var(--blue_3);
+}
+
+span.barra {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+span.barra::before {
+    content: "";
+    height: 2px;
+    width: 0%;
+    bottom: 0;
+    position: absolute;
+    background: linear-gradient(to right, var(--blue_2), var(--light_blue), var(--white));
+    transition: ease 0.03s widht;
+    -webkit-transition: ease 0.03s widht;
+    -moz-transition: ease 0.03s widht;
+    -ms-transition: ease 0.03s widht;
+    -o-transition: ease 0.03s widht;
+    left: 0;
+}
+
+input.input-text:focus~span.barra::before{
+    width: 100%;
+}
+
+
+
