@@ -5,7 +5,8 @@
     --blue_3: #87BFFF;
     --light_blue: #ADD7F6;
     --white: #FFFFFF;
-    --font-family: 'Heebo', 'Roboto', sans-serif;
+    --gray: #9e9ea7;
+    --font-family: 'Roboto';
 }
 
 *{
@@ -14,17 +15,42 @@
     box-sizing: border-box;
 }
 
+body{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 /*================================ HEADER =====================================*/
 header{
+    width: 100%;
     background-color: var(--blue_2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: fixed;
+    top:0
 }
 
 nav{
+    width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    padding: 20px;
+    justify-content: center;
+    padding: 15px 9px;
+    background-color: var(--blue_2);
 
+}
+
+.header-bot{
+    background-color: var(--white);
+    font-size: 20px;
+    color: var(--blue_2);
+    text-align: center;
+    padding: 10px;
+    margin-top: 90px;
 }
 
 /*================================ BURGER-MENU ==================================*/
@@ -47,12 +73,15 @@ section.burger-menu i{
   }
 /*================================ LOGO ==================================*/
 .logo{
+    width: 15%;
     display: flex;
+    justify-content: center;
+    margin: 0 5px;
 }
 
 .logo img{
     border-radius: 100%;
-    width: 42%;
+    width: 100%;
     margin-left: 3px;
 }
 
@@ -62,16 +91,14 @@ section.burger-menu i{
     line-height: 28px;
     align-items: center;
     position: relative;
-    max-width: 190px;
-    right: 60px;
    }
    
 .input {
-    width: 100%;
+    width: 50vw;
     height: 40px;
     line-height: 28px;
     padding: 0 1rem;
-    padding-left: 8rem;
+    padding-left: 2rem;
     border: 2px solid transparent;
     border-radius: 8px;
     outline: none;
@@ -81,7 +108,7 @@ section.burger-menu i{
 }
    
 .input::placeholder {
-    color: #9e9ea7;
+    color:#9e9ea7;
 }
    
 .input:focus, input:hover {
@@ -100,12 +127,13 @@ section.burger-menu i{
 }   
 
 /*========================== CARRITO =======================*/
-.shopping-cart{
+.icono {
     display: flex;
     align-self: center;
+    padding: 10px;
 }
 
-.shopping-cart i{
+.icono i {
     color: var(--white);
     font-size: 30px;
 }
@@ -119,23 +147,333 @@ section.burger-menu i{
     color: var(--white);
     font-size: 30px;
 }
+
+/*============================== BANNER =================================*/
+
+.banner img{
+    width: 100%;
+}
+
+/*============================== MAIN =================================*/
+main {
+    width: 90%;
+    background-color: var(--white);
+}
+
+main h2{
+    font-size: 40px;
+    color: var(--blue_2);
+    text-align: center;
+    margin: 20px 0;
+
+}
+
+/*============================== OFERTAS =================================*/
+
+.tarjeta{
+    width: 100%;
+    border-radius: 15px;
+    margin: 10px 0;
+}
+
+.img-oferta{
+    width: 100%;
+    border-radius: 15px;
+}
+
+.tarjeta-vertical{
+    border-radius: 15px;
+    margin: 15px;
+}
+
+.img-oferta-vertical{
+    width: 100%;
+    border-radius: 15px;
+}
+
+/*================================ SUSCRIPCION ===========================*/
+.suscripcion{
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--blue_2);
+}
+
+.suscripcion p{
+    display: contents;
+    color: var(--white);
+    font-size: 22px;
+
+}
+
+.suscription-group {
+    display: flex;
+    line-height: 28px;
+    align-items: center;
+    position: relative;
+   }
+   
+.mail {
+    width: 55vw;
+    height: 40px;
+    line-height: 28px;
+    padding: 0 1rem;
+    padding-left: 2rem;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    outline: none;
+    background-color: #f3f3f4;
+    color: #0d0c22;
+    margin-left: 8px;
+    transition: .3s ease;
+    max-width: 790px;
+}
+   
+.mail::placeholder {
+    color: #9e9ea7;
+}
+   
+.mail:focus, mail:hover {
+    outline: none;
+    border-color: rgba(var(--blue_3),0.4);
+    background-color: #fff;
+    box-shadow: 0 0 0 4px rgb(234 76 137 / 10%);
+}
+   
+.suscripcion i {
+    position: absolute;
+    right: 1rem;
+    fill: #9e9ea7;
+    width: 1rem;
+    height: 1rem;
+    color: #9e9ea7;
+}
+
+/*============================== FOOTER ==================================*/
+footer{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.footer-mobile section{
+    width: 100%;
+    height: 60px;
+    background-color: var(--gray);
+    margin: 5px 0;
+    font-size: 20px;
+    color: var(--white);
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.footer-mobile p {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 20px;
+}
+
+/*============================= COPYRIGHT ================================*/
+.copyright{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 10px;
+    text-align: center;
+}
+
 /*============================== MEDIA CELULAR =================================*/
-@media (min-width: 426px) {
+@media (min-width: 425px) {
    .shopping-cart i{
     font-size: 30px;
     left: -25px;
     position: relative;
    }
 
+   .favorito , .favorito i, .nav-bar, .pc{
+    display: none
+   }
+
    .login i{
     font-size: 30px;
     position: relative;
+   }
+
+   .header-bot{
+    margin-top: 100px;
+   }
+
+   nav{
+    max-height: 105px;
    }
 }
 
 /*============================== MEDIA TABLET =================================*/
 @media (min-width: 768px) {
-    .logo{
-        min-width: none;
+    section.burger-menu {
+        display: none;
     }
+
+    .favorito{
+        display: flex;
+        align-self: center;
+        padding: 10px;
+    }
+    
+    .favorito i{
+        color: var(--white);
+        font-size: 30px;
+        display: block;
+    }
+
+    nav i{
+        margin: 20px
+    }
+
+    .banner{
+        margin: 128px 0 30px 0;
+        display: contents;
+    }
+
+    .banner img{
+        margin-bottom: 30px;
+    }
+
+    nav{
+        max-height: 145px;
+    }
+
+    .header-bot{
+        margin-top: 145px;
+    }
+
+}
+
+
+/*============================== MEDIA PC =================================*/
+@media (min-width: 1024PX) {
+    .logo{
+        width: 115px;
+        height: 115px;
+        margin-right: 30px;
+    }
+    .tarjeta{
+        max-width: 840px;
+        margin: 5px 5px 20px 5px;
+    }
+
+    .tarjeta-vertical{
+        max-width: 700px;
+        margin: 7px 7px 22px 7px;
+
+    }
+    main article .tarjeta, .tarjeta-vertical{
+        box-shadow: 0px 0px 10px rgb(100, 100, 100);
+    }
+
+    main article:hover{
+        box-shadow: 0px 0px 15px rgb(65, 65, 65);
+    }
+
+    .ofertas{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .group{
+        max-width: 790px;
+    }
+
+    .icono, .favorito{
+        margin: 0 10px 0 15px;
+    }
+
+    .header-bot{
+        margin-top: 180px;
+    }
+/*========================== BARRA DE NAVEGACION PC =======================*/
+    .nav-bar{
+        width: 100%;
+        background-color:var(--blue_2);
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        max-width: 1183px;
+        align-self: center;
+    }
+
+    .nav-bar ul{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    li{
+        margin: 5px 10px;
+        list-style: none;
+    }
+
+    li a{
+        color: white;
+        text-decoration: none;
+        font-size: 15px;
+    }
+
+/*=============================== FOOTER PC ===============================*/
+    .footer-mobile{
+        display: none;
+    }
+
+    footer .pc{
+        display: flex;
+        flex-direction: row;
+
+    }
+
+    .footer-pc{
+        width: 27%;
+        margin: 10px;
+        text-align: center;
+        background-color: var(--gray);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-pc ul{
+        width: 95%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-pc li{
+        text-align: left;
+    }
+
+    .footer-pc a {
+        font-size: 22px;
+        margin: 5px 0;
+    }
+
+    .footer-pc i{
+        color: var(--white);
+        margin-right: 5px;
+    }
+
+    .footer-pc h3{
+        margin: 10px;
+        font-size: 25px;
+        color: white;
+    }
+
+
+
+
+
 }
