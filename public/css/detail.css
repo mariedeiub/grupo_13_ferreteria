@@ -7,7 +7,174 @@
     --white: #FFFFFF;
     --font-family: 'Heebo', 'Roboto', sans-serif;
 }
-.productos{
 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*================================ HEADER =====================================*/
+header{
+    background-color: var(--blue_2);
+}
+
+nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px;
+
+}
+
+/*================================ BURGER-MENU ==================================*/
+section.burger-menu{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+section.burger-menu i{
+    background-color: #0044AA;
+    border-radius: 5px;
+    color: #FFF;
+    font-size: 20px;
+    height: 40px;
+    margin: 10px 0px 10px 0px;
+    padding: 10px;
+    width: 40px;
+  }
+/*================================ LOGO ==================================*/
+.logo{
+    display: flex;
+}
+
+.logo img{
+    border-radius: 100%;
+    width: 42%;
+    margin-left: 3px;
+}
+
+/*========================== BARRA DE BUSQUEDA =======================*/
+.group {
+    display: flex;
+    line-height: 28px;
+    align-items: center;
+    position: relative;
+    max-width: 190px;
+    right: 60px;
+   }
+   
+.input {
     width: 100%;
+    height: 40px;
+    line-height: 28px;
+    padding: 0 1rem;
+    padding-left: 8rem;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    outline: none;
+    background-color: #f3f3f4;
+    color: #0d0c22;
+    transition: .3s ease;
+}
+   
+.input::placeholder {
+    color: #9e9ea7;
+}
+   
+.input:focus, input:hover {
+    outline: none;
+    border-color: rgba(var(--blue_3),0.4);
+    background-color: #fff;
+    box-shadow: 0 0 0 4px rgb(234 76 137 / 10%);
+}
+   
+.icon {
+    position: absolute;
+    left: 1rem;
+    fill: #9e9ea7;
+    width: 1rem;
+    height: 1rem;
+}   
+
+/*========================== CARRITO =======================*/
+.shopping-cart{
+    display: flex;
+    align-self: center;
+}
+
+.shopping-cart i{
+    color: var(--white);
+    font-size: 30px;
+}
+
+.login{
+    display: flex;
+    align-self: center;
+}
+
+.login i{
+    color: var(--white);
+    font-size: 30px;
+}
+/*============================== detalle de producto =================================*/
+
+div.fotos{
+    height: 5px;
+    width: 5px;
+    padding: 5%;
+    display: flex;
+    position: relative;
+    right: 446px;
+    top: 221px;
+}
+.images{
+    margin: 20px;
+    top: -122px;
+    position: relative;
+    width: 11px;
+    height: 26px;
+    justify-content: space-between;
+    display: flex;
+    right: -72px;
+
+}
+
+.productos {
+    display: flex;
+    width: 100%;
+    position: relative;
+    top:100px;
+    right: -117px;
+}
+/*============================== MEDIA CELULAR =================================*/
+@media (min-width: 426px) {
+   .shopping-cart i{
+    font-size: 30px;
+    left: -25px;
+    position: relative;
+   }
+
+   .login i{
+    font-size: 30px;
+    position: relative;
+   }
+   .productos {
+    display: flex;
+    width: 100%;
+    position: relative;
+    top: 20px;
+    right: -117px;
+}
+    
+
+}
+
+/*============================== MEDIA TABLET =================================*/
+@media (min-width: 768px) {
+    .logo{
+        min-width: none;
+    }
 }
