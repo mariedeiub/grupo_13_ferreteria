@@ -5,40 +5,45 @@
     --blue_3: #87BFFF;
     --light_blue: #ADD7F6;
     --white: #FFFFFF;
-    --font-family: 'Heebo', 'Roboto', sans-serif;
+    --gray: #9e9ea7;
+    --font-family: 'Roboto';
 }
 
-body {
-    background: var(--blue_2);  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, var(--blue_2), var(--light_blue), var(--white));  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, var(--blue_2), var(--light_blue), var(--white)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+header {
+    position: fixed;
+    z-index: 99;
 }
 
 main.register {
-    height: 650px;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 150px;
+    margin-bottom: 80px;
 }
 
 h1 {
     text-align: center;
     font-weight: 700;
+    margin: 0;
+    height: 40px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid;
+    font-size: 30px;
 }
 
 form.form-register {
-    background: var(--white);
+    background: #4e4d4d;
     padding: 40px 0;
-    box-shadow: 0 0 6px 0 rgba(255, 255, 255, 0.8);
+    box-shadow: 7px 13px 37px #000;
     border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
+    border-top: 4px solid var(--blue_2);
+    margin-top: 40px;
+    padding: 20px 30px;
+    color: var(--white);
 }
 
-div.form-register {
+div-form-register {
     width: 100%;
     margin: auto;
 }
@@ -61,7 +66,7 @@ input.input-text {
 
 input.input-text:focus {
     outline: none;
-    color: #5e5d5d;
+    color: var(--white);
 }
 
 label.lbl-text {
@@ -97,7 +102,7 @@ span.barra::before {
     width: 0%;
     bottom: 0;
     position: absolute;
-    background: linear-gradient(to right, var(--blue_2), var(--light_blue), var(--white));
+    background: var(--blue_1);
     transition: ease 0.03s widht;
     -webkit-transition: ease 0.03s widht;
     -moz-transition: ease 0.03s widht;
@@ -110,5 +115,73 @@ input.input-text:focus~span.barra::before{
     width: 100%;
 }
 
+button {
+    width: 100%;
+    height: 40px;
+    background: var(--blue_2);
+    border: none;
+    color: var(--white);
+    margin-bottom: 16px;
+}
+
+button a {
+    text-decoration: none;
+}
+
+button a:visited {
+    text-decoration: none;
+    color: var(--white);
+}
+
+div-form-register p.login {
+    height: 40px;
+    text-align: center;
+    border-bottom: 1px solid var(--white);
+    text-decoration: none;
+}
+
+p.login a {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 14px;
+    text-align: center;
+}
+
+p.login a:hover {
+    text-decoration: underline;
+}
 
 
+
+/*================================ ERRORES =====================================*/
+p.form-error {
+    font-size: 12px;
+    margin-bottom: 0;
+    display: none;
+}
+
+p.form-error-activo {
+    display: block;
+}
+
+div.group-register i{
+    position: absolute;
+    right: 10px;
+    bottom: 15px;
+    z-index: 100;
+    font-size: 16px;
+    color: #ff0000;
+    opacity: 0;
+}
+
+/*================================ VALIDACIONES =====================================*/
+div.group-register-false label.lbl-text {
+    color: #ff0000;
+} 
+
+div.group-register-false i {
+    color: #ff0000;
+    opacity: 1;
+} 
+
+/*================================ MEDIA QUERIS =====================================*/
