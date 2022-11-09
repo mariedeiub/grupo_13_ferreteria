@@ -32,7 +32,7 @@ app.get("/carrito", (req, res) => {
 })
 
 //------------------- REGISTRO DE CUENTA ------------------------//
-app.get("/registro", (req, res) => {
+app.get("/register", (req, res) => {
     res.sendFile(path.resolve(register));
 })
 
