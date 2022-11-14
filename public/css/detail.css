@@ -13,9 +13,14 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
    
 }
+.grande{
+width: 100%;
+overflow-x: hidden;
 
+}
 .pos{
     width: 50%;
     margin: -12% 0% 0% 50%;
@@ -343,23 +348,43 @@ height: 50%;
 
 
 }
+.titulo1{
 
+
+    font-size: 50px;
+    display: flex;
+    justify-content: space-around;
+    background-image: radial-gradient(circle at 119.64% 37.72%, #b7b7ff 0, #87BFFF 50%, #3F8EFC 100%);
+    background-color: #3F8EFC;
+    width: 50%;
+    border: 2px solid gray;
+    color: #000000;
+}
+.titulo3{
+        
+    justify-content: center;
+    display: flex;
+    margin: 3% 0% 5% 0%;
+    border-radius: 10%;
+    
+
+}
 
 .precio{
     font-size: 21px;
     background-color: #9e9ea7;
     color: white;
     display: flex;
-    align-content: flex-start;
+    align-content: space-between;
     background-color: var(--gray);
     flex-direction: column;
     flex-wrap: wrap;
-    padding: 10px;
+    padding: -12px 0px 0px opx;
     width: 39%;
-    margin: 0% 5% 0% 5%;
-    border: 2px solid #53a3ff;
+    margin: 6% 10% 4% 0%;
+    border: 4px solid #53a3ff;
     border-radius: 10%;
-    box-shadow: inset -18px -8px 1px 0px #3f8efc;
+    box-shadow: inset -18px -8px 1px 0px #3f8efc
 }
 .etapa{
     display:flex;
@@ -372,7 +397,7 @@ height: 50%;
 
         .ficha-tecnica {
             display: flex;
-    width: 42%;
+            background-image: radial-gradient(circle at 119.64% 37.72%, #b7b7ff 0, #87BFFF 50%, #3F8EFC 100%);
     font-size: 22px;
     background-color: var(--gray);
     color: white;
@@ -381,7 +406,7 @@ height: 50%;
     background-color: var(--gray);
     flex-direction: column;
     flex-wrap: wrap;
-    padding: 10px;
+    padding: 33px;
     width: 39%;
     margin-bottom: 10px;
     border: 2px solid black;
@@ -392,8 +417,13 @@ height: 50%;
     
     }
 
-    .titulo{
+    .titulo4{
 
+        font-size: 33px;
+    }
+
+    .titulo{
+font-size: 36px;
         color :black
 
     }
