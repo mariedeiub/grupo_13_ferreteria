@@ -8,7 +8,7 @@ router.get('/home', mainController.home);
 
 router.get('/products', mainController.product);
 
-router.get('/cart', mainController.cart);
+router.get('/carrito', mainController.cart);
 
 router.get('/register', mainController.register);
 

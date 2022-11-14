@@ -16,7 +16,7 @@ app.use('/', mainRouter)
 
 app.get('/home', mainRouter)
 
-app.get("/producto", mainRouter)
+app.get("/products", mainRouter)
 
 app.get("/carrito", mainRouter)
 
