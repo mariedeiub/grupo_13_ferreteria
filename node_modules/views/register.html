@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <!--HOJA DE ESTILO-->
+    <link href="/css/styles.css" rel="stylesheet">`
+    <link href="/css/form.css" rel="stylesheet">`
+    <!--ICONOS-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    rel="stylesheet" />
+    <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"
+    rel="stylesheet">
+    <!-- GOOGLE FONT-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!--FUENTES-->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+    <!--HEADER-->
+    <header>
+        <nav>
+            <section class="burger-menu">
+                <i class="fas fa-bars"></i>
+            </section>
+            <!--SECCION LOGO-->
+            <section class="logo">
+                <img src="/images/img-logo.png" alt="">
+            </section>
+            <!-- BARRA DE BUSQUEDA-->
+            <section class="group">
+                <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><g><path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path></g></svg>
+                <input placeholder="Search" type="search" class="input">
+            </section>
+            <section class="favorito">
+                <i class="far fa-heart"></i>
+            </section>
+            <section class="icono">
+                <i class="ion-ios-cart-outline"></i>
+            </section>
+            <section class="icono">
+                <i class="ion-person"></i>
+            </section>
+        </nav>
+        <div class="nav-bar">
+            <ul class="lista1">
+                <li><a href="/categorias">+ CATEGORIAS</a></li>
+            </ul>
+            <ul class="lista2">
+                <li><a href="/ofertas">OFERTAS</a></li>
+                <li><a href="/sucursales">SUCURSALES</a></li>
+                <li><a href="/empresas">EMPRESAS</a></li>
+                <li><a href="/contactanos">CONTACTANOS</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!--MAIN -->
+    <main class="register">
+        <form action="#" method="POST" class="form-register" id="form-register">
+            <div class="div-form-register">
+                <h1>REGISTRO</h1>
+                <!-- NOMBRE Y APELLIDO -->
+                <div class="group-register">
+                    <div class="error-input" id="group-name">
+                        <input required type="text" class="input-text" id="name"><span class="barra"></span>
+                        <label for="name" class="lbl-text">Nombre y Apellido</label>
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                    </div>
+                    <p class="form-error">Debe ingresar el nombre y apellido completo.</p>
+                </div>
+
+                <!-- DIRECCION -->
+                <div class="group-register">
+                    <input required type="text" class="input-text" id="address"><span class="barra"></span>
+                    <label for="address" class="lbl-text">Direccion</label>
+                </div>
+                <div class="group-register">
+                    <input required type="text" class="input-text" id="address-l"><span class="barra"></span>
+                    <label for="address-l" class="lbl-text">Localidad</label>
+                </div>
+                <div class="group-register">
+                    <input required type="text" class="input-text" id="address-2"><span class="barra"></span>
+                    <label for="address" class="lbl-text">Pais</label>
+                </div>
+
+                <!-- EDAD -->
+                <div class="group-register">
+                    <div class="error-input" id="group-date">
+                        <input required type="number" class="input-text" id="date"><span class="barra"></span>
+                        <label for="date" class="lbl-text">Edad</label>
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                    </div>
+                    <p class="form-error">Debe ser mayor de 18 años para registarse.</p>
+                </div>
+
+                <!-- CORREO ELECTRONICO -->
+                <div class="group-register">
+                    <div class="error-input" id="group-email">
+                        <input required type="email" class="input-text" id="mail"><span class="barra"></span>
+                        <label for="mail" class="lbl-text">Correo Electronico</label>
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                    </div>
+                    <p class="form-error">Debe ingresar un mail valido.</p>
+                </div>
+
+                <!-- USUARIO -->
+                <div class="group-register">
+                    <div class="error-input" id="group-username">
+                        <input required type="text" class="input-text" id="username"><span class="barra"></span>
+                        <label for="username" class="lbl-text">Nombre de Usuario</label>
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                    </div>
+                    <p class="form-error">El nombre de usuario debe tener entre 5 y 15 digitos. Soloe letras y numeros.</p>
+                </div>
+
+                <!-- CONTRASENA -->
+                <div class="group-register">
+                    <div class="error-input" id="group-password">
+                        <input required type="password" class="input-text" id="password" name="password"><span class="barra"></span>
+                        <label for="password" class="lbl-text">Contraseña</label>
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                    </div>
+                    <p class="form-error">La contraseña debe tener entre 5 y 15 digitos. Solo letras y numeros.</p>
+                </div>
+
+                <!-- CONFIRMAR CONTRASENA -->
+                <div class="group-register">
+                    <div class="error-input" id="group-password2">
+                        <input required type="password" class="input-text" id="password2" name="password2"><span class="barra"></span>
+                        <label for="password" class="lbl-text">Repetir Contraseña</label>
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                    </div>
+                    <p class="form-error">Las contraseñas deben ser iguales.</p>
+                </div>
+
+                <button type="submit"><a href="/">Registrarse</a></button>
+                <p class="login"><a href="/login">¿Ya estás registrado? Inicia seción acá!</a></p>
+            </div>
+        </form>
+    </main>
+<!-- SUSCRIPCION-->
+<section class="suscripcion">
+    <P>SUSCRIBITE : </P>
+    <section class="suscription-group">
+        <input placeholder="Ingresa tu email" type="search" class="mail">
+        <i class="fa-regular fa-paper-plane"></i>
+    </section>
+</section>
+<!--FOOTER-->
+<footer>
+    <!-- FOOTER MOBILE -->
+    <div class="footer-mobile">
+        <section>
+                <p>NOSOTROS</p>
+                <P>+</P>
+        </section>
+        <section>
+            <p>SERVICIO</p>
+            <P>+</P>
+        </section>
+        <section>
+            <p>CUENTA</p>
+            <P>+</P>
+        </section>
+        <section>
+            <p>REDES SOCIALES</p>
+            <P>+</P>
+        </section>
+    </div>
+    <!-- FOOTER PC -->
+    <div class="pc">
+        <section class="footer-pc">
+            <h3>NOSOTROS</h3>
+            <ul>
+                <li><a href="/contacto">Contacto</a></li>
+                <li><a href="/sucursales">Nuestras sucursales</a></li>
+                <li><a href="/preguntas">Preguntas frecuentes</a></li>
+                <li><a href="/terminos">Terminos y condiciones</a></li>
+                <li><a href="/trabajo">Trabaja con nosotros</a></li>
+            </ul>
+        </section>
+        <section class="footer-pc">
+            <h3>SERVICIO</h3>
+            <ul>
+                <li><a href="/trabajo">Servicios e instalaciones</a></li>
+                <li><a href="/precios">Garantia de precios</a></li>
+                <li><a href="/devolucion">Garantia de devolucion</a></li>
+                <li><a href="/pago">Medios de pago</a></li>
+                <li><a href="/promociones">Promociones</a></li>
+            </ul>
+        </section>
+        <section class="footer-pc">
+            <h3>CLIENTE</h3>
+            <ul>
+                <li><a href="/registrar">Registrate ahora</a></li>
+                <li><a href="/recuperarClave">Recuperar clave</a></li>
+                <li><a href="/agenteVirtual">Agente Virtual</a></li>
+                <li><a href="/seguimiento">Seguimiento de orden</a></li>
+                <li><a href="/opinion">Dejanos tu opinion</a></li>
+                <li><a href="/defensa">Defensa del consumidor</a></li>
+            </ul>
+        </section>
+        <section class="footer-pc">
+            <h3>REDES SOCIALES</h3>
+            <ul>
+                <li>
+                    <i class="fab fa-facebook-square"></i>
+                    <a href="/facebook">Facebook</a>
+                </li>
+                <li>
+                    <i class="fab fa-instagram"></i>
+                    <a href="/instagram">Instagram</a>
+                </li>
+                <li>
+                    <i class="fab fa-twitter-square"></i>
+                    <a href="/twitter">Twitter</a>
+                </li>
+                <li>
+                    <i class="fab fa-linkedin"></i>
+                    <a href="/linkedin">Linkedin</a>
+                </li>
+                <li>
+                    <i class="fab fa-whatsapp"></i>
+                    <a href="/whatsapp">Whatsapp</a>
+                </li>
+            </ul>
+        </section>
+    </div>
+</footer>
+<div class="copyright">
+    <p>Copyright © 2022 Ferreteria - El cosito / Seguridad y Privacidad | Código de ética</p>
+</div>
+</body>
+</html>
