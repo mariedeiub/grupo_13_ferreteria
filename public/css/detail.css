@@ -276,7 +276,7 @@ main h2{
     display: flex;
     width: 45%;
     justify-content: center;
-    margin: 0% 0% 0% 12%;
+    margin: 0% 0% 0% 4%;
     flex-direction: column-reverse;
     align-content: center;
     align-items: stretch;
@@ -412,7 +412,9 @@ height: 50%;
     border: 2px solid black;
     border-radius: 10%;
     border-radius: inset -18px -8px 1px 0px #3f8efc;
-    margin: 28% 0% 5% 30%;
+
+    margin:23% 0% 5% 30%;
+
  
     
     }
