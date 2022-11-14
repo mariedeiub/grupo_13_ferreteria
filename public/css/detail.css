@@ -33,7 +33,7 @@ overflow-x: hidden;
     width: 59%;
     height: 32%;
     padding: 0% 0% 17% 0%;
-    margin: -51% 42% -3% 47%;
+    margin: -51% 42% -17% 46%;
 
 }
 body{
@@ -284,11 +284,10 @@ main h2{
 
 }
 .foto{
-   
     align-content: center;
     display: flex;
     justify-content: space-between;
-    width: 86%;
+    width: 91%;
 
 }
 .fotos{
@@ -357,7 +356,7 @@ height: 50%;
     background-image: radial-gradient(circle at 119.64% 37.72%, #b7b7ff 0, #87BFFF 50%, #3F8EFC 100%);
     background-color: #3F8EFC;
     width: 50%;
-    border: 2px solid gray;
+    border: 5px solid black;
     color: #000000;
 }
 .titulo3{
@@ -413,7 +412,7 @@ height: 50%;
     border-radius: 10%;
     border-radius: inset -18px -8px 1px 0px #3f8efc;
 
-    margin:23% 0% 5% 30%;
+    margin:26% 0% 5% 30%;
 
  
     
