@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <!--HEAD-->
@@ -31,7 +33,7 @@
                 </section>
                 <!--SECCION LOGO-->
                 <section class="logo">
-                    <img src="/images/img-logo.png" alt="">
+                    <a href="/home"><img src="/images/img-logo.png" alt=""></a>
                 </section>
                 <!-- BARRA DE BUSQUEDA-->
                 <section class="group">
@@ -44,8 +46,8 @@
                 <section class="icono">
                     <i class="ion-ios-cart-outline"></i>
                 </section>
-                <section class="icono">
-                    <i class="ion-person"></i>
+                <section class="icono">   
+                    <a href="/login"><i class="ion-person"></i></a>
                 </section>
             </nav>
             <div class="nav-bar">
@@ -66,44 +68,55 @@
             </div>
     <!--MAIN -->
     <main>
-        <div class="productos">
-                <img src="images/producto1.png" alt="">
-         </div>
-        
-             <div class ="precio">
-                <p>   nombre de producto-->XXXXXX</p>
-            </div> 
-         <div class ="precio">
-                <p>precio-->$XXXXXX</p>
-             </div> 
-             <br>
-             <div class ="precio">
-                <p>STOCK XXXXXX</p>
-             </div>  
-        <div class="boton">
-            <a class="boton_personalizado" href="https://vinkula.com">Comprar ahora!!</a>
-        </div>
-             <div class="boton">
-                <a class="boton_personalizado" href="https://vinkula.com">Agregar al carrito</a>
-               </div>
-            </div>
-            <div class="boton_personalizado" >
-                <form action="#">
+        <div>
+            <section class="foto">
+                <div class="productos">
+                    <img src="images/producto1.png" alt="">
+                </div>
+            </section>
+            <div class="descripcion">
+                <div class ="precio">
+                    <p> cortadora de ceramicos</p>
+                </div> 
+                <div class ="precio">
+                    <p>precio $ 61.200</p>
+                </div>
+                
+                <div class ="precio">
+                    <p>3 en stock</p>
+                </div>  
+            </div>          
+            <div class="pos">
+                <div class="boton">
+                    <a class="boton_personalizado" href="">Comprar ahora!!</a>
+                </div>
+                <div class="boton">
+                    <a class="boton_personalizado" href="">Agregar al carrito <i class="ion-ios-cart-outline"></i></a>
+                </div>
+                <div class="boton_personalizado" >
+                    <form action="#">
                         <label for="lang">Cantidad</label>
-                        <select name="cantidad" id="lang">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                     </select>
-               
-                </form>
-               
+                            <select name="cantidad" id="lang">
+                                <option value="1">1</option>
+                                <option value="2">2</option>ficha-te
+                                <option value="3">3</option>
+                            </select>
+                    </form>
+                </div>
+            </div>    
+            <div>
+                <section class="ficha-tecnica">
+                    <h3 class="titulo"><i class="fa-solid fa-wrench"></i> FICHA TECNICA:</h3>
+                    <p>COLOR : Naranja y Negro </p>
+                    <p>MARCA : Zonta</p>
+                    <p>MEDIDAS : xxxx </p>
+                    <p>FABRICANTE : ind.Arg.</p>
+                    <p>MODELO : ZS64</p>
+                    <p>ESPECIFICACIONES :xxxx</p>
+                </section>         
             </div>
-            <div class="ficha">
-                <img src="images/ficha-tecnica.jpg" alt="">
-            </div>
-   </div>
-</main>
+        </div>       
+    </main>
     <!--FOOTER-->
       <!--FOOTER-->
     <footer>
