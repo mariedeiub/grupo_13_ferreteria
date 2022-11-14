@@ -1,0 +1,256 @@
+:root {
+    --dark-blue: #2B42D6;
+    --blue_1: #2667FF;
+    --blue_2: #3F8EFC;
+    --blue_3: #87BFFF;
+    --light_blue: #ADD7F6;
+    --white: #FFFFFF;
+    --green: #39b54a;
+    --gray: #9e9ea7;
+    --font-family: 'Roboto';
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*==========================MAIN =======================*/
+main{
+    width: 90%
+}
+
+main section {
+    width: 100%;
+    margin: 10px 0;
+    background-color: var(--gray);
+}
+
+/*======================== DETALLE PRODUCTO =============*/
+.detalle-lista-producto{
+    height: 150px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+}
+.lista-productos{
+    background-color: white;
+}
+
+.lista-productos li{
+    border: solid 10px var(--gray);
+    margin-bottom: 10px;
+}
+
+.detalle-lista-producto section{
+    background-color: var(--white);
+    height: 120px;
+}
+
+.imagen{
+    width: 90px;
+    margin: 5px;
+    display: block;
+    border-right: solid 2px var(--gray);
+}
+
+.imagen img{
+    width: 100%;
+    height: 100%;
+}
+
+
+.detalle{
+    width: 50%;
+    margin: 5px;
+    margin-left: 0;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border-right: solid 2px var(--gray);
+}
+
+
+.precio{
+    font-weight: 300;
+}
+
+.descuento{
+    color: var(--green);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.editar{
+    width: 20%;
+    margin: 5px;
+    margin-left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.editar i{
+    margin-top: 10px;
+    font-size: 20px;
+    text-align: center;
+    color: var(--blue_2);
+}
+
+.editar h4{
+    font-size: 20px;
+}
+
+/*========= CONTADOR ==========*/
+.counter {
+    width: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid 2px var(--gray);
+    border-radius: 7px;
+}
+.counter input {
+    width: 30px;
+    border: 0;
+    line-height: 20px;
+    font-size: 12px;
+    text-align: center;
+    background: var(--blue_2);
+    color: #fff;
+    appearance: none;
+    outline: 0;
+}
+.counter span {
+    display: block;
+    font-size: 15px;
+    padding: 0 10px;
+    cursor: pointer;
+    color: #0052cc;
+    user-select: none;
+}
+/*==================== DETALLE PROMO ===============*/
+.detalle-promo{
+    height: 80px;
+    font-size: 20px;
+    background-color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid 9px var(--gray);
+    border-radius: 15px;
+}
+
+.detalle-promo label {
+    margin: 0.3rem;
+}
+.detalle-promo input{
+    height: 40px;
+    width: 35%;
+    border: solid 2px var(--gray);
+    border-radius: 10px;
+    margin: 0.2rem;
+}
+
+.detalle-promo button{
+    width: 20%;
+    background-color: var(--blue_2);
+    color: var(--white);
+    height: 40px;
+    border: solid 1px var(--gray);
+    border-radius: 5px;
+    margin: 0.2rem
+}
+/*==================== DETALLE ENVIO ===============*/
+.detalle-envio{
+    height: 80px;
+    font-size: 20px;
+    background-color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid 9px var(--gray);
+    border-radius: 15px;
+}
+
+.detalle-envio label {
+    margin: 0.3rem;
+}
+
+
+.detalle-envio input{
+    height: 40px;
+    width: 35%;
+    border: solid 2px var(--gray);
+    border-radius: 10px;
+    margin: 0.2rem;
+}
+
+.detalle-envio button{
+    width: 20%;
+    background-color: var(--blue_2);
+    color: var(--white);
+    height: 40px;
+    border: solid 1px var(--gray);
+    border-radius: 5px;
+    margin: 0.2rem;
+}
+/*==================== DETALLE COMPRA ===============*/
+.total-compra{
+    height: 400px;
+    width: 100%;
+    background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 0 10px;
+    border: solid 9px var(--gray);
+    border-radius: 15px;
+}
+
+.total-compra h3{
+    border-bottom: solid 2px var(--gray);
+}
+
+.total-compra h5{
+    border-top: solid 2px var(--gray);
+}
+
+.total-compra button{
+    width: 70%;
+    background-color: var(--blue_2);
+    color: var(--white);
+    height: 40px;
+    border: solid 1px var(--gray);
+    border-radius: 5px;
+    margin: 0.2rem;
+    align-self: center;
+}
+
+/*===================== MEDIA PC ====================*/
+
+@media (min-width: 1024PX) {
+    main{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .lista-productos{
+        width: 65%;
+        background-color: white;
+    }
+
+    .lista-productos li{
+        margin-top: 0;
+    }
+
+
+    .detalle-compra{
+        width: 30%;
+    }
+}
