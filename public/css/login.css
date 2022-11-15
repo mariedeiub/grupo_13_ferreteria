@@ -170,7 +170,7 @@ p.form-error-activo {
     display: block;
 }
 
-div.group-register i{
+div.group-register i.fa-solid {
     position: absolute;
     right: 10px;
     bottom: 15px;

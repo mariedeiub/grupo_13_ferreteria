@@ -43,7 +43,7 @@ form.form-register {
     color: var(--white);
 }
 
-div-form-register {
+.div-form-register {
     width: 100%;
     margin: auto;
 }
@@ -133,7 +133,7 @@ button a:visited {
     color: var(--white);
 }
 
-div-form-register p.login {
+.div-form-register p.login {
     height: 40px;
     text-align: center;
     border-bottom: 1px solid var(--white);
@@ -164,7 +164,7 @@ p.form-error-activo {
     display: block;
 }
 
-div.group-register i{
+div.group-register i.fa-solid {
     position: absolute;
     right: 10px;
     bottom: 15px;
