@@ -2,29 +2,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <!--HEAD-->
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+<%- include('./partials/head.ejs')  %> 
+    <title>Producto</title>
     <!--HOJA DE ESTILO-->
-    
-    <link href="/css/detail.css" rel="stylesheet">
-    <!--ICONOS-->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-    rel="stylesheet" />
-    <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"
-    rel="stylesheet">
-    <!-- GOOGLE FONT-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!--FUENTES-->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap" rel="stylesheet">
-    
+     <link href="/css/detail.css" rel="stylesheet">
 </head>
 <!--BODY-->
 <body>
     <!--HEADER-->
-        <!--HEADER-->
         <%- include('./partials/header.ejs')  %> 
     <!--MAIN -->
     <main>
@@ -59,7 +44,7 @@
                 <div class="boton_personalizado" >
                     <form action="#">
                         <label for="lang">Cantidad</label>
-                            <select name="cantidad" id="lang">
+                            <select name="cantidad" >
                                 <option value="1">1</option>
                                 <option value="2">2</option>ficha-te
                                 <option value="3">3</option>
