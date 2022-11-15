@@ -14,15 +14,15 @@ app.use(express.static('public'));
 //--------------------  RUTAS ------------------------//
 app.use('/', mainRouter)
 
-app.get('/home', mainRouter)
+app.use('/home', mainRouter)
 
-app.get("/products", mainRouter)
+app.use("/products", mainRouter)
 
-app.get("/carrito", mainRouter)
+app.use("/carrito", mainRouter)
 
-app.get("/register", mainRouter)
+app.use("/register", mainRouter)
 
-app.get("/login", mainRouter)
+app.use("/login", mainRouter)
 
 //-------------------NOT FOUND-----------------------------------//
 app.get("/*", (req, res) => {
