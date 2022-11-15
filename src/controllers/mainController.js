@@ -1,35 +1,34 @@
 const path = require('path');
-const index = "./src/views/home.html";
-const cart = "./src/views/cart.html";
-const detail = "./src/views/detail.html";
-const register = "./src/views/register.html";
-const login = "./src/views/login.html";
+const index = "./src/views/home.ejs";
+const cart = "./src/views/cart.ejs";
+const detail = "./src/views/detail.ejs";
+const register = "./src/views/register.ejs";
+const login = "./src/views/login.ejs";
 
 const mainController = {
     index: (req, res) => {
-        res.sendFile(path.resolve(index));
+        res.render(path.resolve(index));
     },
 
     home: (req, res) => {
-        res.sendFile(path.resolve(index));
+        res.render(path.resolve(index));
     },
 
     product: (req, res) => {
-        res.sendFile(path.resolve(detail));
+        res.render(path.resolve(detail));
     },
 
     cart: (req, res) => {
-        res.sendFile(path.resolve(cart));
+        res.render(path.resolve(cart));
     },
 
     register: (req, res) => {
-        res.sendFile(path.resolve(register));
+        res.render(path.resolve(register));
     },
 
     login: (req, res) => {
-        res.sendFile(path.resolve(login));
+        res.render(path.resolve(login));
     }
-
 }
 
 module.exports = mainController

@@ -157,8 +157,6 @@ p.login a:hover {
     text-decoration: underline;
 }
 
-
-
 /*================================ ERRORES =====================================*/
 p.form-error {
     font-size: 12px;
@@ -179,6 +177,7 @@ div.group-register i{
     color: #ff0000;
     opacity: 0;
 }
+
 
 /*================================ VALIDACIONES =====================================*/
 div.group-register-false label.lbl-text {
