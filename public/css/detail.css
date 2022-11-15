@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap%27');
 :root {
     --dark-blue: #2B42D6;
     --blue_1: #2667FF;
@@ -7,6 +6,7 @@
     --light_blue: #ADD7F6;
     --white: #FFFFFF;
     --gray: #9e9ea7;
+    --font-family: 'Roboto';
 }
 
 *{
@@ -42,7 +42,6 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    font-family: 'Roboto', sans-serif;
 }
 
 /*================================ HEADER =====================================*/
@@ -723,7 +722,7 @@ border: 5px solid black;
      }
  
      .icono, .favorito{
-         margin: 0px 10px 0 15px;
+         margin: 0 10px 0 15px;
      }
  
      .header-bot{
