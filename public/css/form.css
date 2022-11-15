@@ -18,8 +18,7 @@ main.register {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 150px;
-    margin-bottom: 80px;
+    margin-bottom: 35px;
 }
 
 h1 {
@@ -33,7 +32,7 @@ h1 {
 }
 
 form.form-register {
-    background: #4e4d4d;
+    background: #9e9ea7;
     padding: 40px 0;
     box-shadow: 7px 13px 37px #000;
     border-radius: 10px;
@@ -61,7 +60,7 @@ input.input-text {
     display: block;
     width: 100%;
     border: none;
-    border-bottom: 1px solid var(--blue_2);
+    border-bottom: 1px solid var(--white);
 }
 
 input.input-text:focus {
@@ -72,7 +71,7 @@ input.input-text:focus {
 label.lbl-text {
     font-size: 16px;
     position: absolute;
-    color: var(--blue_2);
+    color: var(--white);
     left: 5px;
     top: 10px;
     transition: 0.3s ease-in-out all;
@@ -87,7 +86,7 @@ input.input-text:focus~label.lbl-text,
 input.input-text:valid~label.lbl-text {
     top: -14px;
     font-size: 12px;
-    color: var(--blue_3);
+    color: var(--white);
 }
 
 span.barra {
@@ -133,7 +132,7 @@ button a:visited {
     color: var(--white);
 }
 
-.div-form-register p.login {
+p.login {
     height: 40px;
     text-align: center;
     border-bottom: 1px solid var(--white);
