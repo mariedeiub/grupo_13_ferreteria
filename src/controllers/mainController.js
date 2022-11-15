@@ -1,33 +1,26 @@
-const path = require('path');
-const index = "./src/views/home.ejs";
-const cart = "./src/views/cart.ejs";
-const detail = "./src/views/detail.ejs";
-const register = "./src/views/register.ejs";
-const login = "./src/views/login.ejs";
-
 const mainController = {
     index: (req, res) => {
-        res.render(path.resolve(index));
+        res.render('home');
     },
 
     home: (req, res) => {
-        res.render(path.resolve(index));
+        res.render('home');
     },
 
     product: (req, res) => {
-        res.render(path.resolve(detail));
+        res.render('detail');
     },
 
     cart: (req, res) => {
-        res.render(path.resolve(cart));
+        res.render('cart');
     },
 
     register: (req, res) => {
-        res.render(path.resolve(register));
+        res.render('register');
     },
 
     login: (req, res) => {
-        res.render(path.resolve(login));
+        res.render('login');
     }
 }
 
