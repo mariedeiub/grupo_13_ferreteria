@@ -74,7 +74,7 @@ let listaProducts= [
 
 ];
 
-let carrito = [1,4,3]
+let carrito = [1,4,3,6]
 
 const mainController = {
     index: (req, res) => {
