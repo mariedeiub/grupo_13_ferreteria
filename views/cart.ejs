@@ -17,48 +17,29 @@
         <!-- LISTADO DE PRODUCTOS -->
         <section class="lista-productos">
             <ul>
-                <li class="detalle-lista-producto">
-                    <section class="imagen">
-                        <a href="/detail"><img src="/images/producto1.png" alt=""></a>
-                    </section>
-                    <section class="detalle">
-                        <h4>Cortador de ceramicos Zonta 64cm</h4>
-                        <p class="precio">$ 61.200</p>
-                        <p class="descuento">20%</p>
-                        <!--CONTADOR-->
-                        <div class="counter">
-                            <span class="down" onClick='decreaseCount(event, this)'>-</span>
-                            <input type="text" value="1">
-                            <span class="up" onClick='increaseCount(event, this)'>+</span>
-                        </div>
-                    </section>
-                    <section class="editar">
-                        <i class="fas fa-pencil-alt"></i>
-                        <i class="fa-regular fa-trash-can"></i>
-                        <h4>$ 48.960</h4>
-                    </section>
-                </li>
-                <li class="detalle-lista-producto">
-                    <section class="imagen">
-                        <a href="/detail"><img src="/images/pintura-alba.png" alt=""></a>
-                    </section>
-                    <section class="detalle">
-                        <h4>Pintura Alba 20ls</h4>
-                        <p class="precio">$ 19.589</p>
-                        <p class="descuento">10%</p>
-                        <!--CONTADOR-->
-                        <div class="counter">
-                            <span class="down" onClick='decreaseCount(event, this)'>-</span>
-                            <input type="text" value="1">
-                            <span class="up" onClick='increaseCount(event, this)'>+</span>
-                        </div>
-                    </section>
-                    <section class="editar">
-                        <i class="fas fa-pencil-alt"></i>
-                        <i class="fa-regular fa-trash-can"></i>
-                        <h4>$ 17.630</h4>
-                    </section>
-                </li>
+                <% pedido.forEach(producto => { %>
+                    <li class="detalle-lista-producto">
+                        <section class="imagen">
+                            <a href=<%= producto.url %> ><img src=<%=producto.foto%> alt=""></a>
+                        </section>
+                        <section class="detalle">
+                            <h4><%= producto.nombre %> <%= producto.marca %>  <%= producto.tamaño %> <%= producto.color %> </h4>
+                            <p class="precio">$<%= producto.precio %> </p>
+                            <p class="descuento"><%= producto.descuento > " " ? producto.descuento : " " %> </p>
+                            <!--CONTADOR-->
+                            <div class="counter">
+                                <span class="down" onClick='decreaseCount(event, this)'>-</span>
+                                <input type="text" value="1">
+                                <span class="up" onClick='increaseCount(event, this)'>+</span>
+                            </div>
+                        </section>
+                        <section class="editar">
+                            <i class="fas fa-pencil-alt"></i>
+                            <i class="fa-regular fa-trash-can"></i>
+                            <h4>$<%= producto.precio %> </h4>
+                        </section>
+                    </li>               
+                <% }) %>
             </ul>
         </section>
         <!-- DETALLE COMPRA -->

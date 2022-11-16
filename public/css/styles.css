@@ -107,6 +107,7 @@ section.burger-menu i{
     background-color: #f3f3f4;
     color: #0d0c22;
     transition: .3s ease;
+    margin-left: 10px;
 }
    
 .input::placeholder {
@@ -313,6 +314,10 @@ footer{
    nav{
     max-height: 105px;
    }
+
+   .input{
+    margin-left: 2px;
+   }
 }
 
 /*============================== MEDIA TABLET =================================*/
@@ -353,6 +358,34 @@ footer{
     .header-bot{
         margin-top: 145px;
     }
+
+    /*========================== BARRA DE NAVEGACION PC =======================*/
+    .nav-bar{
+        width: 100%;
+        background-color:var(--blue_2);
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        max-width: 1183px;
+        align-self: center;
+    }
+
+    .nav-bar ul{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    li{
+        margin: 5px 10px;
+        list-style: none;
+    }
+
+    li a{
+        color: white;
+        text-decoration: none;
+        font-size: 15px;
+    }
+
 
 }
 
@@ -398,32 +431,6 @@ footer{
 
     .header-bot{
         margin-top: 180px;
-    }
-/*========================== BARRA DE NAVEGACION PC =======================*/
-    .nav-bar{
-        width: 100%;
-        background-color:var(--blue_2);
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        max-width: 1183px;
-        align-self: center;
-    }
-
-    .nav-bar ul{
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-    }
-    li{
-        margin: 5px 10px;
-        list-style: none;
-    }
-
-    li a{
-        color: white;
-        text-decoration: none;
-        font-size: 15px;
     }
 
 /*=============================== FOOTER PC ===============================*/
