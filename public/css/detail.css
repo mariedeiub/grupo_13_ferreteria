@@ -516,11 +516,11 @@ footer{
     }
 .titulo4{
 
-    font-size:11px;
+    font-size:16px;
 }
 
 .titulo{
-    font-size: 16px;
+    font-size: 23px;
     color: black;
 
 }
@@ -621,7 +621,7 @@ footer{
          margin-right: 30px;
      }
      .titulo4{
-        font-size: 23px;
+        font-size: 29px;
         justify-content: center;
         display: flex;
         flex-direction: column-reverse;
