@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const mainRouter = require('./src/routes/mainRouter')
+const productsRouter= require ("./src/routes/productsRouter");
 let PORT = 3030;
 
 //--------------------  APP LISTEN ------------------------//
@@ -23,6 +24,8 @@ app.use("/carrito", mainRouter);
 app.use("/register", mainRouter);
 
 app.use("/login", mainRouter);
+
+app.use("/productos", productsRouter);
 
 //-------------------NOT FOUND-----------------------------------//
 app.get("/*", (req, res) => {

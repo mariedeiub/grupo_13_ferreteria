@@ -32,7 +32,8 @@ header{
     flex-direction: column;
     justify-content: center;
     position: fixed;
-    top:0
+    top:0;
+    z-index: 100;
 }
 
 nav{
@@ -364,12 +365,12 @@ footer{
         margin-right: 30px;
     }
     .tarjeta{
-        max-width: 840px;
+        max-width: 700px;
         margin: 5px 5px 20px 5px;
     }
 
     .tarjeta-vertical{
-        max-width: 700px;
+        max-width: 430px;
         margin: 7px 7px 22px 7px;
 
     }
