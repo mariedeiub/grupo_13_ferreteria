@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--HEAD-->
+<%- include('./partials/head.ejs')  %> 
+    <title>Modificar Producto</title>
+    <link href="/css/styles.css" rel="stylesheet">`
+    <link href="/css/login.css" rel="stylesheet">`
+</head>
+<body>
+    <%- include('./partials/header.ejs')  %> 
+    <main class="cambiar">
+        <form action="#" method="POST" class="form-productos" id="form-productos">
+            <div class="div-form-cambiar">
+                <h1>Crear o cambiar</h1>
+                <div class="group-cambiar">
+                    <div class="error-input" id="group-producto">
+                        <input required type="text" class="input-text" id="nombre-producto"><span class="barra"></span>
+                        <label for="nombre-producto" class="lbl-text">Nombre de producto</label>
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                    </div>
+                </div>
+                <div class="group-cambiar">
+                    <div class="error-input" id="group-description">
+                        <input required type="text" class="input-text" id="description"><span class="barra"></span>
+                        <label for="description" class="lbl-text">Descripcion</label>
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                    </div>
+                </div>
+                <div class="group-cambiar">
+                    <div class="error-input" id="group-image">
+                        <input required type="image" class="input" id="image"><span class="barra"></span>
+                        <label for="image" class="lbl-text">Image</label>
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                    </div>
+                </div>
+                <div class="group-cambiar">
+                    <div class="error-input" id="group-categoria">
+                        <input required type="text" class="input-text" id="categoria"><span class="barra"></span>
+                        <label for="categoria" class="lbl-text">Categoria</label>
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                    </div>
+                </div>
+                <div class="group-cambiar">
+                    <div class="error-input" id="group-colores">
+                        <input required type="text" class="input-text" id="colores"><span class="barra"></span>
+                        <label for="color" class="lbl-text">Colores</label>
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                    </div>
+                </div>
+                <div class="group-cambiar">
+                    <div class="error-input" id="group-precio">
+                        <input required type="text" class="input-text" id="precio"><span class="barra"></span>
+                        <label for="precio" class="lbl-text">Precio</label>
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                    </div>
+                </div>
+                <button type="submit"><a href="/">Añadir producto</a></button>
+            </div>
+        </form>
+    </main>
+</body>
+<%- include('./partials/footer.ejs')  %>  
