@@ -27,6 +27,8 @@ app.use("/login", mainRouter);
 
 app.use("/productos", productsRouter);
 
+app.use("/productos", productsRouter);
+
 //-------------------NOT FOUND-----------------------------------//
 app.get("/*", (req, res) => {
     res.status(404).send("404 NOT FOUND");

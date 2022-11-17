@@ -14,4 +14,6 @@ productsRouter.get('/jardineria', productsController.jardineria);
 
 productsRouter.get('/detalle', productsController.detalle);
 
+productsRouter.get('/cargar', productsController.cargar);
+
 module.exports = productsRouter

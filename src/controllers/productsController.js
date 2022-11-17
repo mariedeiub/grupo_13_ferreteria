@@ -112,7 +112,10 @@ const productsController = {
         let producto = listaProducts.find(producto => producto.id == req.params.id)
         console.log(producto)
         res.render('products', {producto});
-    }
+    },
+    cargar: (req, res) => {
+        res.render('forms');
+    },
 }
 
 module.exports = productsController
