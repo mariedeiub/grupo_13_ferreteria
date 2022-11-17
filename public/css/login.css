@@ -35,7 +35,7 @@ h1 {
 }
 
 form.form-cambiar {
-    background: #FFFFFF;
+    background: var(--gray);
     padding: 40px 0;
     box-shadow: 7px 13px 37px rgba(0, 0, 0, 0.63);
     border-radius: 7px;
