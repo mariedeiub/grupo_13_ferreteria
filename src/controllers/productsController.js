@@ -7,7 +7,7 @@ let listaProducts= [
         tamaño: "20ls",
         color: "blanco",
         precio: "19.800",
-        descuento: "%10",
+        descuento: "10%",
         foto: "/images/pintura-alba.png",
         url: "/detalle/1"
     },
@@ -19,7 +19,7 @@ let listaProducts= [
         tamaño: "64cm",
         color: "rojo",
         precio: "61.200",
-        descuento: "%20",
+        descuento: "20%",
         foto: "/images/producto1.png",
         url: "/products"
     },
@@ -43,7 +43,7 @@ let listaProducts= [
         tamaño: "350W",
         color: "verde",
         precio: "5.600",
-        descuento: "%15",
+        descuento: "15%",
         foto: "/images/img-cierra-caladora.png",
         url: "/detalle/4"
     },
@@ -55,7 +55,7 @@ let listaProducts= [
         tamaño: "4Ls",
         color: "azul",
         precio: "6.700",
-        descuento: "%30",
+        descuento: "30%",
         foto: "/images/img-pintura-azul.png",
         url: "/detalle/5"
     },
@@ -67,7 +67,7 @@ let listaProducts= [
         tamaño: "900W",
         color: "azul",
         precio: "24.300",
-        descuento: "%10",
+        descuento: "10%",
         foto: "/images/img-amoladora-bosch.png",
         url: "/products"
     },
