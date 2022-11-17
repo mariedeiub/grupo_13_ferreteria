@@ -106,8 +106,8 @@ div.group-cambiar {
 }
 
 div.group-image {
-    background: white;
-    color: white;
+    background: var(--gray);
+    font-size: 20px;
 }
 span.barra::before {
     content: "";
