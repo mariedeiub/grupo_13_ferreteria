@@ -17,7 +17,7 @@ header {
     z-index: 99;
 }
 
-main.div-form-cambiar {
+main.cambiar {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -34,13 +34,14 @@ h1 {
     font-size: 30px;
 }
 
-form.div-form-cambiar {
-    background: #9e9ea7;
+form.form-cambiar {
+    background: #FFFFFF;
     padding: 40px 0;
     box-shadow: 7px 13px 37px rgba(0, 0, 0, 0.63);
     border-radius: 7px;
     border-top: 4px solid var(--blue_2);
     margin-top: 40px;
+    margin-bottom: 50px;
     padding: 20px 30px;
     color: var(--white);
     text-align: center
@@ -51,14 +52,14 @@ form.div-form-cambiar {
     margin: auto;
 }
 
-form.div-form-cambiar div.group-cambiar {
+form.form-cambiar div.group-cambiar {
     position: relative;
     margin: 45px;
 }
 
 input.input-text {
     background: none;
-    color: #c6c6c6;
+    color: #FFFFFF;
     font-size: 18px;
     padding: 10px 10px 10px 5px;
     display: block;
@@ -99,6 +100,15 @@ span.barra {
     width: 100%;
 }
 
+div.group-cambiar {
+    background: #2667FF;
+    font-size: 20px;
+}
+
+div.group-image {
+    background: white;
+    color: white;
+}
 span.barra::before {
     content: "";
     height: 2px;
@@ -136,21 +146,21 @@ button a:visited {
     color: var(--white);
 }
 
-.div-form-cambiar p.div-form-cambiar {
+p.forms {
     height: 40px;
     text-align: center;
     border-bottom: 1px solid var(--white);
     text-decoration: none;
 }
 
-p.div-form-cambiar a {
+p.forms a {
     color: var(--white);
     text-decoration: none;
     font-size: 14px;
     text-align: center;
 }
 
-p.div-form-cambiar a:hover {
+p.forms a:hover {
     text-decoration: underline;
 }
 

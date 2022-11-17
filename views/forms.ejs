@@ -9,9 +9,9 @@
 <body>
     <%- include('./partials/header.ejs')  %> 
     <main class="cambiar">
-        <form action="#" method="POST" class="form-productos" id="form-productos">
+        <form action="#" method="POST" class="form-cambiar" id="form-cambiar">
             <div class="div-form-cambiar">
-                <h1>Crear o cambiar</h1>
+                <h1>Crear o cambiar producto</h1>
                 <div class="group-cambiar">
                     <div class="error-input" id="group-producto">
                         <input required type="text" class="input-text" id="nombre-producto"><span class="barra"></span>
@@ -21,15 +21,15 @@
                 </div>
                 <div class="group-cambiar">
                     <div class="error-input" id="group-description">
-                        <input required type="text" class="input-text" id="description"><span class="barra"></span>
+                        <input required type="text" class="input-text" id="description">
                         <label for="description" class="lbl-text">Descripcion</label>
                         <i class="fa-solid fa-circle-exclamation"></i>
                     </div>
                 </div>
-                <div class="group-cambiar">
+                <div class="group-image">
                     <div class="error-input" id="group-image">
-                        <input required type="image" class="input" id="image"><span class="barra"></span>
-                        <label for="image" class="lbl-text">Image</label>
+                        <input required type="image" class="input" id="image"><span class="box"></span>
+                        <label for="image" class="lbl-text"></label>
                         <i class="fa-solid fa-circle-exclamation"></i>
                     </div>
                 </div>
