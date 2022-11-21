@@ -8,7 +8,8 @@
         "color": "blanco",
         "precio": 19800,
         "descuento": 10,
-        "foto": "/images/pintura-alba.png"
+        "foto": "/images/pintura-alba.png",
+        "descripcion": "Su exclusiva FORMULA AVANZADA, única en el mercado, utiliza la tecnología más moderna en desarrollo y elaboración de pinturas; permite obtener un producto: Con excelente poder cubriente, nivelación y gran lavabilidad, de óptimo poder antihongo, fácil de aplicar y de rápido secado. No salpica. No deja olor."
     },
     {
         "id":2,
@@ -19,7 +20,8 @@
         "color": "rojo",
         "precio": 61200,
         "descuento": 20,
-        "foto": "/images/producto1.png"
+        "foto": "/images/producto1.png",
+        "descripcion": "Cortadora de cerámicos con regla de aluminio para una mejor graduación de cortes en ángulo y con carrito trazador. Consta de un tronzador para lograr cortes perfectos en materiales duros. Su corte máximo es de 64 cm. Su pieza de corte es una rueda de tungsteno y posee como superficie de apoyo una almohadilla de goma eva. Corta materiales como porcelanatos y cerámicos blandos, duros y semiduros. Con diseño moderno y ergonómico y de gran durabilidad."
     },
     {
         "id":3,
@@ -30,7 +32,8 @@
         "color": "rojo",
         "precio": 29200,
         "descuento": 0,
-        "foto": "/images/img-taladro-omaha.png"
+        "foto": "/images/img-taladro-omaha.png",
+        "descripcion": "Este rotomartillo Omaha RM-32PLUS es lo que necesitás para encarar trabajos pesados, seas una persona aficionada o un profesional. Su funcionamiento es muy similar al de un taladro, solo que esta herramienta es más potente y permite trabajar en materiales más firmes.Ahora edición limitada con sierra copa de 65mm y su respecto eje de 300mm, ideal para trabajos de instalación de equipos de refrigeración."
     },
     {
         "id":4,
@@ -41,7 +44,8 @@
         "color": "verde",
         "precio": 5600,
         "descuento": 15,
-        "foto": "/images/img-cierra-caladora.png"
+        "foto": "/images/img-cierra-caladora.png",
+        "descripcion": "Con la sierra caladora Barovo podrás realizar cortes precisos, sobre todo en curvas cerradas. Fácil de manipular y de un material muy resistente, podrás realizar trabajos en varios materiales sin dificultades."
     },
     {
         "id":5,
@@ -50,9 +54,10 @@
         "marca": "Tersuave",
         "tamaño": "4Ls",
         "color": "azul",
-        "precio": "6.700",
-        "descuento": "30%",
-        "foto": "/images/img-pintura-azul.png"
+        "precio": 6700,
+        "descuento": 30,
+        "foto": "/images/img-pintura-azul.png",
+        "descripcion":"Pintura para piletas de natación a base de resinas acrílicas de base solvente, con terminación semimate. Ideal para la protección y embellecimiento interior y exterior de piletas de natación, de gran resistencia a la intemperie y al uso."
     },
     {
         "id":6,
@@ -61,8 +66,9 @@
         "marca": "Bosch",
         "tamaño": "900W",
         "color": "azul",
-        "precio": "24.300",
-        "descuento": "10%",
-        "foto": "/images/img-amoladora-bosch.png"
+        "precio": 24.300,
+        "descuento": 10,
+        "foto": "/images/img-amoladora-bosch.png",
+        "descripcion": "La amoladora Bosch es una herramienta versátil, que permite realizar diferentes trabajos con una terminación profesional. Por eso, es una excelente opción sumarla a tu taller o caja de herramientas."
     }
 ]
