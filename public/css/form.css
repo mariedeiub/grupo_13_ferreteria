@@ -118,12 +118,16 @@ input.input-text:focus~span.barra::before{
 }
 
 button {
-    width: 100%;
+    width: 40%;
     height: 40px;
     background: var(--blue_2);
     border: none;
     color: var(--white);
     margin-bottom: 16px;
+    display: block;
+    margin-left: 20%;
+    margin-right: 20%;
+    font-size: 18px;
 }
 
 button a {
@@ -137,6 +141,7 @@ button a:visited {
 
 p.login {
     height: 40px;
+    font-size: 14px;
     text-align: center;
     border-bottom: 1px solid var(--white);
     text-decoration: none;
@@ -145,7 +150,6 @@ p.login {
 p.login a {
     color: var(--white);
     text-decoration: none;
-    font-size: 14px;
     text-align: center;
 }
 
@@ -187,3 +191,37 @@ div.group-register-false i {
 } 
 
 /*================================ MEDIA QUERIS =====================================*/
+/*============================== MEDIA TABLET =================================*/
+@media (min-width: 760px) {
+
+    h1 {
+        text-align: center;
+        font-weight: 700;
+        margin: 0;
+        height: 40px;
+        font-size: 30px;
+        display: flex;
+        width: fit-content;
+        margin-left: 40%;
+    }
+
+    h1.login {
+        margin-left: 35%;
+    }
+
+    .div-form-register {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        max-width: 920px;
+    }
+
+    form.form-register {
+        margin: 2vh 4vw;
+        padding: 20px 0;
+    }
+
+
+
+}
+
