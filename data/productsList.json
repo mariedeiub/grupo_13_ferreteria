@@ -1,0 +1,68 @@
+[
+    {
+        "id":1,
+        "categoria": "pintura",
+        "nombre": "Pintura",
+        "marca": "Alba",
+        "tamaño": "20ls",
+        "color": "blanco",
+        "precio": 19800,
+        "descuento": 10,
+        "foto": "/images/pintura-alba.png"
+    },
+    {
+        "id":2,
+        "categoria": "herramienta",
+        "nombre": "Cortadora de ceramicos",
+        "marca": "Zonta",
+        "tamaño": "64cm",
+        "color": "rojo",
+        "precio": 61200,
+        "descuento": 20,
+        "foto": "/images/producto1.png"
+    },
+    {
+        "id":3,
+        "categoria": "herramienta",
+        "nombre": "Taladro",
+        "marca": "Omaha",
+        "tamaño": "1800W",
+        "color": "rojo",
+        "precio": 29200,
+        "descuento": 0,
+        "foto": "/images/img-taladro-omaha.png"
+    },
+    {
+        "id":4,
+        "categoria": "herramienta",
+        "nombre": "Cierra caladora",
+        "marca": "Philco",
+        "tamaño": "350W",
+        "color": "verde",
+        "precio": 5600,
+        "descuento": 15,
+        "foto": "/images/img-cierra-caladora.png"
+    },
+    {
+        "id":5,
+        "categoria": "pintura",
+        "nombre": "Pintura",
+        "marca": "Tersuave",
+        "tamaño": "4Ls",
+        "color": "azul",
+        "precio": "6.700",
+        "descuento": "30%",
+        "foto": "/images/img-pintura-azul.png"
+    },
+    {
+        "id":6,
+        "categoria": "herramienta",
+        "nombre": "Amoladora Angular",
+        "marca": "Bosch",
+        "tamaño": "900W",
+        "color": "azul",
+        "precio": "24.300",
+        "descuento": "10%",
+        "foto": "/images/img-amoladora-bosch.png"
+    }
+]
