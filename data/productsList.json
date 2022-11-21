@@ -1,7 +1,7 @@
 [
     {
         "id":1,
-        "categoria": "pintura",
+        "categoria": "pinturas",
         "nombre": "Pintura",
         "marca": "Alba",
         "tamaño": "20ls",
@@ -13,7 +13,7 @@
     },
     {
         "id":2,
-        "categoria": "herramienta",
+        "categoria": "herramientas",
         "nombre": "Cortadora de ceramicos",
         "marca": "Zonta",
         "tamaño": "64cm",
@@ -25,7 +25,7 @@
     },
     {
         "id":3,
-        "categoria": "herramienta",
+        "categoria": "herramientas",
         "nombre": "Taladro",
         "marca": "Omaha",
         "tamaño": "1800W",
@@ -37,7 +37,7 @@
     },
     {
         "id":4,
-        "categoria": "herramienta",
+        "categoria": "herramientas",
         "nombre": "Cierra caladora",
         "marca": "Philco",
         "tamaño": "350W",
@@ -49,7 +49,7 @@
     },
     {
         "id":5,
-        "categoria": "pintura",
+        "categoria": "pinturas",
         "nombre": "Pintura",
         "marca": "Tersuave",
         "tamaño": "4Ls",
@@ -61,7 +61,7 @@
     },
     {
         "id":6,
-        "categoria": "herramienta",
+        "categoria": "herramientas",
         "nombre": "Amoladora Angular",
         "marca": "Bosch",
         "tamaño": "900W",

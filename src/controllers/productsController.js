@@ -11,29 +11,9 @@ const filtros = JSON.parse(fs.readFileSync(filtersFilePath, 'utf-8'));
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const productsController = {
-    herramientas: (req, res) => {
-        let listaProductos = productos.filter(producto=>{return producto.categoria == "herramienta"}) 
+    categoria: (req, res) => {
+        let listaProductos = productos.filter(producto=>{return producto.categoria == req.params.categoria}) 
         res.render('products', {listaProductos,filtros});
-    },
-
-    pinturas: (req, res) => {
-        let listaProductos = productos.filter(producto=>{return producto.categoria == "pintura"}) 
-        res.render('products', {listaProductos, filtros});
-    },
-
-    griferia: (req, res) => {
-        let listaProductos = productos.filter(producto=>{return producto.categoria == "griferia"}) 
-        res.render('products', {listaProductos, filtros});
-    },
-
-    pileta: (req, res) => {
-        let listaProductos = productos.filter(producto=>{return producto.categoria == "pileta"}) 
-        res.render('products', {listaProductos, filtros});
-    },
-
-    jardineria: (req, res) => {
-        let listaProductos = productos.filter(producto=>{return producto.categoria == "jardineria"}) 
-        res.render('products', {listaProductos, filtros});
     },
 
     detalle: (req, res) =>{
