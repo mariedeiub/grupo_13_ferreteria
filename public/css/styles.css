@@ -141,9 +141,11 @@ section.burger-menu i{
     padding: 10px;
 }
 
+
 .icono i {
     color: var(--white);
     font-size: 30px;
+
 }
 
 .login{

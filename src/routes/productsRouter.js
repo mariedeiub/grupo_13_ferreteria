@@ -4,7 +4,9 @@ const productsController = require('../controllers/productsController');
 
 productsRouter.get('/:categoria', productsController.categoria);
 
-productsRouter.get('/detalle', productsController.detalle);
+productsRouter.get('/detalle/:id', productsController.detalle);
+
+productsRouter.get('/filtrar', productsController.filtrar)
 
 productsRouter.get('/cargar', productsController.cargar);
 

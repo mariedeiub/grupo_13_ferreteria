@@ -141,7 +141,6 @@ main {
 }
 .filtros{
     width: 30%;
-    max-height: 400px;
     margin: 10px;
     background-color: var(--gray);
     max-width: 300px;
@@ -160,7 +159,6 @@ main {
 
 .tipo-filtro{
     width: 90%;
-    height: 40px;
     background-color: var(--gray);
     margin: 0 5px;
     border: solid 5px var(--white);
@@ -168,8 +166,45 @@ main {
     color: var(--white);
     font-weight: bolder;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     padding: 5px;
     margin: 7px 0;
+    align-items: center;
 }
+
+
+.tipo-filtro p{
+    margin: 10px;
+    border-bottom: solid 3px var(--white);
+}
+
+.filtro-precio{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    margin: 10px;
+}
+
+.label-precio{
+    font-size: 18px;
+}
+
+.input-precio{
+    width: 25%;
+    font-size: 18px;
+}
+
+.boton-filtro{
+    width: 60%;
+    padding: 10px;
+    background-color: var(--blue_2);
+    color: var(--white);
+    margin-top: 10px;
+    border-radius: 8px;
+    font-weight: bolder;
+    margin-bottom: 10px;
+}
+
+
 }

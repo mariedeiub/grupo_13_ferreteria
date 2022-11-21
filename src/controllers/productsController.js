@@ -11,18 +11,66 @@ const filtros = JSON.parse(fs.readFileSync(filtersFilePath, 'utf-8'));
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const productsController = {
+
+    // LISTA DE PRODUCTOS POR CATEGORIA
     categoria: (req, res) => {
-        let listaProductos = productos.filter(producto=>{return producto.categoria == req.params.categoria}) 
-        res.render('products', {listaProductos,filtros});
+        //FILTRA PRODUCTOS A MOSTRAR EN CADA CATEGORIA
+        let listaProductos = productos.filter(function (producto){
+                                                 if (producto.categoria.indexOf(req.params.categoria) >= 0){
+                                                    return producto
+                                                 }
+                                            });
+
+        //FILTRA MARCAS A MOSTRAR EN CADA CATEGORIA
+        let listaMarcas = []
+        listaProductos.forEach(producto => {
+            listaMarcas.push(producto.marca)
+        });      
+        let marcas = [... new Set(listaMarcas)]        
+
+        //FILTRA COLORES A MOSTRAR EN CADA CATEGORIA
+        let listaColores = []
+        listaProductos.forEach(producto => {
+            listaColores.push(producto.color)
+        });      
+        let colores = [... new Set(listaColores)]    
+
+        //FILTRA TAMAÑOS A MOSTRAR EN CADA CATEGORIA
+        let listaTamaños = []
+        listaProductos.forEach(producto => {
+            listaTamaños.push(producto.tamaño)
+        });      
+        let tamaños = [... new Set(listaTamaños)]        
+
+        res.render('products', {listaProductos, marcas, colores, tamaños});
     },
 
+    // DETALLE DEL PRODUCTO
     detalle: (req, res) =>{
         let producto = productos.find(producto => producto.id == req.params.id)
         console.log(producto)
-        res.render('products', {producto});
+        res.render('detail', {producto});
     },
+
+    // CARGAR PRODUCTO
     cargar: (req, res) => {
         res.render('forms');
+    },
+
+    // FILTRAR
+    filtrar: (req, res) => {
+        let filtro = req.query.marca;
+
+        // let listaFiltrada= []
+        
+        // productos.forEach(producto => {
+        //     if(producto.marca == filtro){
+        //         listaFiltrada.push(producto)
+        //     }
+        // });
+
+        res.send(filtro)
+        // res.render('products', {listaFiltrada});
     },
 }
 
