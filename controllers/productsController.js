@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const productsFilePath = path.join('./data/productsList.json');
+const productsFilePath = path.join(__dirname, '../data/productsList.json');
 const productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 const filtersFilePath = path.join('./data/filtersList.json');
@@ -12,14 +12,19 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const productsController = {
 
+    // MOSTRAR TODOS LOS PRODUCTOS
+	// index: (req, res) => {
+	// 	res.render('products', {productos})
+	// },
+
     // LISTA DE PRODUCTOS POR CATEGORIA
     categoria: (req, res) => {
         //FILTRA PRODUCTOS A MOSTRAR EN CADA CATEGORIA
         let listaProductos = productos.filter(function (producto){
-                                                 if (producto.categoria.indexOf(req.params.categoria) >= 0){
-                                                    return producto
-                                                 }
-                                            });
+            if (producto.categoria.indexOf(req.params.categoria) >= 0){
+            return producto
+            }
+        });
 
         //FILTRA MARCAS A MOSTRAR EN CADA CATEGORIA
         let listaMarcas = []
@@ -48,7 +53,6 @@ const productsController = {
     // DETALLE DEL PRODUCTO
     detalle: (req, res) =>{
         let producto = productos.find(producto => producto.id == req.params.id)
-        console.log(producto)
         res.render('detail', {producto});
     },
 
@@ -72,6 +76,13 @@ const productsController = {
         res.send(filtro)
         // res.render('products', {listaFiltrada});
     },
+
+    //EDITAR
+    editar: (req, res) => {
+        let producto = productos.find(producto => producto.id == req.params.id)
+        console.log(producto)
+        res.render('product-edit-form', {producto});
+    }
 }
 
 module.exports = productsController
