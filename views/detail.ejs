@@ -15,23 +15,24 @@
     <main>
         <div class="grande">
             <div class="titulo3">
-                <h3 class="titulo1"><i class="fa-solid fa-dolly"></i> Zonta - modelo : ZS64</h3>
+                <h3 class="titulo1"><i class="fa-solid fa-dolly"></i>  Producto  : <%=producto.nombre %>  </h3>
             </div>
             <section class="foto">
                 <div class="productos">
-                    <img src="images/producto1.png" alt="">
+                    <img src="<%= producto.foto %> "  alt="productoimage">
                 </div>
             </section>
             <div class="descripcion">
+                
                 <div class ="precio">
-                    <p> cortadora de ceramicos</p>
-                </div> 
-                <div class ="precio">
-                    <p>precio $ 61.200</p>
+                    <p>precio: $ <%=producto.precio %></p>
                 </div>
                 
                 <div class ="precio">
-                    <p>3 en stock</p>
+                    <p>stock: <%= producto.stock %> </p>
+                </div>  
+                <div class ="precio">
+                    <p>descuento: %<%= producto.descuento %> </p>
                 </div>  
             </div>          
             <div class="pos">
@@ -46,7 +47,7 @@
                         <label for="lang">Cantidad</label>
                             <select name="cantidad" >
                                 <option value="1">1</option>
-                                <option value="2">2</option>ficha-te
+                                <option value="2">2</option>
                                 <option value="3">3</option>
                             </select>
                     </form>
@@ -57,17 +58,17 @@
                     <h3 class="titulo"><i class="fa-solid fa-wrench"></i>  FICHA TECNICA</h3>
                     <div class="titulo4">
                     <br>
-                    <p>COLOR : Naranja y Negro </p>
+                    <p>COLOR : <%= producto.color %>  </p>
                     <br>
-                    <p>MARCA : Zonta</p>
+                    <p>MARCA : <%= producto.marca %> </p>
                     <br>
-                    <p>MEDIDAS : 60x60 </p>
+                    <p>MEDIDAS : <%= producto.tamaño %> </p>
                     <br>
-                    <p>FABRICANTE : ind.Arg.</p>
+                    <p>FABRICANTE : <%= producto.fabricante %> </p>
                     <br>
-                    <p>MODELO : ZS64</p>
+                    <p>MODELO : <%= producto.modelo %> </p>
                     <br>
-                    <p>USO: Nuevo </p>
+                    <p>DESCRIPCIÓN : <%=producto.descripcion  %> </p>
                 </div>
                 </section>         
             </div>

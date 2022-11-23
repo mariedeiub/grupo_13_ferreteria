@@ -16,15 +16,57 @@
     <!-- MAIN -->
     <main>
         <!-- SECCION FILTROS PC-->
-        <section class="filtros">
+        <form action="/productos/filtrar" class="filtros" method="GET">
             <h3>FILTROS</h3>
-            <% filtros.forEach(filtro => { %>
-                <div class="tipo-filtro">
-                    <p><%= filtro %> </p>
-                    <p>+</p>
+            <!-- MARCAS-->
+            <div class="tipo-filtro">
+                <p>MARCA </p>
+                <% marcas.forEach(element => { %>
+                    <div>
+                        <label for="marca"><%=element %> </label>
+                        <input type="checkbox" name="marca" value=<%=element %> >
+                    </div>
+                <% }) %>
+            </div>
+           
+            <!-- COLOR -->
+            <div class="tipo-filtro">
+                <p>COLOR </p>
+                <% colores.forEach(element => { %>
+                    <div>
+                        <label for="color"><%=element %> </label>
+                        <input type="checkbox" name="color" value=<%=element %> >
+                    </div>
+                <% }) %>
+            </div>
+            
+            <!-- TAMAÑO -->
+            <div class="tipo-filtro">
+                <p>TAMAÑO </p>
+                <% tamaños.forEach(element => { %>
+                    <div>
+                        <label for="tamaño"><%=element %> </label>
+                        <input type="checkbox" name="tamaño" value=<%=element %> >
+                    </div>
+                <% }) %>
+            </div>
+            
+            <!-- PRECIO -->
+            <div class="tipo-filtro">
+                <div>
+                    <p>PRECIO </p>
                 </div>
-            <% }) %>
-        </section>
+                <div class="filtro-precio">
+                    <label for="precioMin" class="label-precio">MIN </label>
+                    <input type="text" name="precioMin" class="input-precio">
+                    <label for="precioMax" class="label-precio">MAX </label>
+                    <input type="text" name="tamañoMax" class="input-precio">
+                </div>
+            </div>
+
+            <button type="submit" class="boton-filtro">FILTRAR</button>
+            <button type="reset" class="boton-filtro">BORRAR FILTROS</button>
+        </form>
         <section class="filtro-mobile">
             <div>
                 <p>FILTRO <i class="fas fa-filter"></i></p>
@@ -37,7 +79,7 @@
         <section class="lista-productos">
                 <% listaProductos.forEach(producto => { %>
                     <article class="tarjeta">
-                        <a href=<%= producto.url %>>
+                        <a href="/productos/detalle/<%= producto.id %>">
                             <div class="img-tarjeta">
                                 <img src=<%=producto.foto%>  alt="" class="img-product">
                             </div>
@@ -47,7 +89,7 @@
                         </div>
                         <div class="foot-article">
                             <p class="precio">$ <%=producto.precio%> </p>
-                            <p class="descuento"><%= producto.descuento > " " ? producto.descuento : " " %> </p>
+                            <p class="descuento"><%= producto.descuento > 0 ? producto.descuento : " " %></p>
                         </div>
                         <div>
                             <h3 class="descripcion">

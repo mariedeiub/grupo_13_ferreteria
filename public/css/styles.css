@@ -141,9 +141,11 @@ section.burger-menu i{
     padding: 10px;
 }
 
+
 .icono i {
     color: var(--white);
     font-size: 30px;
+
 }
 
 .login{
@@ -184,6 +186,10 @@ main h2{
     margin: 10px 0;
 }
 
+.tarjeta-vertical a{
+    width: 100%;
+}
+
 .img-oferta{
     width: 100%;
     border-radius: 15px;
@@ -196,6 +202,7 @@ main h2{
 
 .img-oferta-vertical{
     width: 100%;
+    height: 100%;
     border-radius: 15px;
 }
 

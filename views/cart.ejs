@@ -20,7 +20,7 @@
                 <% pedido.forEach(producto => { %>
                     <li class="detalle-lista-producto">
                         <section class="imagen">
-                            <a href=<%= producto.url %> ><img src=<%=producto.foto%> alt=""></a>
+                            <a href="/detalle/<%= producto.id %>" ><img src=<%=producto.foto%> alt=""></a>
                         </section>
                         <section class="detalle">
                             <h4><%= producto.nombre %> <%= producto.marca %>  <%= producto.tamaño %> <%= producto.color %> </h4>
@@ -36,7 +36,7 @@
                         <section class="editar">
                             <i class="fas fa-pencil-alt"></i>
                             <i class="fa-regular fa-trash-can"></i>
-                            <h4>$<%= producto.precio %> </h4>
+                            <h4>$<%= producto.precio-(producto.precio * producto.descuento /100)  %> </h4>
                         </section>
                     </li>               
                 <% }) %>
