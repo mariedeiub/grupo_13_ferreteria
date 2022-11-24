@@ -27,7 +27,6 @@ app.use("/login", mainRouter);
 
 app.use("/productos", productsRouter);
 
-app.use("/productos", productsRouter);
 
 //-------------------NOT FOUND-----------------------------------//
 app.get("/*", (req, res) => {
