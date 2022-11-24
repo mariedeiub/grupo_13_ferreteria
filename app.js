@@ -15,16 +15,6 @@ app.set('view engine', 'ejs');
 //--------------------  RUTAS ------------------------//
 app.use('/', mainRouter);
 
-app.use('/home', mainRouter);
-
-// app.use("/products", mainRouter);
-
-app.use("/carrito", mainRouter);
-
-app.use("/register", mainRouter);
-
-app.use("/login", mainRouter);
-
 app.use("/productos", productsRouter);
 
 
