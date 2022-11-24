@@ -146,21 +146,21 @@ button a:visited {
     color: var(--white);
 }
 
-p.forms {
+p.login {
     height: 40px;
+    font-size: 14px;
     text-align: center;
     border-bottom: 1px solid var(--white);
     text-decoration: none;
 }
 
-p.forms a {
+p.login a {
     color: var(--white);
     text-decoration: none;
-    font-size: 14px;
     text-align: center;
 }
 
-p.forms a:hover {
+p.login a:hover {
     text-decoration: underline;
 }
 
@@ -197,3 +197,35 @@ div.group-cambiar-false i {
 } 
 
 /*================================ MEDIA QUERIS =====================================*/
+
+/*================================ MEDIA QUERIS =====================================*/
+/*============================== MEDIA TABLET =================================*/
+@media (min-width: 760px) {
+
+    h1 {
+        text-align: center;
+        font-weight: 700;
+        margin: 0;
+        height: 40px;
+        font-size: 30px;
+        display: flex;
+        width: fit-content;
+        margin-left: 40%;
+    }
+
+    .div-form-register {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        max-width: 920px;
+    }
+
+    form.form-register {
+        margin: 2vh 4vw;
+        padding: 20px 0;
+    }
+
+
+
+}
+

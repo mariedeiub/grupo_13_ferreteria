@@ -6,11 +6,11 @@ router.get('/', mainController.index);
 
 router.get('/home', mainController.home);
 
-router.get('/products', mainController.product);
+// router.get('/detalle/:id', mainController.detalle);
 
-router.get('/carrito', mainController.cart);
+router.get('/carrito', mainController.carrito);
 
-router.get('/register', mainController.register);
+router.get('/registro', mainController.registro);
 
 router.get('/login', mainController.login);
 

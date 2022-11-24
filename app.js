@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
-const mainRouter = require('./src/routes/mainRouter')
-const productsRouter= require ("./src/routes/productsRouter");
+const mainRouter = require('./routes/mainRouter')
+const productsRouter= require ("./routes/productsRouter");
 let PORT = 3030;
 
 //--------------------  APP LISTEN ------------------------//
@@ -17,7 +17,7 @@ app.use('/', mainRouter);
 
 app.use('/home', mainRouter);
 
-app.use("/products", mainRouter);
+// app.use("/products", mainRouter);
 
 app.use("/carrito", mainRouter);
 
