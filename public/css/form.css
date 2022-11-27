@@ -24,14 +24,30 @@ main.register {
     margin-bottom: 35px;
 }
 
-h1 {
+h1.login {
     text-align: center;
     font-weight: 700;
     margin: 0;
     height: 40px;
-    margin-bottom: 30px;
-    border-bottom: 1px solid;
+    text-decoration: underline;
     font-size: 30px;
+    justify-content: center;
+}
+
+h1.form-edit {
+    text-align: center;
+    font-weight: 700;
+    margin: 0;
+    text-decoration: underline;
+    font-size: 30px;
+}
+
+::placeholder {
+    opacity: 0;
+}
+
+input.input-text:focus::placeholder {
+    opacity: 1;
 }
 
 form.form-register {
@@ -194,21 +210,6 @@ div.group-register-false i {
 /*============================== MEDIA TABLET =================================*/
 @media (min-width: 760px) {
 
-    h1 {
-        text-align: center;
-        font-weight: 700;
-        margin: 0;
-        height: 40px;
-        font-size: 30px;
-        display: flex;
-        width: fit-content;
-        margin-left: 40%;
-    }
-
-    h1.login {
-        margin-left: 35%;
-    }
-
     .div-form-register {
         display: flex;
         flex-wrap: wrap;
@@ -221,7 +222,9 @@ div.group-register-false i {
         padding: 20px 0;
     }
 
-
+    #producto-descripcion{
+        width: 580px;
+    }
 
 }
 
