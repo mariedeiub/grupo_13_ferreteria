@@ -25,7 +25,7 @@
         "fabricante":"Ind. Arg",
         "precio": 61200,
         "descuento": 20,
-        "foto": "/images/producto1.jpg",
+        "foto": "/images/cortadoraderamica.jpg",
         "descripcion": "Cortadora de cerámicos con regla de aluminio para una mejor graduación de cortes en ángulo y con carrito trazador. Consta de un tronzador para lograr cortes perfectos en materiales duros. Su corte máximo es de 64 cm. Su pieza de corte es una rueda de tungsteno y posee como superficie de apoyo una almohadilla de goma eva. Corta materiales como porcelanatos y cerámicos blandos, duros y semiduros. Con diseño moderno y ergonómico y de gran durabilidad.",
        "stock":6,
        "modelo":"mlo"
@@ -108,4 +108,3 @@
         
     }
 ]
-
