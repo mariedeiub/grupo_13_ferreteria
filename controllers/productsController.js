@@ -51,9 +51,9 @@ const productsController = {
     },
 
     // DETALLE DEL PRODUCTO
-    detalle: (req, res) =>{
+   producto: (req, res) =>{
         let producto = productos.find(producto => producto.id == req.params.id)
-        res.render('detail', {producto});
+        res.render('producto', {producto});
     },
 
     // CARGAR PRODUCTO
@@ -82,7 +82,15 @@ const productsController = {
         let producto = productos.find(producto => producto.id == req.params.id)
         console.log(producto)
         res.render('product-edit-form', {producto});
+    },
+    eliminar : (req, res) => {
+		let id =  req.params.id;
+		let productToDelete=productos.filter(producto=>producto.id != id)
+		fs.writeFileSync(productsFilePath ,JSON.stringify(productToDelete,null,'\t'));
+		res.redirect('/');
     }
+
+
 }
 
 module.exports = productsController

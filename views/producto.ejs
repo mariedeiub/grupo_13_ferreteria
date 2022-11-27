@@ -42,7 +42,7 @@
                 <div class="boton">
                     <a class="boton_personalizado" href="">Agregar al carrito <i class="ion-ios-cart-outline"></i></a>
                 </div>
-                <div class="boton_personalizado2" >
+                <div class="boton_personalizado" >
                     <form action="#">
                         <label for="lang">Cantidad</label>
                             <select name="cantidad" >
@@ -52,12 +52,12 @@
                             </select>
                     </form>
                 </div>
-                <div class="boton">
-                    <a class="boton_personalizado" href="">Editar</a>
-                </div>
-                <div class="boton">
-                    <a class="boton_personalizado" href="">Eliminar</a>
-                </div>
+           
+                
+                <a href="/productos/cargar" class="boton_personalizado" class="action-button edit">EDITAR PRODUCTO</a>
+                <form action="/productos/delete/<%=producto.id%>?_method=DELETE" method="POST" >
+                    <button type="submit"class="boton_personalizado" >ELIMINAR</button>
+                </form>
             </div>    
             <div>
                 <section class="ficha-tecnica">

@@ -8,10 +8,12 @@ router.get('/cargar', productsController.cargar);
 
 router.get('/:categoria/', productsController.categoria);
 
-router.get('/detalle/:id/', productsController.detalle);
+router.get('/producto/:id/', productsController.producto);
 
 router.get('/filtrar', productsController.filtrar)
 
 router.get('/editar/:id/', productsController.editar);
+
+router.post('/delete/:id/',productsController.eliminar)
 
 module.exports = router
