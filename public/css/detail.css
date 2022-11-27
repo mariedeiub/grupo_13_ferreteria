@@ -529,6 +529,24 @@ footer{
     width: 83%;
 
 }
+.boton_personalizado2{
+
+background-color:#3F8EFC ;
+text-decoration: none;
+padding: 10px;
+font-weight: 600;
+font-size: 20px;
+color: #ffffff;
+border-radius: 6px;
+border: 2px solid #87BFFF;
+margin: 10px 44px;
+
+display: flex;
+justify-content: space-evenly;
+flex-direction: row;
+flex-wrap: nowrap;
+width: auto;
+}
 .boton_personalizado:hover{
         color: var(--blue_2);
         background-color: #ffffff;
@@ -559,7 +577,7 @@ footer{
     width: 59%;
     height: 32%;
  
-    padding: 0% 0% 17% 0%;
+    padding: 8% 0% 17% 0%;
     margin: -47% 42% -17% 61%;
     flex-direction: column;
     }
@@ -628,6 +646,22 @@ footer{
         align-content: space-between;
         padding: inherit;
         
+     }
+     .boton_personalizado2 {
+        background-color: #3F8EFC;
+        text-decoration: none;
+        padding: 10px;
+        font-weight: 600;
+        font-size: 20px;
+        color: #ffffff;
+        border-radius: 6px;
+        border: 2px solid #87BFFF;
+        margin: 10px 44px;
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        width: 66%;
      }
      .precio{
 
