@@ -4,12 +4,67 @@
 <%- include('./partials/head.ejs')  %> 
     <title>Modificar Producto</title>
     <link href="/css/styles.css" rel="stylesheet">`
-    <link href="/css/login.css" rel="stylesheet">`
+    <link href="/css/form.css" rel="stylesheet">`
 </head>
 <body>
+    <!--HEADER-->
     <%- include('./partials/header.ejs')  %> 
-    <main>
-        <h1>Soy el editor del producto <% producto.id %> </h1>
+    <!--MAIN-->
+    <main class="register">
+        <!--FORMULARIO DE EDICION DE PRODUCTO-->
+        <form action="#" method="POST" class="form-register" id="form-edit">
+            <h1 class="form-edit">Editar producto: <%=producto.nombre%> <%=producto.marca%></h1>
+            <div class="div-form-register">
+                <!--NOMBRE DEL PRODUCTO-->
+                <div class="group-register">
+                    <input required type="text" class="input-text" id="producto-nombre" placeholder="<%=producto.nombre%>"><span class="barra"></span>
+                    <label for="producto-nombre" class="lbl-text">Nombre del producto</label>
+                </div>
+                <!--MARCA-->
+                <div class="group-register">
+                    <input required type="text" class="input-text" id="producto-marca" placeholder="<%=producto.marca%>"><span class="barra"></span>
+                    <label for="producto-marca" class="lbl-text">Marca</label>
+                </div>
+                <!--TAMAÑO-->
+                <div class="group-register">
+                    <input required type="text" class="input-text" id="producto-tamaño" placeholder="<%=producto.tamaño%>"><span class="barra"></span>
+                    <label for="producto-tamaño" class="lbl-text">Tamaño</label>
+                </div>
+                <!--COLOR-->
+                <div class="group-register">
+                    <input required type="text" class="input-text" id="producto-color" placeholder="<%=producto.color%>"><span class="barra"></span>
+                    <label for="producto-color" class="lbl-text">Color</label>
+                </div>
+                <!--PRECIO-->
+                <div class="group-register">
+                    <input required type="text" class="input-text" id="producto-precio" placeholder="<%=producto.precio%>"><span class="barra"></span>
+                    <label for="producto-precio" class="lbl-text">Precio</label>
+                </div>
+                <!--FABRICANTE-->
+                <div class="group-register">
+                    <input required type="text" class="input-text" id="producto-fabricante" placeholder="<%=producto.fabricante%>"><span class="barra"></span>
+                    <label for="producto-fabricante" class="lbl-text">Fabricante</label>
+                </div>
+                <!--DESCUENTO-->
+                <div class="group-register">
+                    <input required type="text" class="input-text" id="producto-descuento" placeholder="<%=producto.descuento%>"><span class="barra"></span>
+                    <label for="producto-descuento" class="lbl-text">Descuento</label>
+                </div>
+                <!--MODELO-->
+                <div class="group-register">
+                    <input required type="text" class="input-text" id="producto-modelo" placeholder="<%=producto.modelo%>"><span class="barra"></span>
+                    <label for="producto-modelo" class="lbl-text">Modelo</label>
+                </div>
+                <!--DESCRIPCION-->
+                <div class="group-register">
+                    <input required type="text" class="input-text" id="producto-descripcion" placeholder="<%=producto.descripcion%>"><span class="barra"></span>
+                    <label for="producto-descripcion" class="lbl-text">Descripción</label>
+                </div>
+                <!--SUBMIT / RESET-->
+                <button type="submit"><a href="">Editar</a></button>
+                <button type="reset"><a href="">Restablecer</a></button>
+            </div>
+        </form>
     </main>
 <!-- SUSCRIPCION + FOOTER + COPIRIGHT-->
 <%- include('./partials/footer.ejs')  %>
