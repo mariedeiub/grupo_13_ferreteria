@@ -19,6 +19,23 @@
 body {
     font-family: 'Roboto', sans-serif;
 }
+
+/*========================== BOTON ====================*/
+.boton-personalizado{
+    height: 40px;
+    background-color: var(--blue_2);
+    color: var(--white);
+    border: solid 2px var(--blue_3);
+    border-radius: 5px;
+    margin: 0.2rem
+} 
+
+.boton-editar{
+    cursor: pointer;
+        border: 0;
+        background-color: transparent;
+}
+
 /*==========================MAIN =======================*/
 main{
     width: 90%
@@ -108,7 +125,7 @@ main section {
     margin-top: 10px;
     font-size: 20px;
     text-align: center;
-    color: var(--blue_2);
+    color: var(--blue_2)
 }
 
 .editar h4{
@@ -140,7 +157,7 @@ main section {
     font-size: 15px;
     padding: 0 10px;
     cursor: pointer;
-    color: #0052cc;
+    color: var(--blue_2);
     user-select: none;
 }
 /*==================== DETALLE PROMO ===============*/
@@ -168,13 +185,9 @@ main section {
 
 .detalle-promo button{
     width: 20%;
-    background-color: var(--blue_2);
-    color: var(--white);
     height: 40px;
-    border: solid 1px var(--gray);
-    border-radius: 5px;
-    margin: 0.2rem
-}
+} 
+
 /*==================== DETALLE ENVIO ===============*/
 .detalle-envio{
     height: 80px;
@@ -202,12 +215,7 @@ main section {
 
 .detalle-envio button{
     width: 20%;
-    background-color: var(--blue_2);
-    color: var(--white);
     height: 40px;
-    border: solid 1px var(--gray);
-    border-radius: 5px;
-    margin: 0.2rem;
 }
 /*==================== DETALLE COMPRA ===============*/
 .total-compra{
@@ -232,14 +240,19 @@ main section {
 
 .total-compra button{
     width: 70%;
-    background-color: var(--blue_2);
-    color: var(--white);
-    height: 40px;
-    border: solid 1px var(--gray);
-    border-radius: 5px;
-    margin: 0.2rem;
     align-self: center;
+} 
+
+.total{
+    padding-top: 5px;
+    border-top: solid 2px var(--gray);
 }
+
+.total-compra div{
+    display: flex;
+    justify-content: space-between;
+}
+
 /*===================== MEDIA TABLE ====================*/
 
 @media (min-width: 768px) {

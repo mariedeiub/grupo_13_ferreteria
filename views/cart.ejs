@@ -20,12 +20,12 @@
                 <% pedido.forEach(producto => { %>
                     <li class="detalle-lista-producto">
                         <section class="imagen">
-                            <a href="/detalle/<%= producto.id %>" ><img src=<%=producto.foto%> alt=""></a>
+                            <a href="/productos/producto/<%= producto.id %>" ><img src=<%=producto.foto%> alt=""></a>
                         </section>
                         <section class="detalle">
                             <h4><%= producto.nombre %> <%= producto.marca %>  <%= producto.tamaño %> <%= producto.color %> </h4>
                             <p class="precio">$<%= producto.precio %> </p>
-                            <p class="descuento"><%= producto.descuento > " " ? producto.descuento : " " %> </p>
+                            <p class="descuento"><%= producto.descuento > " " ? producto.descuento + '%' : " " %> </p>
                             <!--CONTADOR-->
                             <div class="counter">
                                 <span class="down" onClick='decreaseCount(event, this)'>-</span>
@@ -34,8 +34,12 @@
                             </div>
                         </section>
                         <section class="editar">
-                            <i class="fas fa-pencil-alt"></i>
-                            <i class="fa-regular fa-trash-can"></i>
+                            <a href="/productos/producto/<%= producto.id %>" >
+                                <i class="fas fa-pencil-alt"></i>
+                            </a>
+                            <form action="/carrito/eliminar/<%= producto.id %>" method="POST" >
+                                <button class="boton-editar"><i class="fa-regular fa-trash-can"></i></button>
+                            </form>
                             <h4>$<%= producto.precio-(producto.precio * producto.descuento /100)  %> </h4>
                         </section>
                     </li>               
@@ -48,23 +52,31 @@
             <section class="detalle-promo">
                     <label for="codigo"><h4>Codigo Promo: </h4></label>
                     <input type="text" class="codigo">
-                    <button>OK</button>
+                    <button class="boton-personalizado">OK</button>
             </section>
             <!--DETALLE TOTAL DEL ENVIO -->
             <section class="detalle-envio">
                     <label for="codigo"><h4>Codigo Postal: </h4></label>
                     <input type="text" class="codigo-postal">
-                    <button>Calcular</button>
+                    <button class="boton-personalizado">Calcular</button>
             </section>
             <!--DETALLE TOTAL DE LA COMPRA-->
             <section class="total-compra">
                     <h3>Resumen de compra</h3>
-                    <p>Subtotal productos: </p>
+                    <div class="subtotal">
+                        <p>Subtotal productos: </p>
+                        <p> $ <%= subtotal %></p>
+                    </div>
                     <p>Costo de envio: </p>
-                    <P>Descuento codigo promo: </P>
-                    <h5>TOTAL:</h5>
-                    <button>Continuar comprando</button>
-                    <button>Confirmar compra</button>
+                    <div>
+                        <P>Descuento codigo promo: </P>
+                    </div>
+                    <div class="total">
+                        <h4>TOTAL: </h4>
+                        <h4> $ <%= total %> </h4>
+                    </div>
+                    <button class="boton-personalizado">Continuar comprando</button>
+                    <button class="boton-personalizado">Confirmar compra</button>
             </section>
         </div>
     </main>

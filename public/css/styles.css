@@ -24,6 +24,7 @@ body{
     font-family: 'Roboto', sans-serif;
 }
 
+
 /*================================ HEADER =====================================*/
 header{
     width: 100%;
@@ -371,6 +372,14 @@ footer{
     section.burger-menu {
         display: none;
     }
+
+    /*===================== BOTON ======================*/
+
+    .boton-personalizado:hover{
+        color: var(--blue_2);
+        background-color: #ffffff;
+    }
+    
 
     /*========================== BARRA DE NAVEGACION PC =======================*/
     .nav-bar{
