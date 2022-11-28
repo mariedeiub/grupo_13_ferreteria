@@ -303,6 +303,24 @@ footer{
     text-align: center;
 }
 
+
+@media (min-width : 0px){
+    .favorito , .favorito i, .nav-bar, .pc{
+        display: none
+       }
+
+    .icono{
+        display: none;
+    }
+
+    .logo {
+        min-width: 60px;
+        min-height: 60px;
+       }
+
+    
+}
+
 /*============================== MEDIA CELULAR =================================*/
 @media (min-width: 425px) {
    .shopping-cart i{
@@ -317,10 +335,6 @@ footer{
    }
 
 
-   .favorito , .favorito i, .nav-bar, .pc{
-    display: none
-   }
-
    .login i{
     font-size: 30px;
     position: relative;
@@ -328,6 +342,10 @@ footer{
 
    .input{
     margin-left: 2px;
+   }
+
+   .icono{
+    display: flex;
    }
 }
 
