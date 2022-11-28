@@ -54,7 +54,7 @@
                 </div>
            
                 
-                <a href="/productos/editar/<%= producto.id %> " class="boton_personalizado2" class="action-button edit">EDITAR PRODUCTO</a>
+                <a href="/productos/cargar/<%= producto.id %> " class="boton_personalizado2" class="action-button edit">EDITAR PRODUCTO</a>
                 <form action="/productos/delete/<%=producto.id%>?_method=DELETE" method="POST" >
                     <button type="submit"class="boton_personalizado3" >ELIMINAR</button>
                 </form>
@@ -64,17 +64,19 @@
                     <h3 class="titulo"><i class="fa-solid fa-wrench"></i>  FICHA TECNICA</h3>
                     <div class="titulo4">
                     <br>
-                    <p>COLOR : <%= producto.color %>  </p>
+                    <p ><u>DESCRIPCIÓN </u>: <%=producto.descripcion  %> </p>
                     <br>
-                    <p>MARCA : <%= producto.marca %> </p>
+                    <p ><u>COLOR </u> : <%= producto.color %>  </p>
                     <br>
-                    <p>MEDIDAS : <%= producto.tamaño %> </p>
+                    <p><u>MARCA </u> :<%= producto.marca %> </p>
                     <br>
-                    <p>FABRICANTE : <%= producto.fabricante %> </p>
+                    <p><u>MEDIDAS </u>: <%= producto.tamaño %> </p>
                     <br>
-                    <p>MODELO : <%= producto.modelo %> </p>
+                    <p><u>FABRICANTE </u>: <%= producto.fabricante %> </p>
                     <br>
-                    <p>DESCRIPCIÓN : <%=producto.descripcion  %> </p>
+                    <p ><u>MODELO </u> : <%= producto.modelo %> </p>
+                    
+                   
                 </div>
                 </section>         
             </div>
