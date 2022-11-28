@@ -497,15 +497,31 @@ footer{
     border-radius: 6px;
     border: 2px solid #87BFFF;
     margin: 10px 44px;
-    width: auto;
+    width:56%;
     display: flex;
     justify-content: space-evenly;
     flex-direction: row;
     flex-wrap: nowrap;
 
     }
-    
+    .boton_personalizado2 {
+        text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: var(--blue_2);
+    border-radius: 6px;
+    border: 2px solid #87BFFF;
+    margin: 10px 44px;
+    width:56%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    flex-wrap: nowrap;
 
+    }
+   
     section.ficha-tecnica {
     width: 66%;
     margin: 4% 1% 9% 16%;
@@ -533,33 +549,14 @@ footer{
     width: 83%;
 
 }
-.boton_personalizado2{
 
-background-color:#3F8EFC ;
-text-decoration: none;
-padding: 10px;
-font-weight: 600;
-font-size: 20px;
-color: #ffffff;
-border-radius: 6px;
-border: 2px solid #87BFFF;
-margin: 10px 44px;
 
-display: flex;
-justify-content: space-evenly;
-flex-direction: row;
-flex-wrap: nowrap;
-width: auto;
-}
+
 .boton_personalizado:hover{
         color: var(--blue_2);
         background-color: #ffffff;
       }
 
-      .boton_personalizado2:hover{
-        color: var(--blue_2);
-        background-color: #f3e300;
-      }
       
       .boton_personalizado3:hover{
         color: var(--blue_2);
@@ -608,6 +605,57 @@ width: auto;
     display: flex;
     justify-content: space-around;
     flex-direction: column;
+    }
+
+    .boton_personalizado {
+        text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: var(--blue_2);
+    border-radius: 6px;
+    border: 2px solid #87BFFF;
+    margin: 10px 44px;
+    width:56%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+    }
+    .boton_personalizado2 {
+        text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: var(--blue_2);
+    border-radius: 6px;
+    border: 2px solid #87BFFF;
+    margin: 10px 44px;
+    width:56%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+    }
+    .boton_personalizado3 {
+        text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: var(--blue_2);
+    border-radius: 6px;
+    border: 2px solid #87BFFF;
+    margin: 10px 44px;
+    width:auto;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    flex-wrap: nowrap;
     }
      .favorito{
          display: flex;
