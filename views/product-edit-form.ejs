@@ -13,11 +13,11 @@
     <main class="register">
         <!--FORMULARIO DE EDICION DE PRODUCTO-->
         <form action="#" method="POST" class="form-register" id="form-edit">
-            <h1 class="form-edit">Editar producto: <%=producto.nombre%> <%=producto.marca%></h1>
+            <h1 class="form-edit">Editar producto: <%=producto.id%> </h1>
             <div class="div-form-register">
                 <!--NOMBRE DEL PRODUCTO-->
                 <div class="group-register">
-                    <input required type="text" class="input-text" id="producto-nombre" placeholder="<%=producto.nombre%>"><span class="barra"></span>
+                    <input required type="text" class="input-text" id="producto-nombre" value="<%=producto.nombre%>"><span class="barra"></span>
                     <label for="producto-nombre" class="lbl-text">Nombre del producto</label>
                 </div>
                 <!--MARCA-->
