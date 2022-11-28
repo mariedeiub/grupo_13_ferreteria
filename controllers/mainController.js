@@ -44,6 +44,11 @@ const mainController = {
         res.redirect('/carrito')
     },
 
+    cargar:(req, res) =>{
+        carrito.push(req.params.id)
+        res.redirect('/carrito')
+    },
+
     registro: (req, res) => {
         res.render('register');
     },
