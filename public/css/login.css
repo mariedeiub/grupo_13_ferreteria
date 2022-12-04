@@ -103,6 +103,13 @@ span.barra {
 div.group-cambiar {
     background: #2667FF;
     font-size: 20px;
+    box-shadow: 7px 13px 37px rgba(252, 227, 227, 0.63);
+}
+
+div.group-cambiar1{
+
+    width: auto;
+    padding: 0% 0% 6% 1%;
 }
 
 div.group-image {
