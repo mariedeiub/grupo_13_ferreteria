@@ -30,7 +30,7 @@ h1.login {
     margin: 0;
     height: 40px;
     text-decoration: underline;
-    font-size: 30px;
+    font-size: 25px;
     justify-content: center;
 }
 
@@ -39,7 +39,7 @@ h1.form-edit {
     font-weight: 700;
     margin: 0;
     text-decoration: underline;
-    font-size: 30px;
+    font-size: 25px;
 }
 
 ::placeholder {
@@ -51,7 +51,7 @@ input.input-text:focus::placeholder {
 }
 
 form.form-register {
-    background: #9e9ea7;
+    background: var(--gray);
     padding: 40px 0;
     box-shadow: 7px 13px 37px #000;
     border-radius: 10px;
@@ -74,7 +74,7 @@ form.form-register div.group-register {
 input.input-text {
     background: none;
     color: #c6c6c6;
-    font-size: 18px;
+    font-size: 14px;
     padding: 10px 10px 10px 5px;
     display: block;
     width: 100%;
@@ -104,7 +104,7 @@ label.lbl-text {
 input.input-text:focus~label.lbl-text,
 input.input-text:valid~label.lbl-text {
     top: -14px;
-    font-size: 12px;
+    font-size: 14px;
     color: var(--white);
 }
 
@@ -133,17 +133,95 @@ input.input-text:focus~span.barra::before{
     width: 100%;
 }
 
+/*-------- EDITAR PRODUCTO: INPUT FOTO --------*/
+div#foto {
+    position: relative;
+    display: inline-block;
+}
+
+div#foto::before {
+    background-color: var(--blue_2);
+    color: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    content: 'Cambiar imagen';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.input-img {
+    opacity: 0;
+    width: 200px;
+    height: 32px;
+    display: inline-block;
+}
+
+/*-------- EDITAR PRODUCTO: INPUT DESCRIPCION --------*/
+div#descripcion {
+    /* margin: 0px 0px 15px 0; */
+    width: 100%;
+    margin: 0 0 15px 18px;
+}
+
+label.descripcion {
+    font-size: 14px;
+    color: var(--white);
+}
+
+textarea:focus::placeholder {
+    opacity: 1;
+}
+
+textarea {
+    border: none;
+    outline: none;
+    resize: none;
+    font-size: 12px;
+    font-family: 'Roboto', sans-serif;
+    width: 60vw;
+    background: none;
+    border: 1px solid var(--white);
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    color: var(--white);
+}
+
+textarea:focus {
+    border: 2px solid var(--blue_1);
+}
+
+
+/*-------- BOTONES SUBMIT Y RESET --------*/
+
 button {
-    width: 40%;
-    height: 40px;
+    width: 70%;
+    height: 8vw;
+    max-height: 34px;
+    max-width: 200px;
     background: var(--blue_2);
     border: none;
     color: var(--white);
-    margin-bottom: 16px;
     display: block;
-    margin-left: 20%;
-    margin-right: 20%;
+    margin: 0 0 15px 15%;
     font-size: 18px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
 }
 
 button a {
@@ -155,6 +233,7 @@ button a:visited {
     color: var(--white);
 }
 
+/*-------- LOGIN Y REGISTER: ESTAS REG? --------*/
 p.login {
     height: 40px;
     font-size: 14px;
@@ -173,43 +252,9 @@ p.login a:hover {
     text-decoration: underline;
 }
 
-
-
-/*================================ ERRORES =====================================*/
-p.form-error {
-    font-size: 12px;
-    margin-bottom: 0;
-    display: none;
-}
-
-p.form-error-activo {
-    display: block;
-}
-
-div.group-register i.fa-solid {
-    position: absolute;
-    right: 10px;
-    bottom: 15px;
-    z-index: 100;
-    font-size: 16px;
-    color: #ff0000;
-    opacity: 0;
-}
-
-/*================================ VALIDACIONES =====================================*/
-div.group-register-false label.lbl-text {
-    color: #ff0000;
-} 
-
-div.group-register-false i {
-    color: #ff0000;
-    opacity: 1;
-} 
-
 /*================================ MEDIA QUERIS =====================================*/
 /*============================== MEDIA TABLET =================================*/
 @media (min-width: 760px) {
-
     .div-form-register {
         display: flex;
         flex-wrap: wrap;
@@ -222,9 +267,16 @@ div.group-register-false i {
         padding: 20px 0;
     }
 
-    #producto-descripcion{
-        width: 580px;
+    div#descripcion{
+        width: 475px;
+        max-width: 475px;
     }
 
-}
+    textarea {
+        max-width: 460px;
+    }
 
+    button {
+        margin: 0px 0 2px 2%;
+    }
+}
