@@ -66,6 +66,7 @@ input.input-text {
     width: 100%;
     border: none;
     border-bottom: 1px solid var(--white);
+    text-align: center;
 }
 
 input.input-text:focus {
@@ -217,7 +218,7 @@ div.group-cambiar-false i {
         font-size: 30px;
         display: flex;
         width: fit-content;
-        margin-left: 40%;
+        margin-left: 30%;
     }
 
     .div-form-register {
