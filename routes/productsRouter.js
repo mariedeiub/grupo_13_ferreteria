@@ -13,8 +13,8 @@ router.get('/producto/:id/', productsController.producto);
 router.get('/filtrar', productsController.filtrar)
 
 router.get('/editar/:id/', productsController.editar);
-router.post('/:id', productsController.update)
+router.post('/:id/', productsController.update)
 
-router.post('/delete/:id/',productsController.eliminar)
+router.delete('/delete/:id/',productsController.eliminar)
 
 module.exports = router
