@@ -9,6 +9,7 @@ app.listen(PORT, () => console.log("Servidor corriendo en el puerto: " + PORT));
 
 //--------------------  MIDDLEWARE  ------------------------//
 app.use(express.static('public'));
+app.use(express.json());
 
 app.set('view engine', 'ejs');
 

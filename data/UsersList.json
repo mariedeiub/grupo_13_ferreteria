@@ -1,0 +1,13 @@
+[
+    {
+        "id": 1,
+        "nombreUsuario": "holita",
+        "nombre": "hola",
+        "apellido": "sontuhteojuk",
+        "email": "aohola@gmail.com",
+        "contraseña": "snoethuojk",
+        "edad": 10,
+        "categoria": "cliente",
+        "fotoPerfil": "link" 
+    }
+]
