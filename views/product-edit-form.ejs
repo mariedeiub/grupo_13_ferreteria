@@ -12,7 +12,7 @@
     <!--MAIN-->
     <main class="register">
         <!--FORMULARIO DE EDICION DE PRODUCTO-->
-        <form action="/productos/editar/<%=producto.id %>?_method=put" method="POST" class="form-register" id="form-edit">
+        <form action="/productos/<%=producto.id%>?_method=PUT" method="POST" class="form-register" id="form-edit">
             <h1 class="form-edit">Editar producto: <%=producto.id%></h1>
             <div class="div-form-register">
                 <!--NOMBRE DEL PRODUCTO-->
@@ -81,8 +81,8 @@
                     value="<%producto.descripcion%>" placeholder="<%=producto.descripcion%>"></textarea>
                 </div>
                 <!--SUBMIT / RESET-->
-                <button type="submit"><a href="">Editar</a></button>
-                <button type="reset"><a href="">Restablecer</a></button>
+                <button type="submit">Editar</a></button>
+                <button type="reset">Restablecer</a></button>
             </div>
         </form>
     </main>

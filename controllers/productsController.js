@@ -75,32 +75,61 @@ const productsController = {
     // res.render('products', {listaFiltrada});
   },
 
-  //EDITAR
-  editar: (req, res) => {
-    let producto = productos.find((producto) => producto.id == req.params.id);
-    console.log(producto);
-    res.render("product-edit-form", { producto });
-  },
+    //EDITAR PRODUCTO
+    editar: (req, res) => {
+        let producto = productos.find(producto => producto.id == req.params.id)
+        res.render('product-edit-form', {producto});
+    },
 
-  eliminar: (req, res) => {
-    let id = req.params.id;
-    let productToDelete = productos.filter((producto) => producto.id != id);
-    fs.writeFileSync(
-      productsFilePath,
-      JSON.stringify(productToDelete, null, "\t")
-    );
-    res.redirect("/");
-  },
+    update: (req, res) => {
+        let producto = productos.find(producto => producto.id == req.params.id);
 
-  crear: (req, res) => {
-    const producto = { id: productos[productos.length - 1].id + 1, ...req.body };
-    const productosAPublicar = [...productos, producto] 
-    fs.writeFileSync(
-      productsFilePath,
-      JSON.stringify(productosAPublicar, null, "\t")
-    );
-    res.redirect("/");
-  },
-};
+        let editandoProducto = {
+			"id": producto.id,
+			"nombre": req.body.nombre,
+			"marca": req.body.marca,
+			"tamaño": req.body.tamaño,
+			"color": req.body.color,
+			"fabricante": req.body.fabricante,
+            "precio": req.body.precio,
+            "descuento": req.body.descuento,
+            "foto": req.body.foto,
+            "descripcion": req.body.descripcion,
+            "stock": req.body.stock,
+            "modelo": req.body.modelo,
+		};
+
+        let productoEditado = productos.map(producto => {
+			if (editandoProducto.id == producto.id){
+				return producto.id = editandoProducto.id;
+			};
+			return producto
+		});
+
+		fs.writeFileSync(productsFilePath, JSON.stringify(productoEditado, null, '/t'));
+
+		res.redirect("/producto", {producto});
+
+    },
+
+    //ELIMINAR PRODUCTO
+    eliminar : (req, res) => {
+		let id =  req.params.id;
+		let productToDelete=productos.filter(producto=>producto.id != id)
+		fs.writeFileSync(productsFilePath ,JSON.stringify(productToDelete,null,'\t'));
+		res.redirect('/');
+    },
+
+    crear: (req, res) => {
+      const producto = { id: productos[productos.length - 1].id + 1, ...req.body };
+      const productosAPublicar = [...productos, producto] 
+      fs.writeFileSync(
+        productsFilePath,
+        JSON.stringify(productosAPublicar, null, "\t")
+      );
+      res.redirect("/");
+    }
+}
+
 
 module.exports = productsController;

@@ -2,12 +2,23 @@
     {
         "id": 1,
         "nombreUsuario": "holita",
-        "nombre": "hola",
-        "apellido": "sontuhteojuk",
+        "nombre": "Juan",
+        "apellido": "Perez",
         "email": "aohola@gmail.com",
         "contraseña": "snoethuojk",
-        "edad": 10,
+        "edad": 23,
         "categoria": "cliente",
+        "fotoPerfil": "link" 
+    },
+    {
+        "id": 2,
+        "nombreUsuario": "Lauphite",
+        "nombre": "Lautaro",
+        "apellido": "Diego",
+        "email": "lautydie@gmail.com",
+        "contraseña": "contraseña123",
+        "edad": 19,
+        "categoria": "admin",
         "fotoPerfil": "link" 
     }
 ]

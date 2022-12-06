@@ -61,6 +61,10 @@ form.form-register {
     color: var(--white);
 }
 
+form#form-register {
+    margin: 20px 30px;
+}
+
 .div-form-register {
     width: 100%;
     margin: auto;
