@@ -12,73 +12,64 @@
     <!--MAIN-->
     <main class="register">
         <!--FORMULARIO DE EDICION DE PRODUCTO-->
-        <form action="/productos/<%=producto.id%>?_method=PUT" method="POST" class="form-register" id="form-edit">
+        <form action="/productos/editar/<%=producto.id%>?_method=PUT" method="POST" class="form-register" id="form-edit" enctype="application/x-www-form-urlencoded">
             <h1 class="form-edit">Editar producto: <%=producto.id%></h1>
             <div class="div-form-register">
                 <!--NOMBRE DEL PRODUCTO-->
                 <div class="group-register">
-                    <input type="text" class="input-text" id="nombre" name="nombre" value="<%producto.nombre%>" 
-                    placeholder="<%=producto.nombre%>"><span class="barra"></span>
+                    <input type="text" class="input-text" id="nombre" name="nombre" value="<%=producto.nombre %>"><span class="barra"></span>
                     <label for="nombre" class="lbl-text">Nombre del producto</label>
                 </div>
                 <!--MARCA-->
                 <div class="group-register">
-                    <input type="text" class="input-text" id="marca" name="marca" value="<%producto.marca%>" 
-                    placeholder="<%=producto.marca%>"><span class="barra"></span>
+                    <input type="text" class="input-text" id="marca" name="marca" value="<%=producto.marca %>"><span class="barra"></span>
                     <label for="marca" class="lbl-text">Marca</label>
                 </div>
                 <!--TAMAÑO-->
                 <div class="group-register">
-                    <input type="text" class="input-text" id="tamaño" name="tamaño" value="<%producto.tamaño%>" 
-                    placeholder="<%=producto.tamaño%>"><span class="barra"></span>
+                    <input type="text" class="input-text" id="tamaño" name="tamaño" value="<%=producto.tamaño%>"><span class="barra"></span>
                     <label for="tamaño" class="lbl-text">Tamaño</label>
                 </div>
                 <!--COLOR-->
                 <div class="group-register">
-                    <input type="text" class="input-text" id="color" name="color" value="<%producto.color%>" 
-                    placeholder="<%=producto.color%>"><span class="barra"></span>
+                    <input type="text" class="input-text" id="color" name="color" value="<%=producto.color%>"><span class="barra"></span>
                     <label for="color" class="lbl-text">Color</label>
                 </div>
                 <!--PRECIO-->
                 <div class="group-register">
-                    <input type="text" class="input-text" id="precio" name="precio" value="<%producto.precio%>" 
-                    placeholder="<%=producto.precio%>"><span class="barra"></span>
+                    <input type="text" class="input-text" id="precio" name="precio" value="<%=producto.precio%>"><span class="barra"></span>
                     <label for="precio" class="lbl-text">Precio</label>
                 </div>
                 <!--FABRICANTE-->
                 <div class="group-register">
-                    <input type="text" class="input-text" id="fabricante" name="fabricante" value="<%producto.fabricante%>" 
-                    placeholder="<%=producto.fabricante%>"><span class="barra"></span>
+                    <input type="text" class="input-text" id="fabricante" name="fabricante" value="<%=producto.fabricante%>"><span class="barra"></span>
                     <label for="fabricante" class="lbl-text">Fabricante</label>
                 </div>
                 <!--DESCUENTO-->
                 <div class="group-register">
-                    <input type="text" class="input-text" id="descuento" name="descuento" value="<%producto.descuento%>" 
-                    placeholder="<%=producto.descuento%>"><span class="barra"></span>
+                    <input type="text" class="input-text" id="descuento" name="descuento" value="<%=producto.descuento%>"><span class="barra"></span>
                     <label for="descuento" class="lbl-text">Descuento</label>
                 </div>
                 <!--MODELO-->
                 <div class="group-register">
-                    <input type="text" class="input-text" id="modelo" name="modelo" value="<%producto.modelo%>" 
-                    placeholder="<%=producto.modelo%>"><span class="barra"></span>
+                    <input type="text" class="input-text" id="modelo" name="modelo" value="<%=producto.modelo%>"><span class="barra"></span>
                     <label for="modelo" class="lbl-text">Modelo</label>
                 </div>
                 <!--STOCK-->
                 <div class="group-register">
-                    <input type="number" class="input-text" id="stock" name="stock" value="<%producto.stock%>" 
-                    placeholder="<%=producto.stock%>"><span class="barra"></span>
+                    <input type="number" class="input-text" id="stock" name="stock" value="<%=producto.stock%>"><span class="barra"></span>
                     <label for="stock" class="lbl-text">Stock</label>
                 </div>
                 <!--FOTO-->
                 <div class="group-register" id="foto">
                     <input type="file" accept="image/png,image/jpeg" class="input-img" id="foto" name="foto" 
-                    value="<%producto.foto%>">
+                    value="<%=producto.foto%>">
                 </div>
                 <!--DESCRIPCION-->
                 <div class="group-register" id="descripcion">
                     <label for="descripcion" class="descripcion">Descripción</label><br>
                     <textarea class="descripcion" name="descripcion" id="descripcion" cols="30" rows="6"
-                    value="<%producto.descripcion%>" placeholder="<%=producto.descripcion%>"></textarea>
+                    value="<%=producto.descripcion%>"><%=producto.descripcion%></textarea>
                 </div>
                 <!--SUBMIT / RESET-->
                 <button type="submit">Editar</a></button>

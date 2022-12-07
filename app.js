@@ -12,8 +12,10 @@ app.listen(PORT, () => console.log("Servidor corriendo en el puerto: " + PORT));
 //--------------------  MIDDLEWARE ------------------------//
 app.use(express.static('public'));
 app.use(methodOverride('_method'));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cookieParser());
+
 
 //--------------------  TEMPLATE ENGINE  ------------------------//
 app.set('view engine', 'ejs');

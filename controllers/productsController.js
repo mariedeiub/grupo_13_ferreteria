@@ -54,11 +54,6 @@ const productsController = {
     res.render("producto", { producto });
   },
 
-  // CARGAR PRODUCTO
-  cargar: (req, res) => {
-    res.render("forms");
-  },
-
   // FILTRAR
   filtrar: (req, res) => {
     let filtro = req.query.marca;
@@ -84,31 +79,39 @@ const productsController = {
     update: (req, res) => {
         let producto = productos.find(producto => producto.id == req.params.id);
 
-        let editandoProducto = {
-			"id": producto.id,
-			"nombre": req.body.nombre,
-			"marca": req.body.marca,
-			"tamaño": req.body.tamaño,
-			"color": req.body.color,
-			"fabricante": req.body.fabricante,
-            "precio": req.body.precio,
-            "descuento": req.body.descuento,
-            "foto": req.body.foto,
-            "descripcion": req.body.descripcion,
-            "stock": req.body.stock,
-            "modelo": req.body.modelo,
-		};
+        console.log('producto: ' + req.body.nombre)
 
-        let productoEditado = productos.map(producto => {
-			if (editandoProducto.id == producto.id){
-				return producto.id = editandoProducto.id;
-			};
+        let editandoProducto = {
+			  "id": producto.id,
+        //modificar para que lo seleccione
+        "categoria": producto.categoria,
+        "nombre": req.body.nombre,
+        "marca": req.body.marca,
+        "tamaño": req.body.tamaño,
+        "color": req.body.color,
+        "fabricante": req.body.fabricante,
+        "precio": req.body.precio,
+        "descuento": req.body.descuento,
+        //modificar para que seleccione la foto
+        "foto": producto.foto,
+        "descripcion": req.body.descripcion,
+        "stock": req.body.stock,
+        "modelo": req.body.modelo,
+		  };
+
+
+      console.log(editandoProducto)
+
+      let productoEditado = productos.map(producto => {
+        if (editandoProducto.id == producto.id){
+          return producto = editandoProducto;
+        };
 			return producto
 		});
 
-		fs.writeFileSync(productsFilePath, JSON.stringify(productoEditado, null, '/t'));
+		fs.writeFileSync(productsFilePath, JSON.stringify(productoEditado, null, ''));
 
-		res.redirect("/producto", {producto});
+		res.render("producto" , {producto} );
 
     },
 
@@ -120,14 +123,29 @@ const productsController = {
 		res.redirect('/');
     },
 
+    // CARGAR NUEVO PRODUCTO
+    cargar: (req, res) => {
+      res.render("forms");
+    },
+
     crear: (req, res) => {
-      const producto = { id: productos[productos.length - 1].id + 1, ...req.body };
-      const productosAPublicar = [...productos, producto] 
+      let img;
+
+      if(req.files.length > 0){
+        img = "/images/" + req.files[0].filename;
+      } else{
+        img = 'default-image.png'
+      }
+
+      const producto = { id: productos[productos.length - 1].id + 1, ...req.body ,"foto": img, "categoria": ["herramientas"]};
+      const productosAPublicar = [...productos, producto]
+    
       fs.writeFileSync(
         productsFilePath,
-        JSON.stringify(productosAPublicar, null, "\t")
+        JSON.stringify(productosAPublicar, null, "")
       );
-      res.redirect("/");
+
+      res.redirect(`/productos/${producto.categoria}`);
     }
 }
 
