@@ -79,7 +79,13 @@ const productsController = {
     update: (req, res) => {
         let producto = productos.find(producto => producto.id == req.params.id);
 
-        console.log('producto: ' + req.body.nombre)
+        let img;
+
+        if(req.files.length > 0){
+          img = "/images/" + req.files[0].filename;
+        } else{
+          img = 'default-image.png'
+        }
 
         let editandoProducto = {
 			  "id": producto.id,
@@ -93,7 +99,7 @@ const productsController = {
         "precio": req.body.precio,
         "descuento": req.body.descuento,
         //modificar para que seleccione la foto
-        "foto": producto.foto,
+        "foto": img,
         "descripcion": req.body.descripcion,
         "stock": req.body.stock,
         "modelo": req.body.modelo,

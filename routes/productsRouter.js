@@ -31,7 +31,7 @@ router.get('/filtrar', productsController.filtrar)
 
 // EDITAR PRODUCTO
 router.get('/editar/:id/', productsController.editar);
-router.put('/editar/:id/', productsController.update)
+router.put('/editar/:id/', upload.any(''), productsController.update)
 
 router.delete('/delete/:id/',productsController.eliminar)
 
