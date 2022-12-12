@@ -59,6 +59,15 @@
                     <input type="number" class="input-text" id="stock" name="stock"><span class="barra"></span>
                     <label for="stock" class="lbl-text">Stock</label>
                 </div>
+                <!--CATEGORIA-->
+                <section class="categorias"> Categorias:
+                    <% categorias.forEach(categoria => { %>
+                        <div class="categoria">
+                            <label for="categoria"><%=categoria %> </label>
+                            <input type="checkbox" name="categoria" value=<%=categoria %> >
+                        </div>
+                    <% }) %>
+                </section>
                 <!--FOTO-->
                 <div class="group-register" id="cargar-imagen">
                     <input type="file" accept="image/png,image/jpeg" class="input-img" id="foto" name="img">

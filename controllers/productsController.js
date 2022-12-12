@@ -7,6 +7,9 @@ const productos = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
 const filtersFilePath = path.join("./data/filtersList.json");
 const filtros = JSON.parse(fs.readFileSync(filtersFilePath, "utf-8"));
 
+const categoryFilePath = path.join("./data/categoryList.json");
+const categorias = JSON.parse(fs.readFileSync(categoryFilePath, "utf-8"));
+
 const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const productsController = {
@@ -73,24 +76,25 @@ const productsController = {
     //EDITAR PRODUCTO
     editar: (req, res) => {
         let producto = productos.find(producto => producto.id == req.params.id)
-        res.render('product-edit-form', {producto});
+        res.render('product-edit-form', {producto, categorias});
     },
 
     update: (req, res) => {
         let producto = productos.find(producto => producto.id == req.params.id);
+
 
         let img;
 
         if(req.files.length > 0){
           img = "/images/" + req.files[0].filename;
         } else{
-          img = 'default-image.png'
+          img = producto.foto;
         }
 
         let editandoProducto = {
 			  "id": producto.id,
         //modificar para que lo seleccione
-        "categoria": producto.categoria,
+        "categoria": req.body.categoria,
         "nombre": req.body.nombre,
         "marca": req.body.marca,
         "tamaño": req.body.tamaño,
@@ -131,7 +135,7 @@ const productsController = {
 
     // CARGAR NUEVO PRODUCTO
     cargar: (req, res) => {
-      res.render("forms");
+      res.render("forms", {categorias});
     },
 
     crear: (req, res) => {
@@ -143,7 +147,7 @@ const productsController = {
         img = 'default-image.png'
       }
 
-      const producto = { id: productos[productos.length - 1].id + 1, ...req.body ,"foto": img, "categoria": ["herramientas"]};
+      const producto = { id: productos[productos.length - 1].id + 1, ...req.body ,"foto": img};
       const productosAPublicar = [...productos, producto]
     
       fs.writeFileSync(
