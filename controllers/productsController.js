@@ -97,7 +97,7 @@ const productsController = {
         "categoria": req.body.categoria,
         "nombre": req.body.nombre,
         "marca": req.body.marca,
-        "tamaño": req.body.tamaño,
+        "tamanio": req.body.tamanio,
         "color": req.body.color,
         "fabricante": req.body.fabricante,
         "precio": req.body.precio,
@@ -155,7 +155,7 @@ const productsController = {
         JSON.stringify(productosAPublicar, null, "")
       );
 
-      res.redirect(`/productos/${producto.categoria}`);
+      res.redirect(`/productos/${producto.categoria[0]}`);
     }
 }
 

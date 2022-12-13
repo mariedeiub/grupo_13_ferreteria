@@ -102,6 +102,7 @@ main {
 .descripcion{
     font-size: 20px;
     padding: 10px;
+    padding-top: 0;
 }
 
 /*------------------- SEPARADOR --------------- */
