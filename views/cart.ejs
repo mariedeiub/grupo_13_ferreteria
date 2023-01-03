@@ -23,7 +23,7 @@
                             <a href="/productos/producto/<%= producto.id %>" ><img src=<%=producto.foto%> alt=""></a>
                         </section>
                         <section class="detalle">
-                            <h4><%= producto.nombre %> <%= producto.marca %>  <%= producto.tamaño %> <%= producto.color %> </h4>
+                            <h4><%= producto.nombre %> <%= producto.marca %>  <%= producto.tamanio %> <%= producto.color %> </h4>
                             <p class="precio">$<%= producto.precio %> </p>
                             <p class="descuento"><%= producto.descuento > " " ? producto.descuento + '%' : " " %> </p>
                             <!--CONTADOR-->

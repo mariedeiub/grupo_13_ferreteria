@@ -170,6 +170,33 @@ div#foto::before {
     -o-border-radius: 10px;
 }
 
+/*-------- CREAR PRODUCTO: INPUT FOTO --------*/
+div#cargar-imagen {
+    position: relative;
+    display: inline-block;
+}
+
+div#cargar-imagen::before {
+    background-color: var(--blue_2);
+    color: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    content: 'Cargar imagen';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+
 .input-img {
     opacity: 0;
     width: 200px;
@@ -321,7 +348,7 @@ p.login a:hover {
     }
 
     button {
-        margin: 0px 0 2px 2%;
+        margin: 0px 57px 2px 2%;
     }
 }
 

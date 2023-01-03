@@ -2,59 +2,84 @@
 <html lang="en">
 <!---HEAD---> 
 <%- include('./partials/head.ejs')  %> 
-    <title>Modificar Producto</title>
+    <title>Crear Producto</title>
     <link href="/css/styles.css" rel="stylesheet">`
-    <link href="/css/login.css" rel="stylesheet">`
+    <link href="/css/form.css" rel="stylesheet">`
 </head>
 <body>
     <%- include('./partials/header.ejs')  %> 
-    <main class="cambiar">
-        <form action="#" method="POST" class="form-cambiar" id="form-cambiar">
-            <div class="div-form-cambiar">
-                <h1>Agregar o modificar productos</h1>
-                <div class="group-cambiar">
-                    <div class="error-input" id="group-producto">
-                        <input required type="text" class="input-text" id="nombre-producto"><span class="barra"></span>
-                        <label for="nombre-producto" class="lbl-text">Nombre de producto</label>
-                        <i class="fa-solid fa-circle-exclamation"></i>
-                    </div>
+    <!--MAIN-->
+    <main class="register">
+        <!--FORMULARIO DE EDICION DE PRODUCTO-->
+        <form action="/productos/crear/" method="POST" class="form-register" id="form-edit" enctype="multipart/form-data">
+            <h1 class="form-edit">Crear nuevo producto </h1>
+            <div class="div-form-register">
+                <!--NOMBRE DEL PRODUCTO-->
+                <div class="group-register">
+                    <input type="text" class="input-text" id="nombre" name="nombre"><span class="barra"></span>
+                    <label for="nombre" class="lbl-text">Nombre del producto</label>
                 </div>
-                <div class="group-cambiar">
-                    <div class="error-input" id="group-description">
-                        <input required type="text" class="input-text" id="description">
-                        <label for="description" class="lbl-text">Descripcion</label>
-                        <i class="fa-solid fa-circle-exclamation"></i>
-                    </div>
+                <!--MARCA-->
+                <div class="group-register">
+                    <input type="text" class="input-text" id="marca" name="marca"><span class="barra"></span>
+                    <label for="marca" class="lbl-text">Marca</label>
                 </div>
-                <div class="group-cambiar">
-                    <div class="error-input" id="group-categoria">
-                        <input required type="text" class="input-text" id="categoria"><span class="barra"></span>
-                        <label for="categoria" class="lbl-text">Categoria</label>
-                        <i class="fa-solid fa-circle-exclamation"></i>
-                    </div>
+                <!--TAMAÑO-->
+                <div class="group-register">
+                    <input type="text" class="input-text" id="tamaño" name="tamanio"><span class="barra"></span>
+                    <label for="tamaño" class="lbl-text">Tamaño</label>
                 </div>
-                <div class="group-cambiar">
-                    <div class="error-input" id="group-colores">
-                        <input required type="text" class="input-text" id="colores"><span class="barra"></span>
-                        <label for="color" class="lbl-text">Colores</label>
-                        <i class="fa-solid fa-circle-exclamation"></i>
-                    </div>
+                <!--COLOR-->
+                <div class="group-register">
+                    <input type="text" class="input-text" id="color" name="color"><span class="barra"></span>
+                    <label for="color" class="lbl-text">Color</label>
                 </div>
-                <div class="group-cambiar">
-                    <div class="error-input" id="group-precio">
-                        <input required type="text" class="input-text" id="precio"><span class="barra"></span>
-                        <label for="precio" class="lbl-text">Precio</label>
-                        <i class="fa-solid fa-circle-exclamation"></i>
-                    </div>
+                <!--PRECIO-->
+                <div class="group-register">
+                    <input type="text" class="input-text" id="precio" name="precio"><span class="barra"></span>
+                    <label for="precio" class="lbl-text">Precio</label>
                 </div>
-                <div class="group-cambiar1">
-                    <div class="error-input" id="group-image">
-                        <input required type="file" class="input" id="image" accept=".jpg"><span class="box"></span>
-                        <label for="image" class="lbl-text"></label>
-                        <i class="fa-solid fa-circle-exclamation"></i>
-                    </div>
+                <!--FABRICANTE-->
+                <div class="group-register">
+                    <input type="text" class="input-text" id="fabricante" name="fabricante"><span class="barra"></span>
+                    <label for="fabricante" class="lbl-text">Fabricante</label>
                 </div>
-                <button type="submit"><a href="/">Añadir producto</a></button>
+                <!--DESCUENTO-->
+                <div class="group-register">
+                    <input type="text" class="input-text" id="descuento" name="descuento"><span class="barra"></span>
+                    <label for="descuento" class="lbl-text">Descuento</label>
+                </div>
+                <!--MODELO-->
+                <div class="group-register">
+                    <input type="text" class="input-text" id="modelo" name="modelo"><span class="barra"></span>
+                    <label for="modelo" class="lbl-text">Modelo</label>
+                </div>
+                <!--STOCK-->
+                <div class="group-register">
+                    <input type="number" class="input-text" id="stock" name="stock"><span class="barra"></span>
+                    <label for="stock" class="lbl-text">Stock</label>
+                </div>
+                <!--CATEGORIA-->
+                <section class="categorias"> Categorias:
+                    <% categorias.forEach(categoria => { %>
+                        <div class="categoria">
+                            <label for="categoria"><%=categoria %> </label>
+                            <input type="checkbox" name="categoria" value=<%=categoria %> >
+                        </div>
+                    <% }) %>
+                </section>
+                <!--FOTO-->
+                <div class="group-register" id="cargar-imagen">
+                    <input type="file" accept="image/png,image/jpeg" class="input-img" id="foto" name="img">
+                </div>
+                <!--DESCRIPCION-->
+                <div class="group-register" id="descripcion">
+                    <label for="descripcion" class="descripcion">Descripción</label><br>
+                    <textarea class="descripcion" name="descripcion" id="descripcion" cols="30" rows="6"></textarea>
+                </div>
+                <!--SUBMIT / RESET-->
+                <button type="submit">Crear</a></button>
+                <button type="reset">Restablecer</a></button>
             </div>
         </form>
     </main>
