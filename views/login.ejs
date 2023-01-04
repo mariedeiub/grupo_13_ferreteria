@@ -15,29 +15,22 @@
     <main class="register">
         <form action="#" method="POST" class="form-register" id="form-register">
             <h1 class="login">INICIAR SESION</h1>
-            <div class="div-form-register">
+            <div class="div-form-login">
                 <!-- USUARIO -->
-                <div class="group-register">
-                    <div class="error-input" id="group-username">
-                        <input required type="text" class="input-text" id="username"><span class="barra"></span>
-                        <label for="username" class="lbl-text">Nombre de Usuario</label>
-                        <i class="fa-solid fa-circle-exclamation"></i>
-                    </div>
-                    <p class="form-error">El nombre de usuario debe tener entre 5 y 15 digitos. Solo letras y numeros.</p>
+                <div class="group-register" id="login1">
+                        <input required type="text" class="input-text" id="usuario"><span class="barra"></span>
+                        <label for="usuario" class="lbl-text">Nombre de Usuario</label>
                 </div>
 
                 <!-- CONTRASENA -->
-                <div class="group-register">
-                    <div class="error-input" id="group-password">
-                        <input required type="password" class="input-text" id="password" name="password"><span class="barra"></span>
-                        <label for="password" class="lbl-text">Contraseña</label>
-                        <i class="fa-solid fa-circle-exclamation"></i>
-                    </div>
-                    <p class="form-error">La contraseña no coincide con la cuenta.</p>
+                <div class="group-register" id="login2">
+                        <input required type="password" class="input-text" id="contraseña" name="contraseña"><span class="barra"></span>
+                        <label for="contraseña" class="lbl-text">Contraseña</label>
                 </div>
 
                 <button type="submit" class="corrido"><a href="/">Inicar Sesion</a></button>
                 <p class="login"><a href="/registro">¿No estas registrado? Crea tu cuenta acá!</a></p>
+                </div>
             </div>
         </form>
     </main>

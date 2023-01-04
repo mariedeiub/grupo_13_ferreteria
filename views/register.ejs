@@ -15,58 +15,65 @@
         <form action="/register" method="POST" class="form-register" id="form-register" enctype="multipart/form-data">
             <h1 class="login">REGISTRO</h1>
             <div class="div-form-register">
-                <!-- NOMBRE Y APELLIDO -->
-                <div class="group-register">
-                    <input required type="text" class="input-text" id="name"><span class="barra"></span>
-                    <label for="name" class="lbl-text">Nombre y Apellido</label>
+                <!-- NOMBRE -->
+                <div class="group-register" id="div1">
+                    <input required type="text" class="input-text" id="nombre"><span class="barra"></span>
+                    <label for="nombre" class="lbl-text">Nombre</label>
+                </div>
+
+                <!-- APELLIDO -->
+                <div class="group-register" id="div2">
+                    <input required type="text" class="input-text" id="apellido"><span class="barra"></span>
+                    <label for="apellido" class="lbl-text">Apellido</label>
                 </div>
 
                 <!-- DIRECCION -->
-                <div class="group-register">
-                    <input required type="text" class="input-text" id="address"><span class="barra"></span>
-                    <label for="address" class="lbl-text">Direccion</label>
+                <div class="group-register" id="div3">
+                    <input required type="text" class="input-text" id="direccion"><span class="barra"></span>
+                    <label for="direccion" class="lbl-text">Direccion</label>
                 </div>
-                <div class="group-register">
-                    <input required type="text" class="input-text" id="address-l"><span class="barra"></span>
-                    <label for="address-l" class="lbl-text">Localidad</label>
+                <div class="group-register" id="div4">
+                    <input required type="text" class="input-text" id="localidad"><span class="barra"></span>
+                    <label for="localidad" class="lbl-text">Localidad</label>
                 </div>
-                <div class="group-register">
-                    <input required type="text" class="input-text" id="address-2"><span class="barra"></span>
-                    <label for="address" class="lbl-text">Pais</label>
+                <div class="group-register" id="div5">
+                    <input required type="text" class="input-text" id="pais"><span class="barra"></span>
+                    <label for="pais" class="lbl-text">Pais</label>
                 </div>
 
                 <!-- EDAD -->
-                <div class="group-register">
-                    <input required type="number" class="input-text" id="date"><span class="barra"></span>
-                    <label for="date" class="lbl-text">Edad</label>
+                <div class="group-register" id="div6">
+                    <input required type="number" class="input-text" id="edad"><span class="barra"></span>
+                    <label for="edad" class="lbl-text">Edad</label>
                 </div>
 
                 <!-- CORREO ELECTRONICO -->
-                <div class="group-register">
+                <div class="group-register" id="div7">
                     <input required type="email" class="input-text" id="mail"><span class="barra"></span>
                     <label for="mail" class="lbl-text">Correo Electronico</label>
                 </div>
 
                 <!-- USUARIO -->
-                <div class="group-register">
-                    <input required type="text" class="input-text" id="username"><span class="barra"></span>
-                    <label for="username" class="lbl-text">Nombre de Usuario</label>
+                <div class="group-register" id="div8">
+                    <input required type="text" class="input-text" id="usuario"><span class="barra"></span>
+                    <label for="usuario" class="lbl-text">Nombre de Usuario</label>
                 </div>
 
                 <!-- CONTRASENA -->
-                <div class="group-register">
-                    <input required type="password" class="input-text" id="password" name="password"><span class="barra"></span>
-                    <label for="password" class="lbl-text">Contraseña</label>
+                <div class="group-register" id="div9">
+                    <input required type="password" class="input-text" id="contraseña" name="contraseña"><span class="barra"></span>
+                    <label for="contraseña" class="lbl-text">Contraseña</label>
                 </div>
 
                 <!-- CONFIRMAR CONTRASENA -->
-                <div class="group-register">
-                    <input required type="password" class="input-text" id="password2" name="password2"><span class="barra"></span>
-                    <label for="password" class="lbl-text">Repetir Contraseña</label>
+                <div class="group-register" id="div10">
+                    <input required type="password" class="input-text" id="repetirContraseña" name="repetirContraseña"><span class="barra"></span>
+                    <label for="repetirContraseña" class="lbl-text">Repetir Contraseña</label>
                 </div>
 
                 <button type="submit">a</button>
                 <p class="login"><a href="/login">¿Ya estás registrado? Inicia seción acá!</a></p>
+                </div>
             </div>
         </form>
     </main>
