@@ -10,6 +10,14 @@
     <%- include('./partials/header.ejs')  %> 
     <!--MAIN-->
     <main class="register">
+        <!--MENSAJE DE ERROR EN CASO QUE FALTE COMPLETAR UN CAMPO-->
+        <section class="errores">
+            <% if (locals.errors) { %>
+                <% errors.forEach(error => { %>
+                    <p><%= error.msg %> </p>
+                <% }) %>
+            <% } %>
+        </section>       
         <!--FORMULARIO DE EDICION DE PRODUCTO-->
         <form action="/productos/crear/" method="POST" class="form-register" id="form-edit" enctype="multipart/form-data">
             <h1 class="form-edit">Crear nuevo producto </h1>
