@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const mainController = require('../controllers/mainController');
+const multer = require('multer');
+const upload = multer();
 
 router.get('/', mainController.index);
 
@@ -21,5 +23,10 @@ router.post('/carrito/eliminar/:id/', mainController.eliminarCarrito);
 router.get('/registro', mainController.registro);
 
 router.get('/login', mainController.login);
+
+router.use(upload.array()); 
+router.use(express.static('public'));
+
+router.post('/register', mainController.register);
 
 module.exports = router

@@ -4,7 +4,9 @@ const fs = require('fs');
 const path = require('path');
 
 const productsFilePath = path.join(__dirname, '../data/productsList.json');
+const usersFilePath = path.join(__dirname, '../data/usersList.json');
 const productos = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+const users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
 
 const mainController = {
     index: (req, res) => {
@@ -51,6 +53,17 @@ const mainController = {
 
     registro: (req, res) => {
         res.render('register');
+    },
+
+    register: (req, res) => {
+        const usuario = req.body
+        const productosAPublicar = [...users, usuario]
+console.log(req.body)
+res.status(200).send("hi")
+    //     fs.writeFileSync(
+    //     usersFilePath,
+    //     JSON.stringify(productosAPublicar, null, "")
+    //   );
     },
 
     login: (req, res) => {
