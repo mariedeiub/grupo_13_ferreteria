@@ -83,7 +83,7 @@ const productsController = {
     update: (req, res) => {
         let producto = productos.find(producto => producto.id == req.params.id);
 
-
+        console.log("VOY A EDITAR")
         let img;
 
         if(req.files.length > 0){

@@ -17,10 +17,6 @@ const mainController = {
         res.render('home');
     },
 
-    // detalle: (req, res) => {
-    //     res.render('detail');
-    // },
-
     carrito: (req, res) => {
         let pedido = [];
         let total = 0;
@@ -51,24 +47,6 @@ const mainController = {
         res.redirect('/carrito')
     },
 
-    registro: (req, res) => {
-        res.render('register');
-    },
-
-    register: (req, res) => {
-        const usuario = req.body
-        const productosAPublicar = [...users, usuario]
-console.log(req.body)
-res.status(200).send("hi")
-    //     fs.writeFileSync(
-    //     usersFilePath,
-    //     JSON.stringify(productosAPublicar, null, "")
-    //   );
-    },
-
-    login: (req, res) => {
-        res.render('login');
-    }
 }
 
 module.exports = mainController

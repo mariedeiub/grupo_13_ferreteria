@@ -3,7 +3,7 @@ const router = express.Router();
 const productsController = require('../controllers/productsController');
 const multer = require ('multer');
 const path = require('path');
-const productFormMiddleware = require ('../middlewares/productFormMiddleware');
+// const productFormMiddleware = require ('../middlewares/productFormMiddleware');
 
 // const {body} = require ('express-validator')
 
@@ -20,6 +20,7 @@ const productFormMiddleware = require ('../middlewares/productFormMiddleware');
 
 // ************ Configuracion Multer para los midleware ************
 const storage = multer.diskStorage({
+    
     destination: function(req, file, cb){
         cb(null, 'public/images/')
     },
@@ -36,8 +37,9 @@ const upload = multer ({storage: storage})
 
 // NUEVO PRODUCTO
 router.get('/cargar', productsController.cargar);
-router.post('/crear/', productFormMiddleware, productsController.crear);
+router.post('/crear/', upload.any(''), productsController.crear);
 
+// DETALLE DEL PRODUCTO
 router.get('/producto/:id/', productsController.producto);
 
 router.get('/filtrar', productsController.filtrar)

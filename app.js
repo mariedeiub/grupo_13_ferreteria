@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const mainRouter = require('./routes/mainRouter')
 const productsRouter= require ("./routes/productsRouter");
+const usersRouter= require ("./routes/userRouter");
 const methodOverride =  require('method-override');
 const cookieParser = require('cookie-parser');
 let PORT = 3030;
@@ -23,6 +24,7 @@ app.set('view engine', 'ejs');
 //--------------------  RUTAS ------------------------//
 app.use('/', mainRouter);
 app.use("/productos", productsRouter);
+app.use("/user", usersRouter);
 
 
 //-------------------NOT FOUND-----------------------------------//
