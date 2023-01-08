@@ -1,12 +1,14 @@
 [
     {
         "id": 1,
-        "nombreUsuario": "holita",
         "nombre": "Juan",
         "apellido": "Perez",
+        "direccion": "Calle Falsa 123",
+        "localidad": "CABA",
+        "edad": 23,        
         "email": "aohola@gmail.com",
+        "nombreUsuario": "holita",
         "contraseña": "snoethuojk",
-        "edad": 23,
         "categoria": "cliente",
         "fotoPerfil": "link" 
     },
