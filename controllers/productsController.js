@@ -1,3 +1,4 @@
+const { validationResult } = require("express-validator");
 const fs = require("fs");
 const path = require("path");
 
@@ -82,7 +83,7 @@ const productsController = {
     update: (req, res) => {
         let producto = productos.find(producto => producto.id == req.params.id);
 
-
+        console.log("VOY A EDITAR")
         let img;
 
         if(req.files.length > 0){
@@ -135,27 +136,38 @@ const productsController = {
 
     // CARGAR NUEVO PRODUCTO
     cargar: (req, res) => {
+      const errores = [];
       res.render("forms", {categorias});
     },
 
     crear: (req, res) => {
-      let img;
+      let errors = validationResult (req);
+      console.log(validationResult(req))
 
-      if(req.files.length > 0){
-        img = "/images/" + req.files[0].filename;
-      } else{
-        img = 'default-image.png'
+      if (errors.isEmpty()){
+        console.log("DATOS CORRECTOS")
+        let img;
+
+        if(req.files.length > 0){
+          img = "/images/" + req.files[0].filename;
+        } else{
+          img = 'default-image.png'
+        }
+
+        const producto = { id: productos[productos.length - 1].id + 1, ...req.body ,"foto": img};
+        const productosAPublicar = [...productos, producto]
+      
+        fs.writeFileSync(
+          productsFilePath,
+          JSON.stringify(productosAPublicar, null, "")
+        );
+
+        res.redirect(`/productos/${producto.categoria[0]}`);
+
+      }else{
+        console.log("Entra por errores")
+        res.render('forms', {errors : errors.array(), old: req.body, categorias})
       }
-
-      const producto = { id: productos[productos.length - 1].id + 1, ...req.body ,"foto": img};
-      const productosAPublicar = [...productos, producto]
-    
-      fs.writeFileSync(
-        productsFilePath,
-        JSON.stringify(productosAPublicar, null, "")
-      );
-
-      res.redirect(`/productos/${producto.categoria[0]}`);
     }
 }
 
