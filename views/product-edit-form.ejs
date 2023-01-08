@@ -4,7 +4,7 @@
 <%- include('./partials/head.ejs')  %> 
     <title>Modificar Producto</title>
     <link href="/css/styles.css" rel="stylesheet">`
-    <link href="/css/form.css" rel="stylesheet">`
+    <link href="/css/product-edit-form.css" rel="stylesheet">`
 </head>
 <body>
     <!--HEADER-->
@@ -16,47 +16,47 @@
             <h1 class="form-edit">Editar producto: <%=producto.id%></h1>
             <div class="div-form-register">
                 <!--NOMBRE DEL PRODUCTO-->
-                <div class="group-register">
+                <div class="group-register" id="1">
                     <input type="text" class="input-text" id="nombre" name="nombre" value="<%=producto.nombre %>"><span class="barra"></span>
                     <label for="nombre" class="lbl-text">Nombre del producto</label>
                 </div>
                 <!--MARCA-->
-                <div class="group-register">
+                <div class="group-register" id="2">
                     <input type="text" class="input-text" id="marca" name="marca" value="<%=producto.marca %>"><span class="barra"></span>
                     <label for="marca" class="lbl-text">Marca</label>
                 </div>
                 <!--TAMAÑO-->
-                <div class="group-register">
+                <div class="group-register" id="3">
                     <input type="text" class="input-text" id="tamaño" name="tamanio" value="<%=producto.tamaño%>"><span class="barra"></span>
                     <label for="tamaño" class="lbl-text">Tamaño</label>
                 </div>
                 <!--COLOR-->
-                <div class="group-register">
+                <div class="group-register" id="4">
                     <input type="text" class="input-text" id="color" name="color" value="<%=producto.color%>"><span class="barra"></span>
                     <label for="color" class="lbl-text">Color</label>
                 </div>
                 <!--PRECIO-->
-                <div class="group-register">
+                <div class="group-register" id="5">
                     <input type="text" class="input-text" id="precio" name="precio" value="<%=producto.precio%>"><span class="barra"></span>
                     <label for="precio" class="lbl-text">Precio</label>
                 </div>
                 <!--FABRICANTE-->
-                <div class="group-register">
+                <div class="group-register" id="6">
                     <input type="text" class="input-text" id="fabricante" name="fabricante" value="<%=producto.fabricante%>"><span class="barra"></span>
                     <label for="fabricante" class="lbl-text">Fabricante</label>
                 </div>
                 <!--DESCUENTO-->
-                <div class="group-register">
+                <div class="group-register" id="7">
                     <input type="text" class="input-text" id="descuento" name="descuento" value="<%=producto.descuento%>"><span class="barra"></span>
                     <label for="descuento" class="lbl-text">Descuento</label>
                 </div>
                 <!--MODELO-->
-                <div class="group-register">
+                <div class="group-register" id="8">
                     <input type="text" class="input-text" id="modelo" name="modelo" value="<%=producto.modelo%>"><span class="barra"></span>
                     <label for="modelo" class="lbl-text">Modelo</label>
                 </div>
                 <!--STOCK-->
-                <div class="group-register">
+                <div class="group-register" id="9">
                     <input type="number" class="input-text" id="stock" name="stock" value="<%=producto.stock%>"><span class="barra"></span>
                     <label for="stock" class="lbl-text">Stock</label>
                 </div>

@@ -29,7 +29,8 @@ h1.login {
     font-weight: 700;
     margin: 0;
     height: 40px;
-    font-size: 30px;
+    text-decoration: underline;
+    font-size: 25px;
     justify-content: center;
 }
 
@@ -62,7 +63,7 @@ form.form-register {
 
 form#form-register {
     margin: 20px 30px;
-    width: 80vw;
+    width: 100vw;
 }
 
 .div-form-register {
@@ -251,12 +252,9 @@ button {
     background: var(--blue_2);
     border: none;
     color: var(--white);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-    margin-bottom: 10px;
-    font-size: 20px;
+    display: block;
+    margin: 0 0 15px 15%;
+    font-size: 18px;
     border-radius: 10px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
@@ -283,19 +281,13 @@ p.login {
     font-size: 14px;
     text-align: center;
     border-bottom: 1px solid var(--white);
-    display: flex;
-    justify-content: center;
-    max-width: 281px;
-    margin: auto;
-    margin-bottom: 10px;
+    text-decoration: none;
 }
 
 p.login a {
     color: var(--white);
     text-decoration: none;
-    display: flex;
-    align-items: center;
-    margin: auto;
+    text-align: center;
 }
 
 p.login a:hover {
@@ -329,10 +321,9 @@ p.login a:hover {
     div.div-form-register{
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(5, 1fr);
+        grid-template-rows: repeat(6, 1fr);
         grid-column-gap: 0px;
         grid-row-gap: 0px;
-        padding: 0 30px;
     }
     div.div-form-login {
         display: grid;
@@ -356,6 +347,9 @@ p.login a:hover {
         justify-content: center;
     }
 
+    button {
+        margin: 0px 57px 2px 2%;
+    }
 }
 
 /*============================== MEDIA PC =================================*/

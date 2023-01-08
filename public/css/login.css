@@ -29,8 +29,7 @@ h1.login {
     font-weight: 700;
     margin: 0;
     height: 40px;
-    text-decoration: underline;
-    font-size: 25px;
+    font-size: 30px;
     justify-content: center;
 }
 
@@ -249,7 +248,7 @@ button {
     color: var(--white);
     display: block;
     margin: 0 0 15px 30%;
-    font-size: 18px;
+    font-size: 20px;
     border-radius: 10px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
@@ -300,7 +299,6 @@ p.login a:hover {
 
     form.form-register {
         margin: 2vh 4vw;
-        padding: 20px 0;
     }
 
     div#descripcion{
