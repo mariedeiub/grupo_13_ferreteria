@@ -76,8 +76,24 @@ const productsController = {
 
     //EDITAR PRODUCTO
     editar: (req, res) => {
+    
         let producto = productos.find(producto => producto.id == req.params.id)
-        res.render('product-edit-form', {producto, categorias});
+
+        // MARCAR CATEGORIAS SELECCIONADAS DEL PRODUCTO A EDITAR  
+        let categoriasEdit = [];
+        categorias.forEach((categoria) => {
+          if (producto.categoria.indexOf(categoria) >= 0){
+            categoriaTrue = {nombre: categoria, estado: true}
+            categoriasEdit.push(categoriaTrue);
+          }
+          else{
+            categoriaTrue = {nombre: categoria, estado: false}
+            categoriasEdit.push(categoriaTrue);
+          }
+        });
+        console.log(categoriasEdit);
+
+        res.render('product-edit-form', {producto, categoriasEdit});
     },
 
     update: (req, res) => {

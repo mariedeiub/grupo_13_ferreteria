@@ -62,10 +62,13 @@
                 </div>
                 <!--CATEGORIA-->
                 <section class="categorias"> Categorias:
-                    <% categorias.forEach(categoria => { %>
+                    <% categoriasEdit.forEach(categoria => { %>
                         <div class="categoria">
-                            <label for="categoria"><%=categoria %> </label>
-                            <input type="checkbox" name="categoria" value=<%=categoria %> >
+                            <label for="categoria"><%=categoria.nombre %> </label>
+                            <input type="checkbox" name="categoria" value=<%=categoria.nombre%> 
+                            <% if (categoria.estado) { %>
+                                checked
+                            <% } %> >
                         </div>
                     <% }) %>
                 </section>
