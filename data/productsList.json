@@ -168,23 +168,5 @@
 		],
 		"descripcion": "Los grifos de la marca Peirano tienen como respaldo más de 80 años de trayectoria en el rubro sanitario. Además, cuentan con calidad certificada ISO 9001. Este modelo 20-160 es una solución para darle un toque diferente a tu cocina.",
 		"foto": "/images/img-1670816185322.png"
-	},
-	{
-		"id": 11,
-		"nombre": "Termo",
-		"marca": "adsdasa",
-		"tamanio": "asdfasdf",
-		"color": "sdfa",
-		"precio": "5200",
-		"fabricante": "asdada",
-		"descuento": "2",
-		"modelo": "asdad",
-		"stock": "5",
-		"categoria": [
-			"griferia",
-			"jardineria"
-		],
-		"descripcion": "xczxvcvc",
-		"foto": "/images/img-1672971070933.png"
 	}
 ]

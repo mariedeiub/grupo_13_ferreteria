@@ -1,6 +1,8 @@
 const { validationResult } = require("express-validator");
 const fs = require("fs");
 const path = require("path");
+const bcrypt = require ('bcrypt');
+const sal = bcrypt.genSaltSync(10);
 
 const usersFilePath = path.join(__dirname, "../data/usersList.json");
 const usuarios = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
@@ -13,34 +15,42 @@ const usersController = {
         res.render('login');
     },
 
-    // REGISTER
+    // REGISTRO
     registro: (req, res) => {
         res.render('register');
     },
 
+    //NUEVO USUARIO
     registrar: (req, res) => {
       let errors = validationResult (req);
-      console.log(validationResult(req))
+      console.log(validationResult(req));
 
       if (errors.isEmpty()){
         console.log("DATOS CORRECTOS")
         let img;
 
-        if(req.files.length > 0){
-          img = "/images/users/" + req.files[0].filename;
-        } else{
-          img = 'default-image.png'
-        }
+        req.body.contrasenia = bcrypt.hashSync(req.body.contrasenia,10);
 
-        const usuario = { id: usuarios[usuarios.length - 1].id + 1, ...req.body ,"foto": img};
+        const usuario = { 
+            id: usuarios[usuarios.length - 1].id + 1, 
+            nombre: req.body.nombre,
+            apellido: req.body.apellido,
+            direccion: req.body.direccion,
+            localidad: req.body.localidad,
+            edad: req.body.edad,        
+            email: req.body.email,
+            nombreUsuario: req.body.nombreUsuario,
+            contrasenia: req.body.contrasenia
+            };
         const usuarioARegistrar = [...usuarios, usuario]
       
         fs.writeFileSync(
-          productsFilePath,
+          usersFilePath,
           JSON.stringify(usuarioARegistrar, null, "")
         );
+        console.log(usuarioARegistrar)
 
-        // res.redirect(`/productos/${producto.categoria[0]}`);
+        res.redirect('/');
 
       }else{
         console.log("Entra por errores")
