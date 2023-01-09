@@ -40,6 +40,7 @@ const usersController = {
             edad: req.body.edad,        
             email: req.body.email,
             nombreUsuario: req.body.nombreUsuario,
+            tipoUsuario: req.body.tipoUsuario,
             contrasenia: req.body.contrasenia
             };
         const usuarioARegistrar = [...usuarios, usuario]

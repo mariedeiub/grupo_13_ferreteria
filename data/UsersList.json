@@ -1,1 +1,50 @@
-[{"id":1,"nombre":"Juan","apellido":"Perez","direccion":"Calle Falsa 123","localidad":"CABA","edad":23,"email":"aohola@gmail.com","nombreUsuario":"holita","contraseña":"snoethuojk","categoria":"cliente","fotoPerfil":"link"},{"id":2,"nombreUsuario":"Lauphite","nombre":"Lautaro","apellido":"Diego","email":"lautydie@gmail.com","contraseña":"contraseña123","edad":19,"categoria":"admin","fotoPerfil":"link"},{"id":3,"nombre":"Marianela","apellido":"Deiub","direccion":"Bolivia 121","localidad":"JUNIN","edad":"29","email":"mariedeiub@gmail.com","nombreUsuario":"Marianela","contrasenia":"$2b$10$TvNxQR2XQ3fiQf0lSJkK7.XAB6ZmgD0O5iyqbT.owJ4nHhudIcRLC"}]
+[
+    {
+        "id": 1,
+        "nombre": "Juan",
+        "apellido": "Perez",
+        "direccion": "Calle Falsa 123",
+        "localidad": "CABA",
+        "edad": 23,
+        "email": "aohola@gmail.com",
+        "nombreUsuario": "holita",
+        "contraseña": "snoethuojk",
+        "categoria": "cliente",
+        "fotoPerfil": "link"
+    },
+    {
+        "id": 2,
+        "nombreUsuario": "Lauphite",
+        "nombre": "Lautaro",
+        "apellido": "Diego",
+        "email": "lautydie@gmail.com",
+        "contraseña": "contraseña123",
+        "edad": 19,
+        "categoria": "admin",
+        "fotoPerfil": "link"
+    },
+    {
+        "id": 3,
+        "nombre": "Marianela",
+        "apellido": "Deiub",
+        "direccion": "Bolivia 121",
+        "localidad": "JUNIN",
+        "edad": "29",
+        "email": "mariedeiub@gmail.com",
+        "nombreUsuario": "Marianela",
+        "tipoUsuario": "administrador",
+        "contrasenia": "$2b$10$TvNxQR2XQ3fiQf0lSJkK7.XAB6ZmgD0O5iyqbT.owJ4nHhudIcRLC"
+    },
+    {
+        "id": 4,
+        "nombre": "Robert",
+        "apellido": "Ruiz",
+        "direccion": "Eduardo Madero 1800",
+        "localidad": "CABA",
+        "edad": "28",
+        "email": "robert@hotmail.com",
+        "nombreUsuario": "Robert123",
+        "tipoUsuario": "administrador",
+        "contrasenia": "$2b$10$jqo.XOVGMsaFesJfv74oIOkcOAnYErEH1hpATudhpYbK7bspEllCq"
+    }
+]
