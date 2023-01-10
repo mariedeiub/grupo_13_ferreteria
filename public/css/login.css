@@ -20,6 +20,7 @@
     justify-content: flex-end;
     align-content: space-between;
     flex-wrap: wrap;
+   
 }
 
 
@@ -76,7 +77,7 @@ form.form-register {
 }
 
 form#form-register {
-    margin: 20px 30px;
+    margin: 16px 52px 71px -411px;
 }
 
 .div-form-register {

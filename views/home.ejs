@@ -33,8 +33,10 @@
             <section class="icono">   
                 <a href="/user/login"><i class="ion-person"></i></a>
                
-                 
-                <h1><%=pass %></h1>
+                <% if (condicion==true) { %>
+                   <a href="/user/logout/"><h1><%=user.email %> <p> salir </p></h1></a>  
+                <% } %> 
+                
                 
             </section>
         </nav>

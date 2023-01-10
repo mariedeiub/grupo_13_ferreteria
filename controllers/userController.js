@@ -14,8 +14,8 @@ const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const usersController = {
     // LOGIN 
     login: (req, res) => {
-
-        res.render('login');
+  
+        return res.render('login');
     },
 
     // REGISTRO
@@ -64,14 +64,18 @@ const usersController = {
 
     processLogin: (req, res) => {
       let userToLogin=User.findByField('email', req.body.email)
-      let pass=req.body.email
+      let condicion=true
+      
       if (userToLogin){
         let isOkThepassword=  bcrypt.compareSync(req.body.contrasenia,userToLogin.contrasenia)
         if (isOkThepassword) {
           delete userToLogin.password;
           req.session.userLogged=userToLogin;
-           return res.render('home',{pass})
-        } 
+            
+            return  res.render('home',{user:req.session.userLogged,condicion:true});
+            }
+           } 
+           
        
         return res.render('login',{
           errors:{
@@ -80,16 +84,16 @@ const usersController = {
             }}})
           
             
-        return res.render('login',{
-          errors:{
-            password:{
-              msg:'el email o la contraseña estan mal'
-            }
-          }
-        })
+       
+      },
+
+
+      logout:(req,res)=> {
+        req.session.destroy();
+        return res.redirect('/')
+
       }
-      }
-    }
+}
   
     /*
       return res.render('login',{

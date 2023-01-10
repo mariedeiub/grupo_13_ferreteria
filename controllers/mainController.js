@@ -10,11 +10,13 @@ const users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
 
 const mainController = {
     index: (req, res) => {
-        res.render('home');
+        let condicion=false
+        res.render('home',{condicion});
     },
 
     home: (req, res) => {
-        res.render('home');
+        let condicion=false
+        res.render('home',{condicion});
     },
 
     carrito: (req, res) => {
