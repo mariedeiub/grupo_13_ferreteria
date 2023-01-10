@@ -23,10 +23,20 @@ const upload = multer ({storage: storage})
 
 // // LOGIN
 router.get('/login', userController.login);
+router.post('/login', userController.processLogin);
 
 // // NUEVO USUARIO
 router.get('/registro', userController.registro);
 router.post('/registrar/', userFormMiddleware, userController.registrar);
+
+
+
+
+
+
+
+
+
 
 // DETALLE DEL USUARIO
 // router.get('/users/:id/', userController.usuario);

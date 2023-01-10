@@ -1,7 +1,9 @@
+const User = require("../models/User");
 const { validationResult } = require("express-validator");
 const fs = require("fs");
 const path = require("path");
 const bcrypt = require ('bcrypt');
+const bcryptjs = require ('bcryptjs');
 const sal = bcrypt.genSaltSync(10);
 
 const usersFilePath = path.join(__dirname, "../data/usersList.json");
@@ -12,6 +14,7 @@ const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const usersController = {
     // LOGIN 
     login: (req, res) => {
+
         res.render('login');
     },
 
@@ -59,6 +62,47 @@ const usersController = {
       }
     },
 
+    processLogin: (req, res) => {
+      let userToLogin=User.findByField('email', req.body.email)
+      let pass=req.body.email
+      if (userToLogin){
+        let isOkThepassword=  bcrypt.compareSync(req.body.contrasenia,userToLogin.contrasenia)
+        if (isOkThepassword) {
+          delete userToLogin.password;
+          req.session.userLogged=userToLogin;
+           return res.render('home',{pass})
+        } 
+       
+        return res.render('login',{
+          errors:{
+            password:{
+              msg:'el email o la contraseña estan mal'
+            }}})
+          
+            
+        return res.render('login',{
+          errors:{
+            password:{
+              msg:'el email o la contraseña estan mal'
+            }
+          }
+        })
+      }
+      }
+    }
+  
+    /*
+      return res.render('login',{
+        errors:{
+          email:{
+            msg:'nose encuentra este'
+          }
+        }
+      });
+    }
+
+  }*/
+  
     // DETALLE DEL USUARIO
     // usuario: (req, res) => {
     //     let usuario = usuarios.find((usuario) => usuario.id == req.params.id);
@@ -133,7 +177,6 @@ const usersController = {
     // },
 
     
-}
 
 
 module.exports = usersController;
