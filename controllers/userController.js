@@ -61,39 +61,45 @@ const usersController = {
         res.render('register', {errors : errors.array(), old: req.body})
       }
     },
-
     processLogin: (req, res) => {
-      let userToLogin=User.findByField('email', req.body.email)
-      let condicion=true
-      console.log('processLogin')
-      if (userToLogin){
-        console.log('Entre al login')
-        let isOkThepassword=  bcrypt.compareSync(req.body.contrasenia,userToLogin.contrasenia)
-        if (isOkThepassword) {
-          console.log('Logueado')
-          delete userToLogin.password;
-          req.session.userLogged=userToLogin;
-            
-            return  res.render('home',{user:req.session.userLogged,condicion:true});
+      let userToLogin = User.findByField('email', req.body.email);
+      
+      if(userToLogin) {
+        let isOkThePassword = bcrypt.compareSync(req.body.contrasenia, userToLogin.contrasenia);
+        if (isOkThePassword) {
+          delete userToLogin.contrasenia;
+          req.session.userLogged = userToLogin;
+  
+         
+           return res.render('home', {
+            user: req.session.userLogged,condicion:true
+          });
+        } 
+        return  res.render('login', {
+          errors: {
+            email: {
+              msg: 'La contraseña es incorrecta'
             }
-           } 
-           
-           console.log('Error login')
-        return res.render('login',{
-          errors:{
-            password:{
-              msg:'el email o la contraseña estan mal'
-            }}})
-       
-      },
-
-
-      logout:(req,res)=> {
-        req.session.destroy();
-        return res.redirect('/')
-
+          }
+        });
       }
-}
+  
+      return  res.render('login', {
+        errors: {
+          password: {
+            msg: 'No se encuentra este email en nuestra base de datos'
+          }
+        }
+      });
+    },
+    
+  
+    logout: (req, res) => {
+     req.session.destroy();
+      return res.redirect('/');
+    }
+  }
+
 
 
 module.exports = usersController;
