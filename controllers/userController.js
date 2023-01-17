@@ -65,10 +65,12 @@ const usersController = {
     processLogin: (req, res) => {
       let userToLogin=User.findByField('email', req.body.email)
       let condicion=true
-      
+      console.log('processLogin')
       if (userToLogin){
+        console.log('Entre al login')
         let isOkThepassword=  bcrypt.compareSync(req.body.contrasenia,userToLogin.contrasenia)
         if (isOkThepassword) {
+          console.log('Logueado')
           delete userToLogin.password;
           req.session.userLogged=userToLogin;
             
@@ -76,14 +78,12 @@ const usersController = {
             }
            } 
            
-       
+           console.log('Error login')
         return res.render('login',{
           errors:{
             password:{
               msg:'el email o la contraseña estan mal'
             }}})
-          
-            
        
       },
 
@@ -94,93 +94,6 @@ const usersController = {
 
       }
 }
-  
-    /*
-      return res.render('login',{
-        errors:{
-          email:{
-            msg:'nose encuentra este'
-          }
-        }
-      });
-    }
-
-  }*/
-  
-    // DETALLE DEL USUARIO
-    // usuario: (req, res) => {
-    //     let usuario = usuarios.find((usuario) => usuario.id == req.params.id);
-    //     res.render("usuario", { usuario });
-    // },
-
-
-    // //EDITAR PRODUCTO
-    // editar: (req, res) => {
-    //     let producto = productos.find(producto => producto.id == req.params.id)
-    //     res.render('product-edit-form', {producto, categorias});
-    // },
-
-    // update: (req, res) => {
-    //     let producto = productos.find(producto => producto.id == req.params.id);
-
-
-    //     let img;
-
-    //     if(req.files.length > 0){
-    //       img = "/images/" + req.files[0].filename;
-    //     } else{
-    //       img = producto.foto;
-    //     }
-
-    //     let editandoProducto = {
-	// 		  "id": producto.id,
-    //     //modificar para que lo seleccione
-    //     "categoria": req.body.categoria,
-    //     "nombre": req.body.nombre,
-    //     "marca": req.body.marca,
-    //     "tamanio": req.body.tamanio,
-    //     "color": req.body.color,
-    //     "fabricante": req.body.fabricante,
-    //     "precio": req.body.precio,
-    //     "descuento": req.body.descuento,
-    //     //modificar para que seleccione la foto
-    //     "foto": img,
-    //     "descripcion": req.body.descripcion,
-    //     "stock": req.body.stock,
-    //     "modelo": req.body.modelo,
-	// 	  };
-
-
-    //   console.log(editandoProducto)
-
-    //   let productoEditado = productos.map(producto => {
-    //     if (editandoProducto.id == producto.id){
-    //       return producto = editandoProducto;
-    //     };
-	// 		return producto
-	// 	});
-
-	// 	fs.writeFileSync(productsFilePath, JSON.stringify(productoEditado, null, ''));
-
-	// 	res.render("producto" , {producto} );
-
-    // },
-
-    // //ELIMINAR PRODUCTO
-    // eliminar : (req, res) => {
-	// 	let id =  req.params.id;
-	// 	let productToDelete=productos.filter(producto=>producto.id != id)
-	// 	fs.writeFileSync(productsFilePath ,JSON.stringify(productToDelete,null,'\t'));
-	// 	res.redirect('/');
-    // },
-
-    // // CARGAR NUEVO PRODUCTO
-    // cargar: (req, res) => {
-    //   const errores = [];
-    //   res.render("forms", {categorias});
-    // },
-
-    
 
 
 module.exports = usersController;
