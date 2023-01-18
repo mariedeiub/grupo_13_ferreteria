@@ -4,7 +4,7 @@ const mainRouter = require('./routes/mainRouter')
 const productsRouter= require ("./routes/productsRouter");
 const usersRouter= require ("./routes/userRouter");
 const methodOverride =  require('method-override');
-const cookieParser = require('cookie-parser');
+const cookies = require('cookie-parser');
 const session = require('express-session');
 const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
 let PORT = 3030;
@@ -20,10 +20,10 @@ app.use(session({
     resave: false,
     saveUninitialized: false
 }))
-app.use(userLoggedMiddleware);
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(cookieParser());
+app.use(cookies());
+app.use(userLoggedMiddleware);
 
 
 //--------------------  TEMPLATE ENGINE  ------------------------//

@@ -70,9 +70,9 @@ const usersController = {
           delete userToLogin.contrasenia;
           req.session.userLogged = userToLogin;
   
-         /* if(req.body.remember_user) {
+          if(req.body.remember_user) {
             res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
-          }*/
+          }
            return res.render('home', {
             user: req.session.userLogged.email
           });
@@ -89,7 +89,7 @@ const usersController = {
       return  res.render('login', {
         errors: {
           password: {
-            msg: 'No se encuentra este email en nuestra base de datos'
+            msg: ' Email invalido'
           }
         }
       });
