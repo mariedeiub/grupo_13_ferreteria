@@ -6,7 +6,7 @@ const usersRouter= require ("./routes/userRouter");
 const methodOverride =  require('method-override');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
-const userLogMd=require('./middlewares/userLogMd');
+const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
 let PORT = 3030;
 
 //--------------------  APP LISTEN ------------------------//
@@ -20,7 +20,7 @@ app.use(session({
     resave: false,
     saveUninitialized: false
 }))
-app.use(userLogMd);
+app.use(userLoggedMiddleware);
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cookieParser());

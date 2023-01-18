@@ -36,7 +36,18 @@ header{
     top:0;
     z-index: 100;
 }
+.abajo2{
+    margin: 9% 29% 6% 25%;
 
+}
+.abajo3{
+    margin: -1% 76% 13% -49%;
+
+}
+.abajo{
+    margin: 2% 17% 0% -102%;
+
+}
 nav{
     width: 100%;
     display: flex;
@@ -346,6 +357,8 @@ footer{
 
    .icono{
     display: flex;
+    
+    margin: 0% -7% 0% -2%;
    }
 }
 

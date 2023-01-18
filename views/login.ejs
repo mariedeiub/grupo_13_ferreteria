@@ -14,14 +14,18 @@
     <!--MAIN -->
     <main class="register">
       
-        <form action="/user/home/" method="POST" class="form-register" id="form-register">
+        <form action="/user/login" method="POST" class="form-register" id="form-register">
             <h1 class="login">INICIAR SESION</h1>
             <div class="div-form-login">
                 <!-- USUARIO -->
                 <div class="group-register" id="login1">
                         <input required type="text" class="input-text" id="usuario"  name ="email"><span class="barra"></span>
                         <label for="usuario" class="lbl-text">Correo electronico</label>
-                          
+                        <% if (locals.errors && errors.email) { %>
+                            <div class="text-danger">
+                                <%= errors.email.msg %>
+                            </div>
+                        <% } %>
                 </div>
 
                 <!-- CONTRASENA -->
@@ -30,10 +34,15 @@
                         <label for="contraseña" class="lbl-text">Contraseña</label>
                 </div>
 
-                <button type="submit" class="corrido"><a href="/">Iniciar Sesion</a></button>
+                <button type="submit" class="corrido">Iniciar Sesion</button>
                 <p class="login"><a href="/user/registro">¿No estas registrado? Crea tu cuenta acá!</a></p>
                 </div>
             </div>
+                <div >
+                    <label >
+                        <input type="checkbox"  name="remember_user">Recordar mi usuario
+                    </label>
+                </div>
         </form>
         <div class="error">
             <% if(locals.errors &&errors.email ) {%>

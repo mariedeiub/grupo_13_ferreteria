@@ -70,9 +70,11 @@ const usersController = {
           delete userToLogin.contrasenia;
           req.session.userLogged = userToLogin;
   
-         
+         /* if(req.body.remember_user) {
+            res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
+          }*/
            return res.render('home', {
-            user: req.session.userLogged,condicion:true
+            user: req.session.userLogged.email
           });
         } 
         return  res.render('login', {
@@ -95,7 +97,8 @@ const usersController = {
     
   
     logout: (req, res) => {
-     req.session.destroy();
+      res.clearCookie('userEmail');
+      req.session.destroy();
       return res.redirect('/');
     }
   }
