@@ -4,7 +4,7 @@ const userController = require('../controllers/userController');
 const multer = require ('multer');
 const path = require('path');
 const userFormMiddleware = require ('../middlewares/userFormMiddleware');
-
+const logueadoMiddleware= require('../middlewares/logueadoMiddleware');
 
 // ************ Configuracion Multer para los midleware ************
 const storage = multer.diskStorage({
@@ -22,9 +22,9 @@ const storage = multer.diskStorage({
 const upload = multer ({storage: storage})
 
 // // LOGIN
-router.get('/login', userController.login);
-router.post('/login',userController.processLogin);
-router.get('/logout',userController.logout);
+router.get('/login', logueadoMiddleware, userController.login);
+router.post('/home/',userController.processLogin);
+router.get('/logout', userController.logout);
 // // NUEVO USUARIO
 router.get('/registro', userController.registro);
 router.post('/registrar/', userFormMiddleware, userController.registrar);
