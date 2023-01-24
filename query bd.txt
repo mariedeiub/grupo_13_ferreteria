@@ -1,0 +1,129 @@
+DROP TABLE IF EXISTS `ferreteria`.`categoria`;
+
+CREATE TABLE `ferreteria`.`categoria` (
+  `categoria_id` INT NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`categoria_id`));
+
+DROP TABLE IF EXISTS `ferreteria`.`categoria_usuario`;
+
+CREATE TABLE `ferreteria`.`categoria_usuario` (
+  `categoria_usuario_id` INT NOT NULL,
+  `nombre` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`categoria_usuario_id`));
+
+
+DROP TABLE IF EXISTS `ferreteria`.`usuario`;
+
+CREATE TABLE `ferreteria`.`usuario` (
+  `usuario_id` INT NOT NULL AUTO_INCREMENT,
+  `categoria_id` INT NOT NULL,
+  `nombre` VARCHAR(100) NOT NULL,
+  `apellido` VARCHAR(45) NOT NULL,
+  `direccion` VARCHAR(200) NOT NULL,
+  `localidad` VARCHAR(45) NOT NULL,
+  `pais` VARCHAR(45) NOT NULL,
+  `edad` INT NOT NULL,
+  `email` VARCHAR(100) NOT NULL,
+  `nombre_usuario` VARCHAR(45) NOT NULL,
+  `contraseña` VARCHAR(100) NOT NULL,
+  `usuariocol` VARCHAR(45) NULL,
+  PRIMARY KEY (`usuario_id`),
+  CONSTRAINT `categoria_id`
+    FOREIGN KEY (`categoria_id`)
+    REFERENCES `ferreteria`.`categoria_usuario` (`categoria_usuario_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+
+
+DROP TABLE IF EXISTS `ferreteria`.`venta`;
+
+CREATE TABLE `ferreteria`.`venta` (
+  `venta_id` INT NOT NULL AUTO_INCREMENT,
+  `usuario_id` INT NOT NULL,
+  `total` DECIMAL(2) NOT NULL,
+  PRIMARY KEY (`venta_id`),
+  CONSTRAINT `usuario_id`
+    FOREIGN KEY (`usuario_id`)
+    REFERENCES `ferreteria`.`usuario` (`usuario_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+
+
+DROP TABLE IF EXISTS `ferreteria`.`producto`;
+
+CREATE TABLE `ferreteria`.`producto` (
+  `producto_id` INT NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(100) NOT NULL,
+  `marca` VARCHAR(45) NOT NULL,
+  `tamanio` VARCHAR(30) NOT NULL,
+  `color` VARCHAR(30) NULL,
+  `precio` DECIMAL(2) NOT NULL,
+  `fabricante` VARCHAR(45) NULL,
+  `modelo` VARCHAR(45) NULL,
+  `stock` INT NULL,
+  `descuento` INT NULL,
+  `imagen` VARCHAR(100) NOT NULL,
+  `descripcion` VARCHAR(300) NULL,
+  PRIMARY KEY (`producto_id`));
+
+
+DROP TABLE IF EXISTS `ferreteria`.`detalle_venta`;
+
+CREATE TABLE `ferreteria`.`detalle_venta` (
+  `detalle_venta_id` INT NOT NULL AUTO_INCREMENT,
+  `venta_id` INT NOT NULL,
+  `producto_id` INT NOT NULL,
+  `cantidad` INT NOT NULL,
+  `precio_unitario` DECIMAL NOT NULL,
+  `precio_total` DECIMAL(2) NOT NULL,
+  PRIMARY KEY (`detalle_venta_id`),
+  CONSTRAINT `venta_id`
+    FOREIGN KEY (`venta_id`)
+    REFERENCES `ferreteria`.`venta` (`venta_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `producto_id`
+    FOREIGN KEY (`producto_id`)
+    REFERENCES `ferreteria`.`producto` (`producto_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+
+
+DROP TABLE IF EXISTS `ferreteria`.`producto_categoria`;
+
+CREATE TABLE `ferreteria`.`producto_categoria` (
+  `producto_categoria_id` INT NOT NULL AUTO_INCREMENT,
+  `producto_id` INT NOT NULL,
+  `categoria_id` INT NOT NULL,
+  PRIMARY KEY (`producto_categoria_id`),
+  CONSTRAINT `producto_id`
+    FOREIGN KEY (`producto_id`)
+    REFERENCES `ferreteria`.`producto` (`producto_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `categoria_id`
+    FOREIGN KEY (`categoria_id`)
+    REFERENCES `ferreteria`.`categoria` (`categoria_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+
+
+CREATE TABLE `ferreteria`.`carrito` (
+  `carrito_id` INT NOT NULL,
+  `producto_id` INT NOT NULL,
+  `usuario_id` INT NOT NULL,
+  `estado` BINARY NULL,
+  `precio` DECIMAL NOT NULL,
+  `cantidad` INT NOT NULL,
+  PRIMARY KEY (`carrito_id`),
+  CONSTRAINT `producto_id_fk`
+    FOREIGN KEY (`producto_id`)
+    REFERENCES `ferreteria`.`producto` (`producto_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `usuario_id_fk`
+    FOREIGN KEY (`usuario_id`)
+    REFERENCES `ferreteria`.`usuario` (`usuario_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
