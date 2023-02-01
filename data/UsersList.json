@@ -94,5 +94,17 @@
         "nombreUsuario": "beto123233",
         "tipoUsuario": "administrador",
         "contrasenia": "$2b$10$XHw1YCf6egxU9rVlxOQf/Ogm2mrzkzzbtjbO6uOWejR4.KhkVGSZK"
+    },
+    {
+        "id": 8,
+        "nombre": "asdasd",
+        "apellido": "asdasd",
+        "direccion": "asdasd",
+        "localidad": "asdasd",
+        "edad": "33",
+        "email": "asda@gmail.com",
+        "nombreUsuario": "asdasdasda",
+        "tipoUsuario": "administrador",
+        "contrasenia": "$2b$10$Z0wjOBYYGE3E0iKIKPsT7ej/yGU1znFnFuXkOn68FcF5oqxUi/FhK"
     }
 ]

@@ -23,7 +23,7 @@ const upload = multer ({storage: storage})
 
 // // LOGIN
 router.get('/login', logueadoMiddleware, userController.login);
-router.post('/home/',userController.processLogin);
+router.post('/home/',userController. processLogin);
 router.get('/logout', userController.logout);
 // // NUEVO USUARIO
 router.get('/registro', userController.registro);
