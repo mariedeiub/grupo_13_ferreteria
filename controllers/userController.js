@@ -88,8 +88,8 @@ const usersController = {
         else {
           res.render('login', {
             errors: {
-              email: {
-                msg: 'La contraseña es incorrecta'
+              password: {
+                msg: 'credenciales invalidas'
               }
             }
           });
