@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--HEAD-->
+<%- include('./partials/head.ejs')  %> 
+    <title>Productos</title>
+    <!--HOJA DE ESTILO-->
+    <link href="/css/styles.css" rel="stylesheet">
+    <link href="/css/productsList.css" rel="stylesheet">
+</head>
+<body>
+     <!--HEADER-->
+     <%- include('./partials/header.ejs')  %> 
+     <section class="banner">
+         <img src="/images/banner.PNG" alt="">
+     </section>
+    <!-- MAIN -->
+    <main>
+        <!-- SECCION LISTA DE PRODUCTOS -->
+        <section class="lista-productos">
+                <% productos.forEach(producto => { %>
+                    <article class="tarjeta">
+                        <a href="/productos/producto/<%= producto.producto_id%>">
+                            <div class="img-tarjeta">
+                                <img src=<%=producto.imagen%>  alt="" class="img-product">
+                            </div>
+                        </a>
+                        <div class="envio">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <div class="foot-article">
+                            <p class="precio">$ <%=producto.precio%> </p>
+                            <p class="descuento"><%= producto.descuento > 0 ?  producto.descuento + '%' : " " %></p>
+                        </div>
+                        <div>
+                            <h3 class="descripcion">
+                                <%=producto.nombre%> 
+                                <%=producto.marca %>
+                                <%=producto.tamanio %> 
+                                <%=producto.color %> 
+                            </h3>
+                        </div>
+                    </article>
+                <% }) %>       
+        </section>
+        
+    </main>
+    <!-- SUSCRIPCION + FOOTER + COPIRIGHT-->
+<%- include('./partials/footer.ejs')  %> 
