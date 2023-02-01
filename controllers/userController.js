@@ -1,10 +1,14 @@
 const User = require("../models/User");
+const db = require('../database/models');
+const sequelize = db.sequelize;
 const { validationResult } = require("express-validator");
 const fs = require("fs");
 const path = require("path");
 const bcrypt = require ('bcrypt');
 const bcryptjs = require ('bcryptjs');
+const { Sequelize } = require("../database/models");
 const sal = bcrypt.genSaltSync(10);
+const Op=Sequelize.Op
 
 const usersFilePath = path.join(__dirname, "../data/usersList.json");
 const usuarios = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
@@ -61,9 +65,58 @@ const usersController = {
         res.render('register', {errors : errors.array(), old: req.body})
       }
     },
-    processLogin: (req, res) => {
-      let userToLogin = User.findByField('email', req.body.email);
+    processLogin: (req, res) =>{
+   
+      // let contraseña;
+      // let email;
+      // req.session.userLogged = email
       
+   
+        
+     // res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 })  
+      db.Usuarios.findOne({
+        where:{email: req.body.email
+        }})  
+      .then( (user) => {
+        if (bcrypt.compareSync(req.body.contraseña, user.contraseña)){
+          req.session.userLogged = user;
+          if(req.body.remember_user) {
+            res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
+          }
+          res.render('home',{user})
+        }
+        else {
+          res.render('login', {
+            errors: {
+              email: {
+                msg: 'La contraseña es incorrecta'
+              }
+            }
+          });
+        }
+          
+        })
+        .catch (err=>{
+          res.render('login', {
+            errors: {
+              email: {
+                msg: 'error de conexion'
+              }
+            }
+          })})
+    
+/*let contraseña=req.body.contraseña
+    db.Usuarios.findOne(contraseña)
+    .then( console.log("contraseña valida"))
+    .catch(err=>console.log(err));*/
+
+
+     /* let password=req.body.contraseña
+    let usuarioContraseña=bcrypt.compareSync(req.body.contrasenia, userToLogin.contrasenia);
+      */
+
+    },
+    /*
       if(userToLogin) {
         let isOkThePassword = bcrypt.compareSync(req.body.contrasenia, userToLogin.contrasenia);
         if (isOkThePassword) {
@@ -95,7 +148,7 @@ const usersController = {
       });
     },
     
-  
+  */
     logout: (req, res) => {
       res.clearCookie('userEmail');
       req.session.destroy();
