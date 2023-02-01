@@ -29,7 +29,7 @@ router.post('/crear/', upload.any(''), productFormMiddleware , productsControlle
 // DETALLE DEL PRODUCTO
 router.get('/producto/:id/', productsController.producto);
 
-router.get('/filtrar', productsController.filtrar)
+router.get('/filtrar', productsController.filtrar);
 
 // EDITAR PRODUCTO
 router.get('/editar/:id/', productsController.editar);
@@ -38,5 +38,7 @@ router.put('/editar/:id/', upload.any(''), productsController.update)
 router.delete('/delete/:id/',productsController.eliminar)
 
 router.get('/:categoria/', productsController.categoria);
+
+
 
 module.exports = router

@@ -2,6 +2,9 @@ const { validationResult } = require("express-validator");
 const fs = require("fs");
 const path = require("path");
 
+let db = require('../database/models');
+const Categoria = require("../database/models/Categoria");
+
 const productsFilePath = path.join(__dirname, "../data/productsList.json");
 const productos = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
 
@@ -14,48 +17,58 @@ const categorias = JSON.parse(fs.readFileSync(categoryFilePath, "utf-8"));
 const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const productsController = {
-  // MOSTRAR TODOS LOS PRODUCTOS
-  // index: (req, res) => {
-  // 	res.render('products', {productos})
-  // },
-
   // LISTA DE PRODUCTOS POR CATEGORIA
   categoria: (req, res) => {
     //FILTRA PRODUCTOS A MOSTRAR EN CADA CATEGORIA
-    let listaProductos = productos.filter(function (producto) {
-      if (producto.categoria.indexOf(req.params.categoria) >= 0) {
-        return producto;
-      }
-    });
+    let listaProductos = db.Categorias.findOne({where: {nombre: req.params.categoria}})
+    .then(function(categoria){
+      console.log(categoria.categoria_id)
+      db.Productos.findAll({
+        include: [
+          {
+            association: "categorias",
+            where: {categoria_id : categoria.categoria_id}
+          },
+        ],
+        raw: true,
+        nest: true
+      })
+      .then(function(listaProductos){
+        //FILTRA MARCAS A MOSTRAR EN CADA CATEGORIA
+        let listaMarcas = [];
+        listaProductos.forEach((producto) => {
+          listaMarcas.push(producto.marca);
+        });
+        let marcas = [...new Set(listaMarcas)];
 
-    //FILTRA MARCAS A MOSTRAR EN CADA CATEGORIA
-    let listaMarcas = [];
-    listaProductos.forEach((producto) => {
-      listaMarcas.push(producto.marca);
-    });
-    let marcas = [...new Set(listaMarcas)];
+        //FILTRA COLORES A MOSTRAR EN CADA CATEGORIA
+        let listaColores = [];
+        listaProductos.forEach((producto) => {
+          listaColores.push(producto.color);
+        });
+        let colores = [...new Set(listaColores)];
 
-    //FILTRA COLORES A MOSTRAR EN CADA CATEGORIA
-    let listaColores = [];
-    listaProductos.forEach((producto) => {
-      listaColores.push(producto.color);
-    });
-    let colores = [...new Set(listaColores)];
+        //FILTRA TAMAÑOS A MOSTRAR EN CADA CATEGORIA
+        let listaTamaños = [];
+        listaProductos.forEach((producto) => {
+          listaTamaños.push(producto.tamaño);
+        });
+        let tamaños = [...new Set(listaTamaños)];
 
-    //FILTRA TAMAÑOS A MOSTRAR EN CADA CATEGORIA
-    let listaTamaños = [];
-    listaProductos.forEach((producto) => {
-      listaTamaños.push(producto.tamaño);
-    });
-    let tamaños = [...new Set(listaTamaños)];
+        res.render("products", { listaProductos, marcas, colores, tamaños });
+      })
+    })
 
-    res.render("products", { listaProductos, marcas, colores, tamaños });
+    
   },
 
   // DETALLE DEL PRODUCTO
   producto: (req, res) => {
-    let producto = productos.find((producto) => producto.id == req.params.id);
-    res.render("producto", { producto });
+    db.Productos.findByPk(req.params.id)
+      .then(function(producto){
+      
+      res.render("producto", {producto})
+    })
   },
 
   // FILTRAR
@@ -77,91 +90,93 @@ const productsController = {
     //EDITAR PRODUCTO
     editar: (req, res) => {
     
-        let producto = productos.find(producto => producto.id == req.params.id)
+      let productoObtenido = db.Productos.findByPk(req.params.id)
+     
+      let categoriasObtenidas = db.Categorias.findAll();
 
-        // MARCAR CATEGORIAS SELECCIONADAS DEL PRODUCTO A EDITAR  
-        let categoriasEdit = [];
-        categorias.forEach((categoria) => {
-          if (producto.categoria.indexOf(categoria) >= 0){
-            categoriaTrue = {nombre: categoria, estado: true}
-            categoriasEdit.push(categoriaTrue);
-          }
-          else{
-            categoriaTrue = {nombre: categoria, estado: false}
-            categoriasEdit.push(categoriaTrue);
-          }
-        });
-        console.log(categoriasEdit);
+      let productoCategoria = db.ProductosCategorias.findAll({where: {producto_fk: req.params.id}})
+     
+      Promise.all([productoObtenido, categoriasObtenidas,productoCategoria])
+      .then(function([producto, categorias,categoriasDelProducto]){
+        console.log(categoriasDelProducto)
+        res.render('product-edit-form', {producto, categorias});
+      })
 
-        res.render('product-edit-form', {producto, categoriasEdit});
+ 
+        // // MARCAR CATEGORIAS SELECCIONADAS DEL PRODUCTO A EDITAR  
+        // 
+        // categorias.forEach((categoria) => {
+        //   if (producto.categoria.indexOf(categoria) >= 0){
+        //     categoriaTrue = {nombre: categoria, estado: true}
+        //     categoriasEdit.push(categoriaTrue);
+        //   }
+        //   else{
+        //     categoriaTrue = {nombre: categoria, estado: false}
+        //     categoriasEdit.push(categoriaTrue);
+        //   }
+        // });
+        // console.log(categoriasEdit);
+
+        // res.render('product-edit-form', {producto, categoriasEdit});
     },
 
     update: (req, res) => {
-        let producto = productos.find(producto => producto.id == req.params.id);
-
-        console.log("VOY A EDITAR")
         let img;
 
-        if(req.files.length > 0){
-          img = "/images/" + req.files[0].filename;
-        } else{
-          img = producto.foto;
+        // MODIFICAR CUANDO CARGA LA IMAGEN QUE YA TIENE
+        db.Productos.findByPk(req.params.id).then(function(producto){
+          if(req.files.length > 0){
+            img = "/images/" + req.files[0].filename;
+          } else{
+            console.log('Entro por imagen')
+            img = producto.imagen;
+          }
+        })
+
+        
+        let producto = {
+          nombre: req.body.nombre,
+          marca: req.body.marca,
+          tamanio: req.body.tamanio,
+          color: req.body.color,
+          precio: req.body.precio,
+          fabricante: req.body.fabricante,
+          modelo: req.body.modelo,
+          stock: req.body.stock,
+          descuento: req.body.descuento,
+          imagen: img,
+          descripcion: req.body.descripcion
         }
 
-        let editandoProducto = {
-			  "id": producto.id,
-        //modificar para que lo seleccione
-        "categoria": req.body.categoria,
-        "nombre": req.body.nombre,
-        "marca": req.body.marca,
-        "tamanio": req.body.tamanio,
-        "color": req.body.color,
-        "fabricante": req.body.fabricante,
-        "precio": req.body.precio,
-        "descuento": req.body.descuento,
-        //modificar para que seleccione la foto
-        "foto": img,
-        "descripcion": req.body.descripcion,
-        "stock": req.body.stock,
-        "modelo": req.body.modelo,
-		  };
+        console.log('modifica producto' + img);
 
+        db.Productos.update(producto, 
+                    {
+                      where: {producto_id: req.params.id}
+                    })
 
-      console.log(editandoProducto)
-
-      let productoEditado = productos.map(producto => {
-        if (editandoProducto.id == producto.id){
-          return producto = editandoProducto;
-        };
-			return producto
-		});
-
-		fs.writeFileSync(productsFilePath, JSON.stringify(productoEditado, null, ''));
-
-		res.render("producto" , {producto} );
+		  res.render("producto" , {producto} );
 
     },
 
     //ELIMINAR PRODUCTO
     eliminar : (req, res) => {
-		let id =  req.params.id;
-		let productToDelete=productos.filter(producto=>producto.id != id)
-		fs.writeFileSync(productsFilePath ,JSON.stringify(productToDelete,null,'\t'));
-		res.redirect('/');
+      db.Productos.destroy({
+        where: {producto_id: req.params.id}
+      })
+		  res.redirect('/');
     },
 
     // CARGAR NUEVO PRODUCTO
     cargar: (req, res) => {
-      const errores = [];
       res.render("forms", {categorias});
     },
 
     crear: (req, res) => {
       let errors = validationResult (req);
-      console.log(validationResult(req))
+
 
       if (errors.isEmpty()){
-        console.log("DATOS CORRECTOS")
         let img;
 
         if(req.files.length > 0){
@@ -170,18 +185,28 @@ const productsController = {
           img = 'default-image.png'
         }
 
-        const producto = { id: productos[productos.length - 1].id + 1, ...req.body ,"foto": img};
-        const productosAPublicar = [...productos, producto]
-      
-        fs.writeFileSync(
-          productsFilePath,
-          JSON.stringify(productosAPublicar, null, "")
-        );
+        // USANDO BASE DE DATOS
 
-        res.redirect(`/productos/${producto.categoria[0]}`);
+        let producto = {
+          nombre: req.body.nombre,
+          marca: req.body.marca,
+          tamanio: req.body.tamanio,
+          color: req.body.color,
+          precio: req.body.precio,
+          fabricante: req.body.fabricante,
+          modelo: req.body.modelo,
+          stock: req.body.stock,
+          descuento: req.body.descuento,
+          imagen: img,
+          descripcion: req.body.descripcion
+        }
+
+        db.Productos.create(producto);
+
+        //CAMBIAR PARA QUE REDIRIJA A LA CATEGORIA CORRECTA
+        res.redirect(`/productos/herramientas`);
 
       }else{
-        console.log("Entra por errores")
         res.render('forms', {errors : errors.array(), old: req.body, categorias})
       }
     }

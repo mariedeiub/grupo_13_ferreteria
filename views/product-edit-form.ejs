@@ -12,7 +12,7 @@
     <!--MAIN-->
     <main class="register">
         <!--FORMULARIO DE EDICION DE PRODUCTO-->
-        <form action="/productos/editar/<%=producto.id%>?_method=PUT" method="POST" class="form-register" id="form-edit" enctype="multipart/form-data">
+        <form action="/productos/editar/<%=producto.producto_id%>?_method=PUT" method="POST" class="form-register" id="form-edit" enctype="multipart/form-data">
             <h1 class="form-edit">Editar producto: <%=producto.id%></h1>
             <div class="div-form-register">
                 <!--NOMBRE DEL PRODUCTO-->
@@ -27,7 +27,7 @@
                 </div>
                 <!--TAMAÑO-->
                 <div class="group-register" id="3">
-                    <input type="text" class="input-text" id="tamaño" name="tamanio" value="<%=producto.tamaño%>"><span class="barra"></span>
+                    <input type="text" class="input-text" id="tamaño" name="tamanio" value="<%=producto.tamanio%>"><span class="barra"></span>
                     <label for="tamaño" class="lbl-text">Tamaño</label>
                 </div>
                 <!--COLOR-->
@@ -62,7 +62,7 @@
                 </div>
                 <!--CATEGORIA-->
                 <section class="categorias"> Categorias:
-                    <% categoriasEdit.forEach(categoria => { %>
+                    <% categorias.forEach(categoria => { %>
                         <div class="categoria">
                             <label for="categoria"><%=categoria.nombre %> </label>
                             <input type="checkbox" name="categoria" value=<%=categoria.nombre%> 

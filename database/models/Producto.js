@@ -1,11 +1,12 @@
 module.exports = (sequelize, dataTypes) => {
-    let alias = 'Peliculas';
+    let alias = 'Productos';
 
     let cols = {
         producto_id: {
+            type: dataTypes.INTEGER(11),
             autoIncrement: true,
             primaryKey: true,
-            type: dataTypes.INTEGER
+            allowNull: false
         },
         nombre: {
             type: dataTypes.STRING(100),
@@ -23,7 +24,7 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING(30)
         },
         precio: {
-            type: dataTypes.DECIMAL,
+            type: dataTypes.DECIMAL(10.0),
             allowNull: false
         },
         fabricante: {
@@ -33,10 +34,10 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING(45)
         },
         stock: {
-            type: dataTypes.INTEGER
+            type: dataTypes.INTEGER(11)
         },
         descuento: {
-            type: dataTypes.INTEGER
+            type: dataTypes.INTEGER(11)
         },
         imagen: {
             type: dataTypes.STRING(100),
@@ -50,10 +51,20 @@ module.exports = (sequelize, dataTypes) => {
 
     let config= {
         tableName: 'Productos',
-        timeStamp: false
+        timestamps: false
     }
 
-    const Producto = sequelize.define(alias,cols,config)
+    const Producto = sequelize.define(alias,cols,config);
+
+    Producto.associate = function(models){
+        Producto.belongsToMany(models.Categorias, {
+            as : 'categorias',
+            through: 'producto_categoria',
+            foreignKey: 'producto_fk',
+            otherKey: 'categoria_fk',
+            timestamps: false
+        })
+    }
 
     return Producto;
 }

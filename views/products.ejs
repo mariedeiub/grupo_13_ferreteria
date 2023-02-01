@@ -79,9 +79,9 @@
         <section class="lista-productos">
                 <% listaProductos.forEach(producto => { %>
                     <article class="tarjeta">
-                        <a href="/productos/producto/<%= producto.id %>">
+                        <a href="/productos/producto/<%= producto.producto_id %>">
                             <div class="img-tarjeta">
-                                <img src=<%=producto.foto%>  alt="" class="img-product">
+                                <img src=<%=producto.imagen%>  alt="" class="img-product">
                             </div>
                         </a>
                         <div class="envio">

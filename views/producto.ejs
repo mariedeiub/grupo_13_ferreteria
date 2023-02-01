@@ -20,7 +20,7 @@
             </div>
             <section class="foto">
                 <div class="productos">
-                    <img src="<%= producto.foto %> "  alt="productoimage">
+                    <img src="<%= producto.imagen %> "  alt="productoimage">
                 </div>
             </section>
             <div class="descripcion">
@@ -57,8 +57,8 @@
                 </div>
            
                 
-                <a href="/productos/editar/<%= producto.id %> " class="boton_personalizado" class="action-button edit">Editar Producto</a>
-                <form action="/productos/delete/<%=producto.id%>?_method=DELETE" method="POST" >
+                <a href="/productos/editar/<%= producto.producto_id %> " class="boton_personalizado" class="action-button edit">Editar Producto</a>
+                <form action="/productos/delete/<%=producto.producto_id%>?_method=DELETE" method="POST" >
                     <button type="submit"class="boton_personalizado" >Eliminar Producto</button>
                 </form>
             </div>    
