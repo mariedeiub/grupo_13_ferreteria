@@ -8,7 +8,7 @@ const User={
             where:{field:field,text:text}})
             .then(function(allUsers){
         let userFound=allUsers.find(oneUser=>oneUser[field]===text)
-        res.render('home',{userFound})
+        return userFound
     })
 }
 }

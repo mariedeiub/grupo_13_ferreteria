@@ -81,7 +81,7 @@ const usersController = {
         if (bcrypt.compareSync(req.body.contraseña, user.contraseña)){
           req.session.userLogged = user;
           if(req.body.remember_user) {
-            res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
+            res.cookie('usuario', req.body.email, { maxAge: (1000 * 60) * 60 })
           }
           res.render('home',{user})
         }
