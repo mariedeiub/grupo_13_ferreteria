@@ -1,4 +1,4 @@
-const User = require("../models/User");
+const User = require("../middlewares/funcionesDeLogin");
 const db = require('../database/models');
 const sequelize = db.sequelize;
 const { validationResult } = require("express-validator");
