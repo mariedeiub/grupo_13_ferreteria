@@ -13,7 +13,20 @@
     <%- include('./partials/header.ejs')  %> 
     <!--MAIN -->
     <main class="register">
-      
+        <div class="error">
+            <% if(locals.errors &&errors.password ) {%>
+              
+                <h1>¡¡¡¡<%= errors.password.msg %>!!!!</h1> 
+          
+            <% } %>
+        </div>
+        <div class="error2">
+            <% if(locals.errors &&errors.email ) {%>
+              
+                <h1>¡¡¡¡<%= errors.email.msg %>!!!!</h1> 
+              
+            <% } %>
+        </div>
         <form action="/user/home" method="POST" class="form-register" id="form-register">
             <h1 class="login">INICIAR SESION</h1>
             <div class="div-form-login">
@@ -21,11 +34,7 @@
                 <div class="group-register" id="login1">
                         <input required type="text" class="input-text" id="usuario"  name ="email"><span class="barra"></span>
                         <label for="usuario" class="lbl-text">Correo electronico</label>
-                        <!--<% if (locals.errors && errors.email) { %>
-                            <div class="text-danger">
-                                <%= errors.email.msg %>
-                            </div>
-                        <% } %>-->
+                       
                 </div>
 
                 <!-- CONTRASENA -->
@@ -44,18 +53,8 @@
                     </label>
                 </div>
         </form>
-        <div class="error">
-            <% if(locals.errors &&errors.email ) {%>
-              
-                <h1>¡¡¡¡<%= errors.email.msg %>!!!!</h1> 
-              
-            <% } %>
-            <% if(locals.errors &&errors.password ) {%>
-              
-             <h1>¡¡¡¡<%= errors.password.msg %>!!!!</h1> 
-          
-            <% } %>
-        </div>
+        
+            
     </main>
 <!-- SUSCRIPCION + FOOTER + COPIRIGHT-->
 <%- include('./partials/footer.ejs')  %> 

@@ -1,4 +1,4 @@
-const User = require("../models/User");
+const User = require("../middlewares/funcionesDeLogin");
 const db = require('../database/models');
 const sequelize = db.sequelize;
 const { validationResult } = require("express-validator");
@@ -81,15 +81,15 @@ const usersController = {
         if (bcrypt.compareSync(req.body.contraseña, user.contraseña)){
           req.session.userLogged = user;
           if(req.body.remember_user) {
-            res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
+            res.cookie('usuario', req.body.email, { maxAge: (1000 * 60) * 60 })
           }
           res.render('home',{user})
         }
         else {
           res.render('login', {
             errors: {
-              email: {
-                msg: 'La contraseña es incorrecta'
+              password: {
+                msg: 'credenciales invalidas'
               }
             }
           });
