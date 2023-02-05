@@ -129,13 +129,13 @@ CREATE TABLE `ferreteria`.`carritos` (
   CONSTRAINT `producto_fk`
     FOREIGN KEY (`producto_fk`)
     REFERENCES `ferreteria`.`productos` (`producto_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
   CONSTRAINT `categoria_fk`
     FOREIGN KEY (`categoria_fk`)
     REFERENCES `ferreteria`.`categorias` (`categoria_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION);
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
     
     
 INSERT INTO `productos` VALUES 	(1,'Taladro','Forest','2500w','Azul',7500,'Pedrito','6ksv',5,20,'/images/taladro.jpg','El mejor taladro'),

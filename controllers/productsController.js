@@ -22,7 +22,6 @@ const productsController = {
     //FILTRA PRODUCTOS A MOSTRAR EN CADA CATEGORIA
     let listaProductos = db.Categorias.findOne({where: {nombre: req.params.categoria}})
     .then(function(categoria){
-      console.log(categoria.categoria_id)
       db.Productos.findAll({
         include: [
           {
@@ -90,73 +89,87 @@ const productsController = {
     //EDITAR PRODUCTO
     editar: (req, res) => {
     
+      //BUSCO PRODUCTO A EDITAR
       let productoObtenido = db.Productos.findByPk(req.params.id)
      
+      //BUSCO LISTADO DE CATEGORIAS
       let categoriasObtenidas = db.Categorias.findAll();
-
-      let productoCategoria = db.ProductosCategorias.findAll({where: {producto_fk: req.params.id}})
+      
+      //BUSCO LISTADO DE CATEGORIAS RELACIONADAS AL PRODUCTO
+      let categoriasDelProducto = db.ProductoCategorias.findAll({where: {producto_fk : req.params.id}})
      
-      Promise.all([productoObtenido, categoriasObtenidas,productoCategoria])
-      .then(function([producto, categorias,categoriasDelProducto]){
-        console.log(categoriasDelProducto)
-        res.render('product-edit-form', {producto, categorias});
+      Promise.all([productoObtenido, categoriasObtenidas, categoriasDelProducto])
+      .then(function([producto, categorias, categoriasSelect]){
+        let categoriasEdit = [];
+        let categoriaTrue;
+
+        //ARMO ARRAY CON LAS CATEGORIAS A MARCAR EN EL CHECKBOX
+        categorias.forEach((categoria) => {
+              if (categoriasSelect.find(c => c.categoria_fk == categoria.categoria_id)){
+                categoriaTrue = {nombre: categoria.nombre, estado: true,  id: categoria.categoria_id}
+                categoriasEdit.push(categoriaTrue);
+              }
+              else{
+                categoriaTrue = {nombre: categoria.nombre, estado: false, id: categoria.categoria_id}
+                categoriasEdit.push(categoriaTrue);
+              }
+          });
+
+          console.log(categoriasEdit)
+
+        res.render('product-edit-form', {producto, categoriasEdit});
       })
-
- 
-        // // MARCAR CATEGORIAS SELECCIONADAS DEL PRODUCTO A EDITAR  
-        // 
-        // categorias.forEach((categoria) => {
-        //   if (producto.categoria.indexOf(categoria) >= 0){
-        //     categoriaTrue = {nombre: categoria, estado: true}
-        //     categoriasEdit.push(categoriaTrue);
-        //   }
-        //   else{
-        //     categoriaTrue = {nombre: categoria, estado: false}
-        //     categoriasEdit.push(categoriaTrue);
-        //   }
-        // });
-        // console.log(categoriasEdit);
-
-        // res.render('product-edit-form', {producto, categoriasEdit});
     },
 
     update: (req, res) => {
         let img;
 
         // MODIFICAR CUANDO CARGA LA IMAGEN QUE YA TIENE
-        db.Productos.findByPk(req.params.id).then(function(producto){
+        db.Productos.findByPk(req.params.id)
+        .then(function(producto){
           if(req.files.length > 0){
             img = "/images/" + req.files[0].filename;
           } else{
-            console.log('Entro por imagen')
             img = producto.imagen;
           }
+
+          let productoUpdate = {
+            nombre: req.body.nombre,
+            marca: req.body.marca,
+            tamanio: req.body.tamanio,
+            color: req.body.color,
+            precio: req.body.precio,
+            fabricante: req.body.fabricante,
+            modelo: req.body.modelo,
+            stock: req.body.stock,
+            descuento: req.body.descuento,
+            imagen: img,
+            descripcion: req.body.descripcion
+          }
+  
+          //ACTUALIZA TABLA RE PRODUCTOS
+          db.Productos.update(productoUpdate, 
+                      {
+                        where: {producto_id: req.params.id}
+                      })
+
+          let categoriasId= Array.from(req.body.categoria);
+          //ELIMINO TODOS LOS REGISTROS DE LA TABLA INTERMEDIA PARA VOLVERLO A CARGAR
+          db.ProductoCategorias.destroy({
+            where: {producto_fk: producto.producto_id}
+          })
+
+          categoriasId.forEach(e => {
+          // CARGA TABLA INTERMEDIA PRODUCTO-CATEGORIA
+            db.ProductoCategorias.upsert({
+              producto_fk: producto.producto_id,
+              categoria_fk: e
+            })
+          })
+
+          res.render("producto" , {producto} )
         })
-
-        
-        let producto = {
-          nombre: req.body.nombre,
-          marca: req.body.marca,
-          tamanio: req.body.tamanio,
-          color: req.body.color,
-          precio: req.body.precio,
-          fabricante: req.body.fabricante,
-          modelo: req.body.modelo,
-          stock: req.body.stock,
-          descuento: req.body.descuento,
-          imagen: img,
-          descripcion: req.body.descripcion
-        }
-
-        console.log('modifica producto' + img);
-
-        db.Productos.update(producto, 
-                    {
-                      where: {producto_id: req.params.id}
-                    })
-
-		  res.render("producto" , {producto} );
-
+      
     },
 
     //ELIMINAR PRODUCTO
@@ -169,12 +182,16 @@ const productsController = {
 
     // CARGAR NUEVO PRODUCTO
     cargar: (req, res) => {
-      res.render("forms", {categorias});
+      db.Categorias.findAll()
+      .then(categorias=>{
+        res.render("forms", {categorias});
+      })
     },
 
     crear: (req, res) => {
       let errors = validationResult (req);
-
+      
+      let categoriasId= Array.from(req.body.categoria);
 
       if (errors.isEmpty()){
         let img;
@@ -201,10 +218,22 @@ const productsController = {
           descripcion: req.body.descripcion
         }
 
-        db.Productos.create(producto);
+        db.Productos.create(producto)
 
-        //CAMBIAR PARA QUE REDIRIJA A LA CATEGORIA CORRECTA
-        res.redirect(`/productos/herramientas`);
+        .then(product => {
+          categoriasId.forEach(e => {
+            // CARGA TABLA INTERMEDIA PRODUCTO-CATEGORIA
+            db.ProductoCategorias.create({
+              producto_fk: product.producto_id,
+              categoria_fk: e
+            })
+          })
+        })
+        .then( () =>{
+          res.redirect(`/productos/herramientas`);
+        })
+        .catch((error) => console.log(error));
+
 
       }else{
         res.render('forms', {errors : errors.array(), old: req.body, categorias})
