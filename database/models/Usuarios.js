@@ -50,8 +50,8 @@ module.exports = (sequelize, dataTypes) => {
        type: dataTypes.STRING(30),
             allowNull: false
     },
-    usuariocol:{
-        type: dataTypes.STRING(45),
+    imagen:{
+        type: dataTypes.STRING(100),
              allowNull: false
      },
      
