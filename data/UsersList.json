@@ -106,5 +106,17 @@
         "nombreUsuario": "asdasdasda",
         "tipoUsuario": "administrador",
         "contrasenia": "$2b$10$Z0wjOBYYGE3E0iKIKPsT7ej/yGU1znFnFuXkOn68FcF5oqxUi/FhK"
+    },
+    {
+        "id": 9,
+        "nombre": "asasas",
+        "apellido": "sdadasd",
+        "direccion": "asdasdasd",
+        "localidad": "asdasd",
+        "edad": "33",
+        "email": "asda@gmail.com",
+        "nombreUsuario": "roberto12345",
+        "tipoUsuario": "administrador",
+        "contrasenia": "$2b$10$WC6TCUD4a6I8qc6n3WpC0e/6MRE1T81MwVED2MZyLnmLbK2t5XXYG"
     }
 ]
