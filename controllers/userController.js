@@ -36,35 +36,33 @@ const usersController = {
         console.log("DATOS CORRECTOS")
         let img;
 
-        req.body.contrasenia = bcrypt.hashSync(req.body.contrasenia,10);
+        req.body.contraseña = bcrypt.hashSync(req.body.contrasenia,10);
+                  
+        return db.Usuarios.create({
+          nombre: req.body.nombre,
+          apellido: req.body.apellido,
+          direccion: req.body.direccion,
+          localidad: req.body.localidad,
+          pais:req.body.pais,
+          edad: req.body.edad,        
+          email: req.body.email,
+          contraseña: req.body.contraseña,
+          nombre_Usuario: req.body.nombreUsuario
+        }).then(function(users){
+          if (users) {
+            res.redirect('/')
+          }else{
+            res.status(400).send('error')
+          }
 
-        const usuario = { 
-            id: usuarios[usuarios.length - 1].id + 1, 
-            nombre: req.body.nombre,
-            apellido: req.body.apellido,
-            direccion: req.body.direccion,
-            localidad: req.body.localidad,
-            edad: req.body.edad,        
-            email: req.body.email,
-            nombreUsuario: req.body.nombreUsuario,
-            tipoUsuario: req.body.tipoUsuario,
-            contrasenia: req.body.contrasenia
-            };
-        const usuarioARegistrar = [...usuarios, usuario]
-      
-        fs.writeFileSync(
-          usersFilePath,
-          JSON.stringify(usuarioARegistrar, null, "")
-        );
-        console.log(usuarioARegistrar)
+        })
+        .catch((error) => console.log(error))
+        
+        
+     
+    }
+  },
 
-        res.redirect('/');
-
-      }else{
-        console.log("Entra por errores")
-        res.render('register', {errors : errors.array(), old: req.body})
-      }
-    },
     processLogin: (req, res) =>{
    
       // let contraseña;
