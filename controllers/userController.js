@@ -1,4 +1,4 @@
-
+const User = require("../middlewares/funcionesDeLogin");
 const db = require('../database/models');
 const sequelize = db.sequelize;
 const { validationResult } = require("express-validator");
@@ -36,33 +36,35 @@ const usersController = {
         console.log("DATOS CORRECTOS")
         let img;
 
-        req.body.contraseña = bcrypt.hashSync(req.body.contrasenia,10);
-                  
-        return db.Usuarios.create({
-          nombre: req.body.nombre,
-          apellido: req.body.apellido,
-          direccion: req.body.direccion,
-          localidad: req.body.localidad,
-          pais:req.body.pais,
-          edad: req.body.edad,        
-          email: req.body.email,
-          contraseña: req.body.contraseña,
-          nombre_Usuario: req.body.nombreUsuario
-        }).then(function(users){
-          if (users) {
-            res.redirect('/')
-          }else{
-            res.status(400).send('error')
-          }
+        req.body.contrasenia = bcrypt.hashSync(req.body.contrasenia,10);
 
-        })
-        .catch((error) => console.log(error))
-        
-        
-     
-    }
-  },
+        const usuario = { 
+            id: usuarios[usuarios.length - 1].id + 1, 
+            nombre: req.body.nombre,
+            apellido: req.body.apellido,
+            direccion: req.body.direccion,
+            localidad: req.body.localidad,
+            edad: req.body.edad,        
+            email: req.body.email,
+            nombreUsuario: req.body.nombreUsuario,
+            tipoUsuario: req.body.tipoUsuario,
+            contrasenia: req.body.contrasenia
+            };
+        const usuarioARegistrar = [...usuarios, usuario]
+      
+        fs.writeFileSync(
+          usersFilePath,
+          JSON.stringify(usuarioARegistrar, null, "")
+        );
+        console.log(usuarioARegistrar)
 
+        res.redirect('/');
+
+      }else{
+        console.log("Entra por errores")
+        res.render('register', {errors : errors.array(), old: req.body})
+      }
+    },
     processLogin: (req, res) =>{
    
       // let contraseña;
@@ -79,15 +81,15 @@ const usersController = {
         if (bcrypt.compareSync(req.body.contraseña, user.contraseña)){
           req.session.userLogged = user;
           if(req.body.remember_user) {
-            res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
+            res.cookie('usuario', req.body.email, { maxAge: (1000 * 60) * 60 })
           }
           res.render('home',{user})
         }
         else {
           res.render('login', {
             errors: {
-              email: {
-                msg: 'La contraseña es incorrecta'
+              password: {
+                msg: 'credenciales invalidas'
               }
             }
           });

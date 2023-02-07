@@ -37,7 +37,7 @@ CREATE TABLE `ferreteria`.`usuarios` (
   `email` VARCHAR(100) NOT NULL,
   `nombre_usuario` VARCHAR(45) NOT NULL,
   `contraseña` VARCHAR(100) NOT NULL,
-
+  `usuariocol` VARCHAR(45) NULL,
   PRIMARY KEY (`usuario_id`),
   CONSTRAINT `categoria_id`
     FOREIGN KEY (`categoria_id`)
@@ -149,7 +149,4 @@ INSERT INTO `categoria_usuario` VALUES (1,'administrador'), (2,'cliente');
 
 INSERT INTO `producto_categoria` VALUES (1,1,1), (2,1,2), (3,3,1);
 INSERT INTO `producto_categoria` VALUES (4,2,2), (5,2,4), (6,4,1), (7,5,1);
-
-INSERT INTO `usuarios` values('1', '0', 'asdasd', 'sdasdas', 'asdasdas', 'asdasd', 'asdasds', '33', 'robert33@gmail.com', 'beto123asas', '$2b$10$/.fnU82GotKvB4AWc1S2i.Gmo0SFpSB31gwCO7BIqVr52z0jVx22m'
-)
 

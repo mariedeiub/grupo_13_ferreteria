@@ -8,7 +8,12 @@ module.exports = (sequelize, dataTypes) => {
             primaryKey: true,
             type: dataTypes.INTEGER
         },
-       
+        categoria_id: {
+            
+            foreignKey: true,
+            type: dataTypes.INTEGER      
+
+        },
         nombre: {
             type: dataTypes.STRING(100),
             allowNull: false
@@ -45,7 +50,10 @@ module.exports = (sequelize, dataTypes) => {
        type: dataTypes.STRING(30),
             allowNull: false
     },
-    
+    usuariocol:{
+        type: dataTypes.STRING(45),
+             allowNull: false
+     },
      
     }
     let config= {
@@ -54,14 +62,6 @@ module.exports = (sequelize, dataTypes) => {
     }
    
     const Usuario= sequelize.define(alias,cols,config)
-    Usuario.associate = function(models){
-        Usuario.belongsToMany(models.Categorias, {
-            as : 'categorias',
-            through: 'producto_categoria',
-            foreignKey: 'categoria_fk',
-            otherKey: 'categoria_fk',
-            timestamps: false
-        })
-    }
+
     return Usuario;
 }
