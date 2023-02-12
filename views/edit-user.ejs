@@ -2,7 +2,7 @@
 <html lang="en">
 <!--HEAD-->
 <%- include('./partials/head.ejs')  %> 
-    <title>Registro</title>
+    <title>Editar Usuario</title>
     <!--HOJA DE ESTILO-->
     <link href="/css/styles.css" rel="stylesheet">
     <link href="/css/form.css" rel="stylesheet">
@@ -21,12 +21,12 @@
             <% } %>
         </section>       
         <!--FORMULARIO DE REGISTRO DE USUARIO-->
-        <form action="/user/registro/" method="POST" class="form-register" id="form-register" enctype="multipart/form-data">
-            <h1 class="login">REGISTRO</h1>
+        <form action="/user/actualizar/" method="get" class="form-register" id="form-register" enctype="multipart/form-data">
+            <h1 class="login">Editar Usuario</h1>
             <div class="div-form-register">
                 <!-- NOMBRE -->
                 <div class="group-register" id="1">
-                    <input required type="text" class="input-text" id="nombre" name="nombre"><span class="barra"></span>
+                    <input required type="text" class="input-text" id="nombre" name="nombre" ><span class="barra"></span>
                     <label for="nombre" class="lbl-text">Nombre</label>
                 </div>
 
@@ -90,9 +90,9 @@
                 </div>
             </div>
             <div>
-                <input type="file"   name="imagen"  placeholder="Debes eligir tu avatar...">
+                <input type="file"   name="imagen" >
             </div> 
-                <button type="submit">Registrarse</button>
+                <button type="submit">Editar</button>
                 <p class="login"><a href="/login">¿Ya estás registrado? Inicia seción acá!</a></p>
         </form>
     </main>

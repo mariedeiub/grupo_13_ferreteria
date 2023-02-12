@@ -155,6 +155,52 @@ const usersController = {
     },
     
   */
+ 
+
+    actualizar:(req,res)=>{
+    
+        
+        db.usuarios.findOne({where:{
+          email:req.body.email
+        }}).then(function(user){
+          let img;
+
+        // MODIFICAR CUANDO CARGA LA IMAGEN QUE YA TIENE
+        if(req.files.length > 0){
+          img = "/images/" + req.files[0].filename;
+        } else{
+          img = user.imagen;
+        }
+        req.body.contraseña = bcrypt.hashSync(req.body.contrasenia,10);
+                  
+         db.Usuarios.update({
+          nombre: req.body.nombre,
+          apellido: req.body.apellido,
+          direccion: req.body.direccion,
+          localidad: req.body.localidad,
+          pais:req.body.pais,
+          edad: req.body.edad,        
+          email: req.body.email,
+          contraseña: req.body.contraseña,
+          nombre_Usuario: req.body.nombreUsuario,
+          imagen:img
+        })
+            res.render('Usuario',{user})
+         
+
+        })
+        .catch((error) => console.log(error))
+        
+        
+     
+    },
+    editar:(req,res)=>{
+    
+      res.render('edit-user');
+
+
+    },
+
     logout: (req, res) => {
       res.clearCookie('userEmail');
       req.session.destroy();
