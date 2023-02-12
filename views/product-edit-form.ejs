@@ -13,7 +13,7 @@
     <main class="register">
         <!--FORMULARIO DE EDICION DE PRODUCTO-->
         <form action="/productos/editar/<%=producto.producto_id%>?_method=PUT" method="POST" class="form-register" id="form-edit" enctype="multipart/form-data">
-            <h1 class="form-edit">Editar producto: <%=producto.producto_id%></h1>
+            <h1 class="form-edit">Editar producto: <%=producto.id%></h1>
             <div class="div-form-register">
                 <!--NOMBRE DEL PRODUCTO-->
                 <div class="group-register" id="1">
@@ -62,10 +62,10 @@
                 </div>
                 <!--CATEGORIA-->
                 <section class="categorias"> Categorias:
-                    <% categoriasEdit.forEach(categoria => { %>
+                    <% categorias.forEach(categoria => { %>
                         <div class="categoria">
                             <label for="categoria"><%=categoria.nombre %> </label>
-                            <input type="checkbox" name="categoria" value=<%=categoria.id%> 
+                            <input type="checkbox" name="categoria" value=<%=categoria.nombre%> 
                             <% if (categoria.estado) { %>
                                 checked
                             <% } %> >

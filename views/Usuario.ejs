@@ -3,10 +3,10 @@
 <!--HEAD-->
 
 <%- include('./partials/head.ejs')  %> 
-    <title>Carrito de compras</title>
+    <title>Perfil de usuario</title>
     <!--HOJA DE ESTILO-->
-    <link href="/css/styles.css" rel="stylesheet">`
-    <link href="/css/cart.css" rel="stylesheet">`
+    <link href="/css/styles.css" rel="stylesheet">
+   
 </head>
 <!--BODY-->
 <body>
@@ -14,9 +14,13 @@
     <%- include('./partials/header.ejs')  %> 
     <!--MAIN -->
     <main>
-
+            
         <div>
-        <img src="/images/<%= users %> "alt="foto Perfil">
+            <h2>Perfil</h2>
+            <h2><%= user.email %></h2>
+            <h2><%= user.nombre %></h2>
+            <img src="<%=user.imagen %> "  alt="productoimage">
+            <button href="">Editar usuario</button>
     </div>
     </main>
 <!-- SUSCRIPCION + FOOTER + COPIRIGHT-->
