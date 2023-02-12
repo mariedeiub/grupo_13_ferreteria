@@ -27,7 +27,6 @@ CREATE TABLE `ferreteria`.`categoria_usuario` (
 
 CREATE TABLE `ferreteria`.`usuarios` (
   `usuario_id` INT NOT NULL AUTO_INCREMENT,
-  `categoria_id` INT NOT NULL,
   `nombre` VARCHAR(100) NOT NULL,
   `apellido` VARCHAR(45) NOT NULL,
   `direccion` VARCHAR(200) NOT NULL,

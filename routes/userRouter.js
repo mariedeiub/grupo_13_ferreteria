@@ -35,7 +35,7 @@ router.get('/logout', userController.logout);
 // // NUEVO USUARIO
 router.get('/registro', userController.registro);
 router.post('/registro/', upload.any(''), userController.registrar)
-router.post('/actualizar',userController.actualizar);
+// router.post('/actualizar',userController.actualizar);
 
 
   
