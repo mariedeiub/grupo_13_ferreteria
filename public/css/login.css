@@ -8,18 +8,19 @@
     --white: #FFFFFF;
     --gray: #9e9ea7;
 }
-.error{
 
+.error{
+    position: absolute;
+    display: contents;
     color: red;
-    margin: 29% -9% 0% 9%;
-    
+    margin-top: 170px;
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
     justify-content: flex-end;
     align-content: space-between;
     flex-wrap: wrap;
-   
+    padding-top: 5px;
 }
 
 
@@ -73,10 +74,11 @@ form.form-register {
     margin-top: 40px;
     padding: 20px 30px;
     color: var(--white);
+    text-align: center;
 }
 
 form#form-register {
-    margin: 17px -789px 71px -411px;
+    margin: auto;
 }
 
 .div-form-register {

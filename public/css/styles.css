@@ -9,6 +9,14 @@
     --gray: #9e9ea7;
 }
 
+.imagen{
+    position: absolute;
+    display: contents;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -280,6 +288,7 @@ main h2{
 
 /*============================== FOOTER ==================================*/
 footer{
+    margin-top: 10px;
     width: 90%;
     display: flex;
     justify-content: center;
