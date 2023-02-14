@@ -222,7 +222,6 @@ div#cargar-imagen::before {
 
 /*-------- EDITAR PRODUCTO: INPUT DESCRIPCION --------*/
 div#descripcion {
-    /* margin: 0px 0px 15px 0; */
     width: 100%;
     margin: 0 0 15px 18px;
 }
@@ -317,6 +316,72 @@ p.login a {
 
 p.login a:hover {
     text-decoration: underline;
+}
+
+/*----------------- VALIDACIONES -------------*/
+p.formularioInputError {
+    font-size: 14px;
+    margin-bottom: 0;
+    display: none;
+    color: #bb2929;
+}
+
+p.formularioInputError-activo {
+    display: block;
+}
+
+i.formularioValidacionEstado {
+    position: absolute;
+    right: 10px;
+    bottom: 15px;
+    z-index: 100;
+    font-size: 18px;
+    opacity: 0;
+}
+
+.formularioMensaje {
+    grid-column: span 3;
+    height: 45px;
+    line-height: 45px;
+    background: #F66868;
+    padding: 0 15px;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    display: none;
+    margin-bottom: 15px;
+}
+
+.formularioMensaje-activo {
+    display: block;
+}
+
+/*----------------- ESTILOS PARA VALIDACIONES -------------*/
+.group-register-correct i {
+    color: #1ed12d;
+    opacity: 1;
+    top: 5px;
+}
+
+.group-register-incorrect label {
+    color: #bb2929;
+}
+
+.group-register-incorrect i {
+    color: #bb2929;
+    opacity: 1;
+    top: 5px;
+}
+
+.group-register-incorrect input.input-text:focus~label.lbl-text,
+.group-register-incorrect input.input-text:valid~label.lbl-text {
+    color: #bb2929;
+}
+
+.group-register-incorrect input.input-text {
+    border-bottom: 1px solid #bb2929;
 }
 
 /*================================ MEDIA QUERIS =====================================*/

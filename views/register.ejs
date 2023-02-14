@@ -25,47 +25,63 @@
             <h1 class="login">REGISTRO</h1>
             <div class="div-form-register">
                 <!-- NOMBRE -->
-                <div class="group-register" id="1">
-                    <input required type="text" class="input-text" id="nombre" name="nombre"><span class="barra"></span>
+                <div class="group-register" id="grupo-nombre">
+                    <input type="text" class="input-text" id="nombre" name="nombre"><span class="barra"></span>
                     <label for="nombre" class="lbl-text">Nombre</label>
+                    <p class="formularioInputError">Ingrese su nombre. No ingrese numeros o caracteres especiales.</p>
+                    <i class="formularioValidacionEstado fa-solid fa-circle-xmark"></i>
                 </div>
 
                 <!-- APELLIDO -->
-                <div class="group-register" id="2">
-                    <input required type="text" class="input-text" id="apellido" name="apellido"><span class="barra"></span>
+                <div class="group-register" id="grupo-apellido">
+                    <input type="text" class="input-text" id="apellido" name="apellido"><span class="barra"></span>
                     <label for="apellido" class="lbl-text">Apellido</label>
+                    <p class="formularioInputError">Ingrese su apellido. No ingrese numeros o caracteres especiales.</p>
+                    <i class="formularioValidacionEstado fa-solid fa-circle-xmark"></i>
                 </div>
 
                 <!-- DIRECCION -->
-                <div class="group-register" id="3">
-                    <input required type="text" class="input-text" id="direccion" name="direccion"><span class="barra"></span>
+                <div class="group-register" id="grupo-direccion">
+                    <input type="text" class="input-text" id="direccion" name="direccion"><span class="barra"></span>
                     <label for="direccion" class="lbl-text">Direccion</label>
+                    <i class="formularioValidacionEstado fa-solid fa-circle-xmark"></i>
+                    <p class="formularioInputError">Ingrese su dirección.</p>
                 </div>
-                <div class="group-register" id="4">
-                    <input required type="text" class="input-text" id="localidad" name="localidad"><span class="barra"></span>
+                <div class="group-register" id="grupo-localidad">
+                    <input type="text" class="input-text" id="localidad" name="localidad"><span class="barra"></span>
                     <label for="localidad" class="lbl-text">Localidad</label>
+                    <i class="formularioValidacionEstado fa-solid fa-circle-xmark"></i>
+                    <p class="formularioInputError">Ingrese la localidad.</p>
                 </div>
-                <div class="group-register" id="5">
-                    <input required type="text" class="input-text" id="pais" name="pais"><span class="barra"></span>
+                <div class="group-register" id="grupo-pais">
+                    <input type="text" class="input-text" id="pais" name="pais"><span class="barra"></span>
                     <label for="pais" class="lbl-text">Pais</label>
+                    <i class="formularioValidacionEstado fa-solid fa-circle-xmark"></i>
+                    <p class="formularioInputError">Ingrese el País.</p>
                 </div>
 
                 <!-- EDAD -->
-                <div class="group-register" id="6">
-                    <input required type="number" class="input-text" id="edad" name="edad"><span class="barra"></span>
+                <div class="group-register" id="grupo-edad">
+                    <input type="number" class="input-text" id="edad" name="edad"><span class="barra"></span>
                     <label for="edad" class="lbl-text">Edad</label>
+                    <i class="formularioValidacionEstado fa-solid fa-circle-xmark"></i>
+                    <p class="formularioInputError">Ingrese su edad.</p>
                 </div>
 
                 <!-- CORREO ELECTRONICO -->
-                <div class="group-register" id="7">
-                    <input required type="email" class="input-text" id="mail" name="email"><span class="barra"></span>
+                <div class="group-register" id="grupo-email">
+                    <input type="email" class="input-text" id="mail" name="email"><span class="barra"></span>
                     <label for="mail" class="lbl-text">Correo Electronico</label>
+                    <i class="formularioValidacionEstado fa-solid fa-circle-xmark"></i>
+                    <p class="formularioInputError">Ingrese un correo electrónico valido.</p>
                 </div>
 
                 <!-- USUARIO -->
-                <div class="group-register" id="8">
-                    <input required type="text" class="input-text" id="usuario" name="nombreUsuario"><span class="barra"></span>
+                <div class="group-register" id="grupo-usuario">
+                    <input type="text" class="input-text" id="usuario" name="usuario"><span class="barra"></span>
                     <label for="usuario" class="lbl-text">Nombre de Usuario</label>
+                    <i class="formularioValidacionEstado fa-solid fa-circle-xmark"></i>
+                    <p class="formularioInputError">Ingrese un nombre de usuario entre 8 y 20 caracteres.</p>
                 </div>
 
                 <!-- TIPO DE USUARIO -->
@@ -78,20 +94,30 @@
                 </div>
 
                 <!-- CONTRASENA -->
-                <div class="group-register" id="9">
-                    <input required type="password" class="input-text" id="contraseña" name="contrasenia"><span class="barra"></span>
+                <div class="group-register" id="grupo-contraseña">
+                    <input type="password" class="input-text" id="contraseña" name="contraseña"><span class="barra"></span>
                     <label for="contraseña" class="lbl-text">Contraseña</label>
+                    <i class="formularioValidacionEstado fa-solid fa-circle-xmark"></i>
+                    <p class="formularioInputError">Ingrese una contraseña entre 8 y 20 dígitos.</p>
                 </div>
 
                 <!-- CONFIRMAR CONTRASENA -->
-                <div class="group-register" id="10">
-                    <input required type="password" class="input-text" id="repetirContraseña" name="repetirContrasenia"><span class="barra"></span>
+                <div class="group-register" id="grupo-repetirContraseña">
+                    <input type="password" class="input-text" id="repetirContraseña" name="repetirContraseña"><span class="barra"></span>
                     <label for="repetirContraseña" class="lbl-text">Repetir Contraseña</label>
+                    <i class="formularioValidacionEstado fa-solid fa-circle-xmark"></i>
+                    <p class="formularioInputError">Ambas contraseñas deben ser iguales.</p>
                 </div>
+
+                <div class="formularioMensaje" id="formularioMensaje">
+                    <p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena el formulario correctamente. </p>
+                </div>
+                
             </div>
-                <button type="submit">Registrarse</button>
+                <button type="submit" id="submit">Registrarse</button>
                 <p class="login"><a href="/login">¿Ya estás registrado? Inicia seción acá!</a></p>
         </form>
     </main>
+    <script src="/validations/registro-front.js"></script>
 <!-- SUSCRIPCION + FOOTER + COPIRIGHT-->
 <%- include('./partials/footer.ejs')  %>
