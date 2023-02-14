@@ -29,3 +29,5 @@ module.exports = (sequelize, dataTypes) => {
 
     return ProductoCategoria;
 }
+
+

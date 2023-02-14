@@ -106,5 +106,17 @@
         "nombreUsuario": "asdasdasda",
         "tipoUsuario": "administrador",
         "contrasenia": "$2b$10$Z0wjOBYYGE3E0iKIKPsT7ej/yGU1znFnFuXkOn68FcF5oqxUi/FhK"
+    },
+    {
+        "id": 9,
+        "nombre": "roberto",
+        "apellido": "ruiz",
+        "direccion": "2 de mayo 3279",
+        "localidad": "|1",
+        "edad": "22",
+        "email": "aaa@gmail.com",
+        "nombreUsuario": "roberto12345",
+        "tipoUsuario": "administrador",
+        "contrasenia": "$2b$10$7IrfaspriV3g8NnH/PP4KO32bki8zgP9cvZ0hoQKLF7j/LbOwCwi2"
     }
 ]

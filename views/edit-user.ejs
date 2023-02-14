@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--HEAD-->
+<%- include('./partials/head.ejs')  %> 
+    <title>Editar Usuario</title>
+    <!--HOJA DE ESTILO-->
+    <link href="/css/styles.css" rel="stylesheet">
+    <link href="/css/form.css" rel="stylesheet">
+</head>
+<body>
+    <!--HEADER-->
+    <%- include('./partials/header.ejs')  %> 
+    <!--MAIN -->
+    <main class="register">
+        <!--MENSAJE DE ERROR EN CASO QUE FALTE COMPLETAR UN CAMPO O HAYA UN ERROR EN LOS CAMPOS INGRESADOS-->
+        <section class="errores">
+            <% if (locals.errors) { %>
+                <% errors.forEach(error => { %>
+                    <p><%= error.msg %> </p> 
+                <% }) %>
+            <% } %>
+        </section>       
+        <!--FORMULARIO DE REGISTRO DE USUARIO-->
+        <form action="/user/actualizar/" method="get" class="form-register" id="form-register" enctype="multipart/form-data">
+            <h1 class="login">Editar Usuario</h1>
+            <div class="div-form-register">
+                <!-- NOMBRE -->
+                <div class="group-register" id="1">
+                    <input required type="text" class="input-text" id="nombre" name="nombre" ><span class="barra"></span>
+                    <label for="nombre" class="lbl-text">Nombre</label>
+                </div>
+
+                <!-- APELLIDO -->
+                <div class="group-register" id="2">
+                    <input required type="text" class="input-text" id="apellido" name="apellido"><span class="barra"></span>
+                    <label for="apellido" class="lbl-text">Apellido</label>
+                </div>
+
+                <!-- DIRECCION -->
+                <div class="group-register" id="3">
+                    <input required type="text" class="input-text" id="direccion" name="direccion"><span class="barra"></span>
+                    <label for="direccion" class="lbl-text">Direccion</label>
+                </div>
+                <div class="group-register" id="4">
+                    <input required type="text" class="input-text" id="localidad" name="localidad"><span class="barra"></span>
+                    <label for="localidad" class="lbl-text">Localidad</label>
+                </div>
+                <div class="group-register" id="5">
+                    <input required type="text" class="input-text" id="pais" name="pais"><span class="barra"></span>
+                    <label for="pais" class="lbl-text">Pais</label>
+                </div>
+
+                <!-- EDAD -->
+                <div class="group-register" id="6">
+                    <input required type="number" class="input-text" id="edad" name="edad"><span class="barra"></span>
+                    <label for="edad" class="lbl-text">Edad</label>
+                </div>
+
+                <!-- CORREO ELECTRONICO -->
+                <div class="group-register" id="7">
+                    <input required type="email" class="input-text" id="mail" name="email"><span class="barra"></span>
+                    <label for="mail" class="lbl-text">Correo Electronico</label>
+                </div>
+
+                <!-- USUARIO -->
+                <div class="group-register" id="8">
+                    <input required type="text" class="input-text" id="usuario" name="nombreUsuario"><span class="barra"></span>
+                    <label for="usuario" class="lbl-text">Nombre de Usuario</label>
+                </div>
+
+                <!-- TIPO DE USUARIO -->
+                <div class="tipo-usuario" >
+                    <label for="tipoUsuario" class="lbl-text-tipo">Tipo de Usuario</label>
+                    <select name="tipoUsuario" id="11" class="tipoUsuario">
+                        <option value="administrador">Administrador</option>
+                        <option value="cliente">Cliente</option>
+                    </select>
+                </div>
+
+                <!-- CONTRASENA -->
+                <div class="group-register" id="9">
+                    <input required type="password" class="input-text" id="contraseña" name="contrasenia"><span class="barra"></span>
+                    <label for="contraseña" class="lbl-text">Contraseña</label>
+                </div>
+
+                <!-- CONFIRMAR CONTRASENA -->
+                <div class="group-register" id="10">
+                    <input required type="password" class="input-text" id="repetirContraseña" name="repetirContrasenia"><span class="barra"></span>
+                    <label for="repetirContraseña" class="lbl-text">Repetir Contraseña</label>
+                </div>
+            </div>
+            <div>
+                <input type="file"   name="imagen" >
+            </div> 
+                <button type="submit">Editar</button>
+                <p class="login"><a href="/login">¿Ya estás registrado? Inicia seción acá!</a></p>
+        </form>
+    </main>
+<!-- SUSCRIPCION + FOOTER + COPIRIGHT-->
+<%- include('./partials/footer.ejs')  %>

@@ -21,7 +21,7 @@
             <% } %>
         </section>       
         <!--FORMULARIO DE REGISTRO DE USUARIO-->
-        <form action="/user/registrar/" method="POST" class="form-register" id="form-register">
+        <form action="/user/registro/" method="POST" class="form-register" id="form-register" enctype="multipart/form-data">
             <h1 class="login">REGISTRO</h1>
             <div class="div-form-register">
                 <!-- NOMBRE -->
@@ -112,9 +112,11 @@
                 <div class="formularioMensaje" id="formularioMensaje">
                     <p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena el formulario correctamente. </p>
                 </div>
-                
             </div>
-                <button type="submit" id="submit">Registrarse</button>
+            <div class="imagen">
+                <input type="file"   name="imagen"  placeholder="Debes eligir tu avatar...">
+            </div> 
+                <button type="submit">Registrarse</button>
                 <p class="login"><a href="/login">¿Ya estás registrado? Inicia seción acá!</a></p>
         </form>
     </main>

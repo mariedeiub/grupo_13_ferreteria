@@ -1,4 +1,4 @@
-const User = require("../middlewares/funcionesDeLogin");
+
 const db = require('../database/models');
 const sequelize = db.sequelize;
 const { validationResult } = require("express-validator");
@@ -32,39 +32,42 @@ const usersController = {
       let errors = validationResult (req);
       console.log(validationResult(req));
 
-      if (errors.isEmpty()){
         console.log("DATOS CORRECTOS")
         let img;
 
-        req.body.contrasenia = bcrypt.hashSync(req.body.contrasenia,10);
+        if(req.files.length > 0){
+          img = "/images/" + req.files[0].filename;
+        } else{
+          img = 'default-image.png'
+        }
 
-        const usuario = { 
-            id: usuarios[usuarios.length - 1].id + 1, 
-            nombre: req.body.nombre,
-            apellido: req.body.apellido,
-            direccion: req.body.direccion,
-            localidad: req.body.localidad,
-            edad: req.body.edad,        
-            email: req.body.email,
-            nombreUsuario: req.body.nombreUsuario,
-            tipoUsuario: req.body.tipoUsuario,
-            contrasenia: req.body.contrasenia
-            };
-        const usuarioARegistrar = [...usuarios, usuario]
-      
-        fs.writeFileSync(
-          usersFilePath,
-          JSON.stringify(usuarioARegistrar, null, "")
-        );
-        console.log(usuarioARegistrar)
+        req.body.contraseña = bcrypt.hashSync(req.body.contrasenia,10);
+                  
+         db.Usuarios.create({
+          nombre: req.body.nombre,
+          apellido: req.body.apellido,
+          direccion: req.body.direccion,
+          localidad: req.body.localidad,
+          pais:req.body.pais,
+          edad: req.body.edad,        
+          email: req.body.email,
+          contraseña: req.body.contraseña,
+          nombre_Usuario: req.body.nombreUsuario,
+          imagen:img
+        }).then(function(users){
+          if (users) {
+            res.redirect('/')
+          }else{
+            res.status(400).send('error')
+          }
 
-        res.redirect('/');
-
-      }else{
-        console.log("Entra por errores")
-        res.render('register', {errors : errors.array(), old: req.body})
-      }
+        })
+        .catch((error) => console.log(error))
+        
+        
+     
     },
+
     processLogin: (req, res) =>{
    
       // let contraseña;
@@ -81,15 +84,17 @@ const usersController = {
         if (bcrypt.compareSync(req.body.contraseña, user.contraseña)){
           req.session.userLogged = user;
           if(req.body.remember_user) {
-            res.cookie('usuario', req.body.email, { maxAge: (1000 * 60) * 60 })
+            res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
           }
-          res.render('home',{user})
+
+          let imagen =user
+            res.render('Usuario',{user})
         }
         else {
           res.render('login', {
             errors: {
-              password: {
-                msg: 'credenciales invalidas'
+              email: {
+                msg: 'La contraseña es incorrecta'
               }
             }
           });
@@ -104,6 +109,7 @@ const usersController = {
               }
             }
           })})
+          
     
 /*let contraseña=req.body.contraseña
     db.Usuarios.findOne(contraseña)
@@ -149,6 +155,52 @@ const usersController = {
     },
     
   */
+ 
+
+    actualizar:(req,res)=>{
+    
+        
+        db.usuarios.findOne({where:{
+          email:req.body.email
+        }}).then(function(user){
+          let img;
+
+        // MODIFICAR CUANDO CARGA LA IMAGEN QUE YA TIENE
+        if(req.files.length > 0){
+          img = "/images/" + req.files[0].filename;
+        } else{
+          img = user.imagen;
+        }
+        req.body.contraseña = bcrypt.hashSync(req.body.contrasenia,10);
+                  
+         db.Usuarios.update({
+          nombre: req.body.nombre,
+          apellido: req.body.apellido,
+          direccion: req.body.direccion,
+          localidad: req.body.localidad,
+          pais:req.body.pais,
+          edad: req.body.edad,        
+          email: req.body.email,
+          contraseña: req.body.contraseña,
+          nombre_Usuario: req.body.nombreUsuario,
+          imagen:img
+        })
+            res.render('Usuario',{user})
+         
+
+        })
+        .catch((error) => console.log(error))
+        
+        
+     
+    },
+    editar:(req,res)=>{
+    
+      res.render('edit-user');
+
+
+    },
+
     logout: (req, res) => {
       res.clearCookie('userEmail');
       req.session.destroy();
