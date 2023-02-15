@@ -35,7 +35,7 @@ router.get('/logout', userController.logout);
 router.get('/registro', userController.registro);
 router.post('/registro/', upload.any(''), userController.registrar)
 router.get('/editar/:id/',userController.editar);
-router.post('/actualizar/:id/', upload.any(''), userController.actualizar)
+router.get('/actualizor/:id/', upload.any(''), userController.actualizar)
 router.get('/perfil/:id/', userController.perfil);
 
   

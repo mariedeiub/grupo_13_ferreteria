@@ -94,22 +94,17 @@
                 </div>
 
                 <!-- CONTRASENA -->
-<<<<<<< HEAD
                 <div class="group-register" id="9">
-                    <input required type="password" class="input-text" id="contraseña" name="contraseña"><span class="barra"></span>
-=======
-                <div class="group-register" id="grupo-contraseña">
-                    <input type="password" class="input-text" id="contraseña" name="contraseña"><span class="barra"></span>
->>>>>>> f0a6758f496a8a7fa4fcdda48012de4f3caff254
-                    <label for="contraseña" class="lbl-text">Contraseña</label>
+                    <input required type="password" class="input-text" id="contrasenia" name="contrasenia"><span class="barra"></span>
+                    <label for="contrasenia" class="lbl-text">Contraseña</label>
                     <i class="formularioValidacionEstado fa-solid fa-circle-xmark"></i>
                     <p class="formularioInputError">Ingrese una contraseña entre 8 y 20 dígitos.</p>
                 </div>
 
                 <!-- CONFIRMAR CONTRASENA -->
                 <div class="group-register" id="grupo-repetirContraseña">
-                    <input type="password" class="input-text" id="repetirContraseña" name="repetirContraseña"><span class="barra"></span>
-                    <label for="repetirContraseña" class="lbl-text">Repetir Contraseña</label>
+                    <input type="password" class="input-text" id="repetirContrasenia" name="repetirContrasenia"><span class="barra"></span>
+                    <label for="repetirContrasenia" class="lbl-text">Repetir Contraseña</label>
                     <i class="formularioValidacionEstado fa-solid fa-circle-xmark"></i>
                     <p class="formularioInputError">Ambas contraseñas deben ser iguales.</p>
                 </div>
@@ -117,14 +112,14 @@
                 <div class="formularioMensaje" id="formularioMensaje">
                     <p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena el formulario correctamente. </p>
                 </div>
+                <div class="imagen">
+                    <input type="file"   name="imagen"  placeholder="Debes eligir tu avatar...">
+                </div> 
             </div>
-            <div class="imagen">
-                <input type="file"   name="imagen"  placeholder="Debes eligir tu avatar...">
-            </div> 
                 <button type="submit">Registrarse</button>
-                <p class="login"><a href="/login">¿Ya estás registrado? Inicia seción acá!</a></p>
+                <p class="login"><a href="/login">¿Ya estás registrado? Inicia sesión acá!</a></p>
         </form>
     </main>
-    <script src="/validations/registro-front.js"></script>
+    <!-- <script src="/validations/registro-front.js"></script> -->
 <!-- SUSCRIPCION + FOOTER + COPIRIGHT-->
 <%- include('./partials/footer.ejs')  %>
