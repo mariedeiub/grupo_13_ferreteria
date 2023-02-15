@@ -8,7 +8,11 @@
     --white: #FFFFFF;
     --gray: #9e9ea7;
 }
-
+.imagen {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
 body  {
     font-family: 'Roboto', sans-serif;
 }

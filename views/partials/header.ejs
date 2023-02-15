@@ -21,12 +21,16 @@
             <a href="/carrito"><i class="ion-ios-cart-outline"></i></a>
         </section>
         <section class="icono">   
-            <a class="abajo2"href="/user/login"><i class="ion-person"></i></a>
+            <% if (!locals.isLogged) { %>
+            
+                <a class="abajo2"href="/user/login"><i class="ion-person"></i></a>
+            
+            <% }  %>
             <% if (locals.isLogged) { %>
                 <p class="abajo3"><%= locals.userLogged.email %></p> 
                 
                     <p class="abajo"><a href="/user/logout"><i class="fa-solid fa-person-walking-arrow-right"></i></a></p>
-                
+                    <a class="abajo2"href="/user/perfil/:id/"><i class="ion-person"></i></a>
                 
                 <% }  %>
         </section>

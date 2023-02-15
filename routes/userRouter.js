@@ -3,14 +3,13 @@ const router = express.Router();
 const userController = require('../controllers/userController');
 const multer = require ('multer');
 const path = require('path');
-const validaciones= require ('../middlewares/validaciones');
-const logueadoMiddleware= require('../middlewares/logueadoMiddleware');
+
+
 const db = require('../database/models/');
 const fs = require('fs');
 
-//Requiero Multer, ya que voy a permitir que el usuario que se registre suba su avatar
 
-//Aquí creo hago la asociación al módelo correspondiente
+
 const User = db.Usuarios;
 
 // ************ Configuracion Multer para los midleware ************
@@ -29,15 +28,15 @@ const storage = multer.diskStorage({
 
 const upload = multer ({storage: storage})
 // // LOGIN
-router.get('/login', logueadoMiddleware, userController.login);
+router.get('/login', userController.login);
 router.post('/home/', userController. processLogin);
 router.get('/logout', userController.logout);
 // // NUEVO USUARIO
 router.get('/registro', userController.registro);
 router.post('/registro/', upload.any(''), userController.registrar)
-router.get('/actualizar',userController.editar);
-router.post('/actualizar/', upload.any(''), userController.actualizar)
-
+router.get('/editar/:id/',userController.editar);
+router.post('/actualizar/:id/', upload.any(''), userController.actualizar)
+router.get('/perfil/:id/', userController.perfil);
 
   
 

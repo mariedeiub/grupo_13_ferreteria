@@ -19,7 +19,7 @@ const usersController = {
     // LOGIN 
     login: (req, res) => {
   
-        return res.render('login');
+       res.render('login');
     },
 
     // REGISTRO
@@ -41,7 +41,7 @@ const usersController = {
           img = 'default-image.png'
         }
 
-        req.body.contraseña = bcrypt.hashSync(req.body.contrasenia,10);
+       let pass= bcrypt.hashSync(req.body.contraseña,10);
                   
          db.Usuarios.create({
           nombre: req.body.nombre,
@@ -51,7 +51,7 @@ const usersController = {
           pais:req.body.pais,
           edad: req.body.edad,        
           email: req.body.email,
-          contraseña: req.body.contraseña,
+          contraseña: pass,
           nombre_Usuario: req.body.nombreUsuario,
           imagen:img
         }).then(function(users){
@@ -88,7 +88,7 @@ const usersController = {
           }
 
           let imagen =user
-            res.render('Usuario',{user})
+            res.render('home',{user})
         }
         else {
           res.render('login', {
@@ -158,22 +158,16 @@ const usersController = {
  
 
     actualizar:(req,res)=>{
-    
-        
-        db.usuarios.findOne({where:{
-          email:req.body.email
-        }}).then(function(user){
-          let img;
-
+  
         // MODIFICAR CUANDO CARGA LA IMAGEN QUE YA TIENE
         if(req.files.length > 0){
           img = "/images/" + req.files[0].filename;
         } else{
           img = user.imagen;
         }
-        req.body.contraseña = bcrypt.hashSync(req.body.contrasenia,10);
+        req.body.contraseña = bcrypt.hashSync(req.body.contraseña,10);
                   
-         db.Usuarios.update({
+        let usuario={
           nombre: req.body.nombre,
           apellido: req.body.apellido,
           direccion: req.body.direccion,
@@ -183,24 +177,34 @@ const usersController = {
           email: req.body.email,
           contraseña: req.body.contraseña,
           nombre_Usuario: req.body.nombreUsuario,
-          imagen:img
+          imagen:img}
+          db.Usuarios.update(usuario,{usuario_id:req.params.id}).then(function(user){
+          res.render('Usuario',{user});
+
         })
-            res.render('Usuario',{user})
+
+          .catch((error) => console.log(error))
          
 
-        })
-        .catch((error) => console.log(error))
-        
-        
-     
-    },
+      },
     editar:(req,res)=>{
-    
-      res.render('edit-user');
-
-
+      db.Usuarios.findOne({usuario_id:req.params.id})
+      .then(function(user){
+          
+        res.render("edit-user", {user})
+      })
+      .catch(err => console.log(err))
     },
 
+
+    perfil:(req,res)=>{
+  
+        db.Usuarios.findOne({id:req.params.id})
+          .then(function(user){
+          
+          res.render("Usuario", {user})
+        })
+      },
     logout: (req, res) => {
       res.clearCookie('userEmail');
       req.session.destroy();
