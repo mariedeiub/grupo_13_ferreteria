@@ -132,7 +132,7 @@ label.lbl-text {
     pointer-events: none;
 }
 
-input.input-text:focus~label.lbl-text,
+input.input-text:focus~label.lbl-text, 
 input.input-text:valid~label.lbl-text {
     top: -14px;
     font-size: 14px;
